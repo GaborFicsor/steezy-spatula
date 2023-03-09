@@ -1,1 +1,1 @@
-web: gunicorn steezyspatula:wsgi
+web: gunicorn steezyspatula.wsgi
