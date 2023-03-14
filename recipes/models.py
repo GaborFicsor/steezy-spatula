@@ -6,44 +6,6 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-class Ingredient(models.Model):
-    INGREDIENTS = (
-        ('Chicken', 'Chicken'),
-        ('Noodles', 'Noodles'),
-        ('Fish', 'Fish'),
-        ('Beef', 'Beef'),
-        ('Fruit', 'Fruit'),
-        ('Pork', 'Pork'),
-        ('Rice', 'Rice'),
-        ('Seafood', 'Seafood'),
-        ('Potato', 'Potato'),
-        ('Bread', 'Bread'),
-        ('Vegetables', 'Vegetables'),
-        ('Eggs', 'Eggs')
-    )
-    ingredient_name = models.CharField(choices=INGREDIENTS)
-    recipe = models.ForeignKey(
-        Recipe,
-        on_delete=models.CASCADE,
-        related_name='ingredients',
-        )
-
-
-class Allergens(models.Model):
-    ALLERGENS = (
-        ('Vegan', 'Vegan'),
-        ('Vegetarian', 'Vegetarian'),
-        ('Gluten-free', 'Gluten-free'),
-        ('Contains nuts', 'Contains nuts')
-    )
-    allergen = models.CharField(choices=ALLERGENS)
-    recipe = models.ForeignKey(
-        Recipe,
-        on_delete=models.CASCADE,
-        related_name='allergens'
-        )
-
-
 class Recipe(models.Model):
     TYPE = (
         (0, 'Breakfast'),
@@ -63,11 +25,11 @@ class Recipe(models.Model):
         on_delete=models.CASCADE,
         related_name="recipe_posts")
     recipe_name = models.CharField(max_length=150, unique=True)
-    ingredients = models.ManyToManyField(Ingredient)
+    # ingredients = models.ManyToManyField(Ingredient)
     type = models.IntegerField(choices=TYPE)
     method = models.TextField()
     serving_size = models.IntegerField()
-    allergens = models.CharField(choices=ALLERGENS)
+    # allergens = models.CharField(choices=ALLERGENS)
     calories_per_serving = models.IntegerField()
     difficulty = models.IntegerField(choices=DIFFICULTY)
     prep_time = models.IntegerField()
@@ -90,6 +52,44 @@ class Recipe(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+
+class Ingredient(models.Model):
+    INGREDIENTS = (
+        ('Chicken', 'Chicken'),
+        ('Noodles', 'Noodles'),
+        ('Fish', 'Fish'),
+        ('Beef', 'Beef'),
+        ('Fruit', 'Fruit'),
+        ('Pork', 'Pork'),
+        ('Rice', 'Rice'),
+        ('Seafood', 'Seafood'),
+        ('Potato', 'Potato'),
+        ('Bread', 'Bread'),
+        ('Vegetables', 'Vegetables'),
+        ('Eggs', 'Eggs')
+    )
+    ingredient_name = models.CharField(max_length=50, choices=INGREDIENTS)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='ingredients',
+        )
+
+
+class Allergens(models.Model):
+    ALLERGENS = (
+        ('Vegan', 'Vegan'),
+        ('Vegetarian', 'Vegetarian'),
+        ('Gluten-free', 'Gluten-free'),
+        ('Contains nuts', 'Contains nuts')
+    )
+    allergen = models.CharField(max_length=50, choices=ALLERGENS)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='allergens'
+        )
 
 
 class Comment(models.Model):
