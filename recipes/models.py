@@ -22,16 +22,29 @@ class Ingredient(models.Model):
         ('Eggs', 'Eggs')
     )
     ingredient_name = models.CharField(choices=INGREDIENTS)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='ingredients',
+        )
 
 
-class Recipe(models.Model):
+class Allergens(models.Model):
     ALLERGENS = (
         ('Vegan', 'Vegan'),
         ('Vegetarian', 'Vegetarian'),
         ('Gluten-free', 'Gluten-free'),
         ('Contains nuts', 'Contains nuts')
     )
+    allergen = models.CharField(choices=ALLERGENS)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='allergens'
+        )
+
+
+class Recipe(models.Model):
     TYPE = (
         (0, 'Breakfast'),
         (1, 'Lunch'),
@@ -64,7 +77,10 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
+    likes = models.ManyToManyField(
+        User,
+        related_name='recipe_likes',
+        blank=True)
 
     class Meta:
         ordering = ['-created_on']
@@ -74,3 +90,21 @@ class Recipe(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+
+class Comment(models.Model):
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='comments')
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.name}"
