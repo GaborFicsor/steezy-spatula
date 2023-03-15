@@ -13,7 +13,20 @@ class Recipe(models.Model):
         (2, 'Dinner'),
         (3, 'Snack')
     )
-
+    DURATION = (
+        (5, '5 mins'),
+        (10, '10 mins'),
+        (15, '15 mins'),
+        (20, '20 mins'),
+        (25, '25 mins'),
+        (30, '30 mins'),
+        (35, '35 mins'),
+        (40, '40 mins'),
+        (45, '45 mins'),
+        (50, '50 mins'),
+        (55, '55mins'),
+        (60, '1 hour')
+    )
     DIFFICULTY = (
         (0, 'Easy-peasy'),
         (1, 'I know cooking'),
@@ -28,11 +41,11 @@ class Recipe(models.Model):
     type = models.IntegerField(choices=TYPE)
     method = models.TextField()
     ingredients = models.TextField(null=True, default='')
+    cooking_time = models.DurationField(choices=DURATION, null=True)
+    prep_time = models.DurationField(choices=DURATION, null=True)
     serving_size = models.IntegerField()
     calories_per_serving = models.IntegerField()
     difficulty = models.IntegerField(choices=DIFFICULTY)
-    prep_time = models.IntegerField()
-    cooking_time = models.IntegerField()
     slug = models.SlugField(max_length=200, unique=True)
     featured_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
