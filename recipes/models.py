@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from multiselectfield import MultiSelectField
+from datetime import timedelta
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -46,20 +47,20 @@ class Recipe(models.Model):
         (3, 'Snack')
     )
 
-    DURATION = (
-        (5, '5 mins'),
-        (10, '10 mins'),
-        (15, '15 mins'),
-        (20, '20 mins'),
-        (25, '25 mins'),
-        (30, '30 mins'),
-        (35, '35 mins'),
-        (40, '40 mins'),
-        (45, '45 mins'),
-        (50, '50 mins'),
-        (55, '55mins'),
-        (60, '1 hour')
-    )
+    DURATION = [
+        (timedelta(minutes=5), '5 mins'),
+        (timedelta(minutes=10), '10 mins'),
+        (timedelta(minutes=15), '15 mins'),
+        (timedelta(minutes=20), '20 mins'),
+        (timedelta(minutes=25), '25 mins'),
+        (timedelta(minutes=30), '30 mins'),
+        (timedelta(minutes=35), '35 mins'),
+        (timedelta(minutes=40), '40 mins'),
+        (timedelta(minutes=45), '45 mins'),
+        (timedelta(minutes=50), '50 mins'),
+        (timedelta(minutes=55), '55mins'),
+        (timedelta(minutes=60), '1 hour')
+    ]
     DIFFICULTY = (
         (0, 'Easy-peasy'),
         (1, 'I know cooking'),
