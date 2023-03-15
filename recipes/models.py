@@ -1,9 +1,41 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from multiselectfield import MultiSelectField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
+
+
+class MainIngredient(models.Model):
+    MAIN_INGREDIENT = (
+        ('Chicken', 'Chicken'),
+        ('Noodles', 'Noodles'),
+        ('Fish', 'Fish'),
+        ('Beef', 'Beef'),
+        ('Fruit', 'Fruit'),
+        ('Pork', 'Pork'),
+        ('Rice', 'Rice'),
+        ('Seafood', 'Seafood'),
+        ('Potato', 'Potato'),
+        ('Bread', 'Bread'),
+        ('Vegetables', 'Vegetables'),
+        ('Eggs', 'Eggs')
+    )
+    main_ingredient_name = models.CharField(
+        max_length=50,
+        choices=MAIN_INGREDIENT)
+
+
+class Allergens(models.Model):
+    ALLERGENS = (
+        ('Vegan', 'Vegan'),
+        ('Vegetarian', 'Vegetarian'),
+        ('Gluten-free', 'Gluten-free'),
+        ('Contains nuts', 'Contains nuts'),
+        ('Dairy-free', 'Dairy-free'),
+    )
+    allergen = models.CharField(max_length=50, choices=ALLERGENS)
 
 
 class Recipe(models.Model):
@@ -13,6 +45,7 @@ class Recipe(models.Model):
         (2, 'Dinner'),
         (3, 'Snack')
     )
+
     DURATION = (
         (5, '5 mins'),
         (10, '10 mins'),
@@ -39,8 +72,10 @@ class Recipe(models.Model):
         related_name="recipe_posts")
     recipe_name = models.CharField(max_length=150, unique=True)
     type = models.IntegerField(choices=TYPE)
-    method = models.TextField()
+    main_ingredient = models.ManyToManyField(MainIngredient)
+    allergens = models.ManyToManyField(Allergens)
     ingredients = models.TextField(null=True, default='')
+    method = models.TextField()
     cooking_time = models.DurationField(choices=DURATION, null=True)
     prep_time = models.DurationField(choices=DURATION, null=True)
     serving_size = models.IntegerField()
@@ -64,46 +99,6 @@ class Recipe(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
-
-
-class MainIngredient(models.Model):
-    MAIN_INGREDIENT = (
-        ('Chicken', 'Chicken'),
-        ('Noodles', 'Noodles'),
-        ('Fish', 'Fish'),
-        ('Beef', 'Beef'),
-        ('Fruit', 'Fruit'),
-        ('Pork', 'Pork'),
-        ('Rice', 'Rice'),
-        ('Seafood', 'Seafood'),
-        ('Potato', 'Potato'),
-        ('Bread', 'Bread'),
-        ('Vegetables', 'Vegetables'),
-        ('Eggs', 'Eggs')
-    )
-    main_ingredient_name = models.CharField(
-        max_length=50,
-        choices=MAIN_INGREDIENT)
-    recipe = models.ForeignKey(
-        Recipe,
-        on_delete=models.CASCADE,
-        related_name='main_ingredient',
-        )
-
-
-class Allergens(models.Model):
-    ALLERGENS = (
-        ('Vegan', 'Vegan'),
-        ('Vegetarian', 'Vegetarian'),
-        ('Gluten-free', 'Gluten-free'),
-        ('Contains nuts', 'Contains nuts')
-    )
-    allergen = models.CharField(max_length=50, choices=ALLERGENS)
-    recipe = models.ForeignKey(
-        Recipe,
-        on_delete=models.CASCADE,
-        related_name='allergens'
-        )
 
 
 class Comment(models.Model):
