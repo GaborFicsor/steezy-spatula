@@ -25,11 +25,10 @@ class Recipe(models.Model):
         on_delete=models.CASCADE,
         related_name="recipe_posts")
     recipe_name = models.CharField(max_length=150, unique=True)
-    # ingredients = models.ManyToManyField(Ingredient)
     type = models.IntegerField(choices=TYPE)
     method = models.TextField()
+    ingredients = models.TextField(null=True, default='')
     serving_size = models.IntegerField()
-    # allergens = models.CharField(choices=ALLERGENS)
     calories_per_serving = models.IntegerField()
     difficulty = models.IntegerField(choices=DIFFICULTY)
     prep_time = models.IntegerField()
@@ -54,8 +53,8 @@ class Recipe(models.Model):
         return self.likes.count()
 
 
-class Ingredient(models.Model):
-    INGREDIENTS = (
+class MainIngredient(models.Model):
+    MAIN_INGREDIENT = (
         ('Chicken', 'Chicken'),
         ('Noodles', 'Noodles'),
         ('Fish', 'Fish'),
@@ -69,11 +68,13 @@ class Ingredient(models.Model):
         ('Vegetables', 'Vegetables'),
         ('Eggs', 'Eggs')
     )
-    ingredient_name = models.CharField(max_length=50, choices=INGREDIENTS)
+    main_ingredient_name = models.CharField(
+        max_length=50,
+        choices=MAIN_INGREDIENT)
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
-        related_name='ingredients',
+        related_name='main_ingredient',
         )
 
 
