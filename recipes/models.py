@@ -21,7 +21,8 @@ class MainIngredient(models.Model):
         ('Potato', 'Potato'),
         ('Bread', 'Bread'),
         ('Vegetables', 'Vegetables'),
-        ('Eggs', 'Eggs')
+        ('Eggs', 'Eggs'),
+        ('Oats', 'Oats')
     )
     main_ingredient_name = models.CharField(
         max_length=50,
@@ -30,6 +31,7 @@ class MainIngredient(models.Model):
 
 class Allergens(models.Model):
     ALLERGENS = (
+        ('None', 'None'),
         ('Vegan', 'Vegan'),
         ('Vegetarian', 'Vegetarian'),
         ('Gluten-free', 'Gluten-free'),
@@ -74,11 +76,11 @@ class Recipe(models.Model):
     recipe_name = models.CharField(max_length=150, unique=True)
     type = models.IntegerField(choices=TYPE)
     main_ingredient = models.ManyToManyField(MainIngredient, choices=MainIngredient.MAIN_INGREDIENT)
-    allergens = models.ManyToManyField(Allergens, choices=Allergens.ALLERGENS)
-    ingredients = models.TextField(null=True, default='')
+    allergens = models.ManyToManyField(Allergens, choices=Allergens.ALLERGENS, default='None')
+    ingredients = models.TextField(null=False, default='')
     method = models.TextField()
-    cooking_time = models.DurationField(choices=DURATION, null=True)
-    prep_time = models.DurationField(choices=DURATION, null=True)
+    prep_time = models.DurationField(choices=DURATION, null=False, default=(timedelta(minutes=15), '15 mins'))
+    cooking_time = models.DurationField(choices=DURATION, null=False, default=(timedelta(minutes=30), '30 mins'))
     serving_size = models.IntegerField()
     calories_per_serving = models.IntegerField()
     difficulty = models.IntegerField(choices=DIFFICULTY)
