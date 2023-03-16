@@ -75,12 +75,23 @@ class Recipe(models.Model):
         related_name="recipe_posts")
     recipe_name = models.CharField(max_length=150, unique=True)
     type = models.IntegerField(choices=TYPE)
-    main_ingredient = models.ManyToManyField(MainIngredient, choices=MainIngredient.MAIN_INGREDIENT)
-    allergens = models.ManyToManyField(Allergens, choices=Allergens.ALLERGENS, default='None')
+    main_ingredient = models.ManyToManyField(
+        MainIngredient,
+        choices=MainIngredient.MAIN_INGREDIENT)
+    allergens = models.ManyToManyField(
+        Allergens,
+        choices=Allergens.ALLERGENS,
+        default='None')
     ingredients = models.TextField(null=False, default='')
     method = models.TextField()
-    prep_time = models.DurationField(choices=DURATION, null=False, default=(timedelta(minutes=15), '15 mins'))
-    cooking_time = models.DurationField(choices=DURATION, null=False, default=(timedelta(minutes=30), '30 mins'))
+    prep_time = models.DurationField(
+        choices=DURATION,
+        null=False,
+        default=(timedelta(minutes=15), '15 mins'))
+    cooking_time = models.DurationField(
+        choices=DURATION,
+        null=False,
+        default=(timedelta(minutes=30), '30 mins'))
     serving_size = models.IntegerField()
     calories_per_serving = models.IntegerField()
     difficulty = models.IntegerField(choices=DIFFICULTY)
