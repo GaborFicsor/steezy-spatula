@@ -9,45 +9,45 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class MainIngredient(models.Model):
-    MAIN_INGREDIENT = (
-        ('Chicken', 'Chicken'),
-        ('Noodles', 'Noodles'),
-        ('Fish', 'Fish'),
-        ('Beef', 'Beef'),
-        ('Fruit', 'Fruit'),
-        ('Pork', 'Pork'),
-        ('Rice', 'Rice'),
-        ('Seafood', 'Seafood'),
-        ('Potato', 'Potato'),
-        ('Bread', 'Bread'),
-        ('Vegetables', 'Vegetables'),
-        ('Eggs', 'Eggs'),
-        ('Oats', 'Oats')
-    )
+    MAIN_INGREDIENT = [
+        (0, 'Chicken'),
+        (1, 'Noodles'),
+        (2, 'Fish'),
+        (3, 'Beef'),
+        (4, 'Fruit'),
+        (5, 'Pork'),
+        (6, 'Rice'),
+        (7, 'Seafood'),
+        (8, 'Potato'),
+        (9, 'Bread'),
+        (10, 'Vegetables'),
+        (11, 'Eggs'),
+        (12, 'Oats')
+    ]
     main_ingredient_name = models.CharField(
         max_length=50,
         choices=MAIN_INGREDIENT)
 
 
 class Allergens(models.Model):
-    ALLERGENS = (
-        ('None', 'None'),
-        ('Vegan', 'Vegan'),
-        ('Vegetarian', 'Vegetarian'),
-        ('Gluten-free', 'Gluten-free'),
-        ('Contains nuts', 'Contains nuts'),
-        ('Dairy-free', 'Dairy-free'),
-    )
+    ALLERGENS = [
+        (0, 'None'),
+        (1, 'Vegan'),
+        (2, 'Vegetarian'),
+        (3, 'Gluten-free'),
+        (4, 'Contains nuts'),
+        (5, 'Dairy-free'),
+    ]
     allergen = models.CharField(max_length=50, choices=ALLERGENS)
 
 
 class Recipe(models.Model):
-    TYPE = (
+    TYPE = [
         (0, 'Breakfast'),
         (1, 'Lunch'),
         (2, 'Dinner'),
         (3, 'Snack')
-    )
+    ]
 
     DURATION = [
         (timedelta(minutes=5), '5 mins'),
@@ -63,12 +63,12 @@ class Recipe(models.Model):
         (timedelta(minutes=55), '55mins'),
         (timedelta(minutes=60), '1 hour')
     ]
-    DIFFICULTY = (
+    DIFFICULTY = [
         (0, 'Easy-peasy'),
         (1, 'I know cooking'),
         (2, 'Up for a challenge'),
         (3, 'Battle hardened')
-    )
+    ]
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -80,8 +80,7 @@ class Recipe(models.Model):
         choices=MainIngredient.MAIN_INGREDIENT)
     allergens = models.ManyToManyField(
         Allergens,
-        choices=Allergens.ALLERGENS,
-        default='None')
+        choices=Allergens.ALLERGENS)
     ingredients = models.TextField(null=False, default='')
     method = models.TextField()
     prep_time = models.DurationField(
@@ -109,7 +108,7 @@ class Recipe(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.title
+        return self.recipe_name
 
     def number_of_likes(self):
         return self.likes.count()
@@ -131,3 +130,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
