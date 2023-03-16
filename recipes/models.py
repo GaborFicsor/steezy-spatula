@@ -9,45 +9,33 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class MainIngredient(models.Model):
-    MAIN_INGREDIENT = (
-        ('Chicken', 'Chicken'),
-        ('Noodles', 'Noodles'),
-        ('Fish', 'Fish'),
-        ('Beef', 'Beef'),
-        ('Fruit', 'Fruit'),
-        ('Pork', 'Pork'),
-        ('Rice', 'Rice'),
-        ('Seafood', 'Seafood'),
-        ('Potato', 'Potato'),
-        ('Bread', 'Bread'),
-        ('Vegetables', 'Vegetables'),
-        ('Eggs', 'Eggs'),
-        ('Oats', 'Oats')
-    )
+    MAIN_INGREDIENT = [
+        (0, 'Chicken'),
+        (1, 'Noodles'),
+        (2, 'Fish'),
+        (3, 'Beef'),
+        (4, 'Fruit'),
+        (5, 'Pork'),
+        (6, 'Rice'),
+        (7, 'Seafood'),
+        (8, 'Potato'),
+        (9, 'Bread'),
+        (10, 'Vegetables'),
+        (11, 'Eggs'),
+        (12, 'Oats')
+    ]
     main_ingredient_name = models.CharField(
         max_length=50,
         choices=MAIN_INGREDIENT)
 
 
-class Allergens(models.Model):
-    ALLERGENS = (
-        ('None', 'None'),
-        ('Vegan', 'Vegan'),
-        ('Vegetarian', 'Vegetarian'),
-        ('Gluten-free', 'Gluten-free'),
-        ('Contains nuts', 'Contains nuts'),
-        ('Dairy-free', 'Dairy-free'),
-    )
-    allergen = models.CharField(max_length=50, choices=ALLERGENS)
-
-
 class Recipe(models.Model):
-    TYPE = (
+    TYPE = [
         (0, 'Breakfast'),
         (1, 'Lunch'),
         (2, 'Dinner'),
         (3, 'Snack')
-    )
+    ]
 
     DURATION = [
         (timedelta(minutes=5), '5 mins'),
@@ -63,12 +51,12 @@ class Recipe(models.Model):
         (timedelta(minutes=55), '55mins'),
         (timedelta(minutes=60), '1 hour')
     ]
-    DIFFICULTY = (
+    DIFFICULTY = [
         (0, 'Easy-peasy'),
         (1, 'I know cooking'),
         (2, 'Up for a challenge'),
         (3, 'Battle hardened')
-    )
+    ]
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -78,10 +66,6 @@ class Recipe(models.Model):
     main_ingredient = models.ManyToManyField(
         MainIngredient,
         choices=MainIngredient.MAIN_INGREDIENT)
-    allergens = models.ManyToManyField(
-        Allergens,
-        choices=Allergens.ALLERGENS,
-        default='None')
     ingredients = models.TextField(null=False, default='')
     method = models.TextField()
     prep_time = models.DurationField(
