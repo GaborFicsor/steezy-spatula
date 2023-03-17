@@ -2,24 +2,11 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!-- List Recipe Entries -->
     <div>
         {% for recipe in recipe_list %}
-        <p>{{ recipe.recipe_name }}</p>
-        <p>{{ recipe.created_on }}</p>
-        <p>{{ recipe.difficulty }}</p>
+            <p>{{ recipe.recipe_name }}</p>
+            <p>hellobello</p>
         {% endfor %}
     </div>
-</body>
-</html>
 
 {% endblock %}
