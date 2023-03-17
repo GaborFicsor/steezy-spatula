@@ -8,7 +8,13 @@ from datetime import timedelta
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-class MainIngredient(models.Model):
+class Recipe(models.Model):
+    TYPE = [
+        (0, 'Breakfast'),
+        (1, 'Lunch'),
+        (2, 'Dinner'),
+        (3, 'Snack')
+    ]
     MAIN_INGREDIENT = [
         (0, 'Chicken'),
         (1, 'Noodles'),
@@ -24,31 +30,11 @@ class MainIngredient(models.Model):
         (11, 'Eggs'),
         (12, 'Oats')
     ]
-    main_ingredient_name = models.CharField(
-        max_length=50,
-        choices=MAIN_INGREDIENT)
-
-
-class Allergens(models.Model):
-    ALLERGENS = [
+    LABEL = [
         (0, 'None'),
         (1, 'Vegan'),
         (2, 'Vegetarian'),
-        (3, 'Gluten-free'),
-        (4, 'Contains nuts'),
-        (5, 'Dairy-free'),
     ]
-    allergen = models.CharField(max_length=50, choices=ALLERGENS)
-
-
-class Recipe(models.Model):
-    TYPE = [
-        (0, 'Breakfast'),
-        (1, 'Lunch'),
-        (2, 'Dinner'),
-        (3, 'Snack')
-    ]
-
     DURATION = [
         (timedelta(minutes=5), '5 mins'),
         (timedelta(minutes=10), '10 mins'),
@@ -72,28 +58,50 @@ class Recipe(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="recipe_posts")
-    recipe_name = models.CharField(max_length=150, unique=True)
-    type = models.IntegerField(choices=TYPE)
-    main_ingredient = models.ManyToManyField(
-        MainIngredient,
-        choices=MainIngredient.MAIN_INGREDIENT)
-    allergens = models.ManyToManyField(
-        Allergens,
-        choices=Allergens.ALLERGENS)
+        related_name="recipe_posts"
+    )
+    recipe_name = models.CharField(
+        max_length=150,
+        unique=True,
+        null=False,
+        default=None
+    )
+    type = models.IntegerField(
+        choices=TYPE,
+        null=False,
+        default=None
+    )
+    main_ingredient = models.IntegerField(
+        choices=MAIN_INGREDIENT,
+        null=False,
+        default=None
+    )
+    label = models.IntegerField(
+        choices=LABEL,
+        null=False,
+        default=None)
     ingredients = models.TextField(null=False, default='')
     method = models.TextField()
     prep_time = models.DurationField(
         choices=DURATION,
         null=False,
-        default=(timedelta(minutes=15), '15 mins'))
+        default=None
+    )
     cooking_time = models.DurationField(
         choices=DURATION,
         null=False,
-        default=(timedelta(minutes=30), '30 mins'))
+        default=None
+    )
+    nuts = models.BooleanField(default=False)
+    dairy = models.BooleanField(default=False)
+    eggs = models.BooleanField(default=False)
     serving_size = models.IntegerField()
     calories_per_serving = models.IntegerField()
-    difficulty = models.IntegerField(choices=DIFFICULTY)
+    difficulty = models.IntegerField(
+        choices=DIFFICULTY,
+        null=False,
+        default=None
+    )
     slug = models.SlugField(max_length=200, unique=True)
     featured_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
@@ -102,7 +110,8 @@ class Recipe(models.Model):
     likes = models.ManyToManyField(
         User,
         related_name='recipe_likes',
-        blank=True)
+        blank=True
+    )
 
     class Meta:
         ordering = ['-created_on']
