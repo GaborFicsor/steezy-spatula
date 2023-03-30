@@ -1,0 +1,8 @@
+.header {
+    background-image: linear-gradient(to left, rgba(0, 255, 21, 0), rgb(26, 119, 0)),
+    url('../images/header.jpg'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 50vh;
+}
+
