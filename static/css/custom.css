@@ -1,8 +1,47 @@
 .header {
-    background-image: linear-gradient(to left, rgba(0, 255, 21, 0), rgb(26, 119, 0)),
+    background-image: linear-gradient(to top, rgba(45, 255, 21, 0) 0%, rgb(19, 22, 24)70%),
     url('../images/header.jpg'); 
     background-size: cover;
     background-position: center;
-    min-height: 50vh;
 }
 
+.relative-title-1 {
+    position: relative;
+    left: 25%;
+}
+
+.relative-title-2 {
+    position: relative;
+    left: 55px;
+    top: -85px;
+}
+
+.relative-title-3 {
+    position: relative;
+    left: 140px;
+    top: -135px;
+    font-size: 0.9rem;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 6rem;
+}
+
+.dedication {
+    position: relative;
+    right: -20px;
+    top: 60px;
+    font-weight: 300;
+    font-size: 1.25rem;
+}
+
+.solid {
+    border-style: solid;
+}
+
+.absolute {
+    position: absolute;
+}
