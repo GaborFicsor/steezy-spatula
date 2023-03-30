@@ -1,40 +1,41 @@
 .header {
-    background-image: linear-gradient(to top, rgba(45, 255, 21, 0) 0%, rgb(19, 22, 24)70%),
+    background-image: linear-gradient(to top, rgba(45, 255, 21, 0) 0%, rgb(19, 22, 24)60%),
     url('../images/header.jpg'); 
     background-size: cover;
     background-position: center;
 }
 
 .relative-title-1 {
-    position: relative;
+    top: 30%;
     left: 25%;
+    position: relative;
 }
 
 .relative-title-2 {
     position: relative;
-    left: 55px;
-    top: -85px;
+    left: 70px;
+    top: -90px;
 }
 
 .relative-title-3 {
     position: relative;
-    left: 140px;
-    top: -135px;
-    font-size: 0.9rem;
+    left: 105px;
+    top: -50px;
+    font-size: 1rem;
     font-weight: 200;
     letter-spacing: 1px;
 }
 
 .bold {
     font-weight: bold;
-    font-size: 6rem;
+    font-size: 7rem;
 }
 
 .dedication {
     position: relative;
     right: -20px;
-    top: 60px;
-    font-weight: 300;
+    top: 46%;
+    font-weight: 200;
     font-size: 1.25rem;
 }
 
@@ -45,3 +46,9 @@
 .absolute {
     position: absolute;
 }
+
+.cursive {
+    font-family: 'Seaweed Script', cursive;
+    font-size: 3rem;
+}
+
