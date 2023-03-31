@@ -1,0 +1,212 @@
+.header {
+    background-image: linear-gradient(to top, rgba(45, 255, 21, 0) 0%, rgb(19, 22, 24)60%),
+    url('../images/header.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.fa-lg {
+    font-size: 2rem;
+}
+
+.relative-title-1 {
+    top: 35%;
+    left: 0;
+    position: relative;
+}
+
+.relative-title-2 {
+    position: relative;
+    left: 27px;
+    top: -60px;
+}
+
+.relative-title-3 {
+    position: relative;
+    left: 105px;
+    top: -50px;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.dedication {
+    position: relative;
+    right: 0;
+    top: 25%;
+    font-weight: 200;
+    font-size: 1.25rem;
+    display: none;
+}
+
+.solid {
+    border-style: solid;
+    border-color: red;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.cursive {
+    font-family: 'Seaweed Script', cursive;
+    font-size: 3rem;
+}
+
+.circle {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.circle img {
+    object-fit: cover;
+    background-size: cover;
+}
+
+
+.about-me {
+    border-radius:50%;
+    width:200px;
+    height:200px;
+    object-fit: cover;
+}
+
+/* media queries */
+
+@media (max-width:575px) {
+    .centered {
+        text-align: center;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .bold{
+        font-size: 7rem;
+    }
+
+    .relative-title-1 {
+        top: 20%;
+        left: 0%;
+        position: relative;
+    }
+    
+    .relative-title-2 {
+        position: relative;
+        left: 75px;
+        top: -95px;
+    }
+    
+    .relative-title-3 {
+        position: relative;
+        left: 92px;
+        top: -55px;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        display: block;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .bold{
+        font-size: 8rem;
+    }
+
+    .relative-title-1 {
+        top: 20%;
+        left: 10%;
+        position: relative;
+    }
+    
+    .relative-title-2 {
+        position: relative;
+        left: 80px;
+        top: -105px;
+    }
+    
+    .relative-title-3 {
+        position: relative;
+        left: 102px;
+        top: -65px;
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        display: block;
+    }
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .bold {
+        font-size: 6rem;
+    }
+
+    .relative-title-1 {
+        top: 25%;
+        left: 0%;
+        position: relative;
+    }
+
+    .relative-title-2 {
+        top: -85px;
+        left: 65px;
+    }
+
+    .relative-title-3 {
+        top: -49px;
+        left: 75px;
+        display: block;
+        font-weight: 300;
+        position: relative;
+        font-size: 0.95rem;
+    }
+    
+    .dedication {
+        display: block;
+        top: 35%;
+    }
+
+    .about-me {
+        width:300px;
+        height:300px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .bold{
+        font-size: 7rem;
+    }
+
+    .dedication {
+        display: block;
+        top: 30%;
+    }
+
+    .relative-title-1 {
+        top: 15%;
+        left: 10%;
+        position: relative;
+    }
+    
+    .relative-title-2 {
+        position: relative;
+        left: 75px;
+        top: -95px;
+    }
+    
+    .relative-title-3 {
+        top: -55px;
+        left: 95px;
+        display: block;
+
+        position: relative;
+        font-size: 1.1rem;
+    }
+}
+
+

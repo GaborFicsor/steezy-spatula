@@ -2,153 +2,138 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Steezy Spatula</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
-        integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="../static/css/custom.css">
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="static/css/styles.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet">
-
-</head>
-
-<!DOCTYPE html>
-<html lang="en-us">
-
-<body>
-    <!--Nav-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">steezy spatula</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Recipes</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
-                    </li>
-                    {% endif %}
-                </ul>
+    
+  	<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Steezy Spatula</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+            integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
+            rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="../static/css/steezy.css">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/css/styles.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap" rel="stylesheet">
+    
+          </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#page-top">Steezy Spatula</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header section -->
+        <header class="text-white header">
+            <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 my-5 centered overflow-hidden">
+                    <div class="relative-title-1 bold">
+                        <p>Steezy</p>
+                        <div class="relative-title-2 bold">
+                            <p>Spatula</p>
+                            <div class="relative-title-3">
+                                <p>Cooking made less overwhelming</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 d-sm-none d-lg-block col-lg-6 my-5 overflow-hidden">
+                    <div class="dedication">
+                        <p class="">This website is for <strong>You,</strong></p>
+                        <ul>
+                            <li>If you find it difficult to follow complicated recipes</li>
+                            <li>you're mental well-being interferes with your executive functioning</li>
+                            <li>looking at unnecessary walls of text annoys you</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+        </header>
+        <!-- Content section / featured recipes -->
 
-    <!-- header -->
+        <section class="container px-5 text-center">
+            <p class="display-5">Featured recipes</p>
+            <div class="row">
+                <div class="col-12 col-sm-2 col-md-3"></div>
+            </div>
+        </section>
 
-    <section class="container-fluid header vh-100">
-        <div class="row">
-            <div class="col-12 col-md-6 my-5 text-white overflow-hidden">
-                <div class="relative-title-1 bold">
-                    <p>Steezy</p>
-                    <div class="relative-title-2 bold">
-                        <p>Spatula</p>
-
-                        <div class="relative-title-3">
-                            <p>Cooking made less overwhelming</p>
+        <hr>
+        
+        <!-- Content section / a word on me-->
+        <section id="scroll">
+            <div class="container px-5 ">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-4 text-center">
+                        <div class="p-5"><img class="img-fluid about-me" src="../static/images/me.jpg" alt="..." /></div>
+                    </div>
+                    <div class="col-lg-8 order-sm-2">
+                        <div class="p-5">
+                            <h2 class="display-4">A word on the creator...</h2>
+                            <p>My name is Gabor, and I have ADHD.
+                            I created this website to help people
+                            who have depression, impaired executive functioning
+                            or generally have a hard time dealing
+                            with cooking and being in the kitchen
+                            just makes them overwhelmed.
+                            </p>
+                            <p>
+                            I think this captures a real-world problem
+                            and it has a targeted audience who could
+                            really benefit from a website like this.
+                            I really enjoyed making and designing this
+                            website with the intention of being a tool
+                            I would use.
+                        </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 my-5 text-white overflow-hidden">
-                <div class="dedication">
-                    <p class="">This website is for <strong>You,</strong></p>
-                    <ul>
-                        <li>If you find it difficult to follow complicated recipes</li>
-                        <li>you're mental well-being interferes with your executive functioning</li>
-                        <li>looking at unnecessary walls of text annoys you</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <p class="cursive text-white text-center my-5">I'm looking for . . . </p>
-                </div>
-                <div class="col-12">
-                    <h1 class="text-center text-white"><i class="fa-sharp fa-solid fa-circle-arrow-down"></i></h1>
-                </div>
-            </div>
-        </div>
-
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h2>Lorem</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil obcaecati quia est quisquam libero quae, voluptate ducimus laborum dolore quasi, quam molestiae architecto qui deleniti delectus ipsam dignissimos unde repellendus!</p>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt soluta officiis aspernatur voluptatum numquam error voluptate, debitis tempora deserunt natus architecto fuga ex, consectetur adipisci sit dolor quia non vero.</p>
-                    </div>
-                </div>
-            </div>
         </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="container px-5 text-center">
 
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h2>Lorem</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil obcaecati quia est quisquam libero quae, voluptate ducimus laborum dolore quasi, quam molestiae architecto qui deleniti delectus ipsam dignissimos unde repellendus!</p>
-                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt soluta officiis aspernatur voluptatum numquam error voluptate, debitis tempora deserunt natus architecto fuga ex, consectetur adipisci sit dolor quia non vero.</p>
-                    </div>
-                </div>
+                    <a href="https://www.instagram.com/kidwalksthe.earth/" target="_blank" class="btn text-white">
+                        <i class="fa-brands fa-linkedin-in fa-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gabor-ficsor-58a936197/" target="_blank" class="btn text-white">
+                        <i class="fa-brands fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://github.com/GaborFicsor" target="_blank" class="btn text-white">
+                        <i class="fa-brands fa-github fa-lg"></i>
+                    </a>
+
             </div>
-        </section>
-<hr>
-
-
-    </section>
-
-    <!-- Features -->
-
-    <!-- /.features -->
-
-    <div>
-        <!-- {% block content %}
-
-            {% endblock %} -->
-    </div>
-    <!-- Footer-->
-
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-</body>
-
+            <div class="container px-5"><p class="m-0 text-center text-white small">ficsorgabor@gmail.com</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
