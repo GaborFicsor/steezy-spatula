@@ -11,13 +11,13 @@
 
 .relative-title-1 {
     top: 35%;
-    left: 0;
+    left: -30px;
     position: relative;
 }
 
 .relative-title-2 {
     position: relative;
-    left: 27px;
+    left: 50px;
     top: -60px;
 }
 
@@ -105,7 +105,7 @@
     
     .relative-title-3 {
         position: relative;
-        left: 92px;
+        left: 100px;
         top: -55px;
         font-size: 1.1rem;
         letter-spacing: 1px;
@@ -132,7 +132,7 @@
     
     .relative-title-3 {
         position: relative;
-        left: 102px;
+        left: 115px;
         top: -65px;
         font-size: 1.3rem;
         letter-spacing: 1px;
@@ -159,11 +159,11 @@
 
     .relative-title-3 {
         top: -49px;
-        left: 75px;
+        left: 85px;
         display: block;
         font-weight: 300;
         position: relative;
-        font-size: 0.95rem;
+        font-size: 0.90rem;
     }
     
     .dedication {
@@ -201,7 +201,7 @@
     
     .relative-title-3 {
         top: -55px;
-        left: 95px;
+        left: 100px;
         display: block;
 
         position: relative;
