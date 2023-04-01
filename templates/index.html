@@ -1,42 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for recipe in recipe_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            {% if "placeholder" in recipe.featured_image.ulr %}
-                            <img class="card-img-top"
-                                src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="">
-                            {% else %}
-                            <img class="card-img-top" src="{{ recipe.featured_image.url }}" alt="">
-                            {% endif %}
-                            <div class="image-flash">
-                                <p class="author">Author: {{ recipe.author }}</p>
-                            </div>
-                        </div>
-                        <a href="#" class="post-link">
-                            <h2 class="card-title">{{ recipe.recipe_name }}</h2>
-                            <p class="card-text">{{ recipe.label }}</p>
-                        </a>
-                        <hr>
-                        <p class="card-text text-muted h6">{{ recipe.created_on }}
-                            <i class="'fas fa-heart"></i>{{ recipe.number_of_likes }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            {% if forloop.counter|divisibleby:3 %}
-        </div>
-        <div class="row">
-            {% endif %}
-            {% endfor %}
-        </div>
-    </div>
+
+<div class="recipe-display solid">
+    <img class="recipe-img" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="">
 </div>
 {% if is_paginated %}
 <nav aria-label="Page navigation">
