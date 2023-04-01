@@ -84,8 +84,8 @@
 }
 
 .recipe-img {
-    height: 100%;
-    width: auto;
+    height: 250px;
+    width: 250px;
     object-fit: cover;
 }
 
