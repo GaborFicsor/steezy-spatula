@@ -32,7 +32,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['steezy-spatula.herokuapp.com', 'localhost']
 
-
 # Application definition
 
 INSTALLED_APPS = [
