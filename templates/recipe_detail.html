@@ -4,26 +4,9 @@
 <header class="text-white header">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6 my-5 centered overflow-hidden">
-                <div class="relative-title-1 bold">
-                    <p>Steezy</p>
-                    <div class="relative-title-2 bold">
-                        <p>Spatula</p>
-                        <div class="relative-title-3">
-                            <p>Cooking made less overwhelming</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 d-sm-none d-lg-block col-lg-6 my-5 overflow-hidden">
-                <div class="dedication">
-                    <p class="">This website is for <strong>You,</strong></p>
-                    <ul>
-                        <li>If you find it difficult to follow complicated recipes</li>
-                        <li>you're mental well-being interferes with your executive functioning</li>
-                        <li>looking at unnecessary walls of text annoys you</li>
-                    </ul>
-                </div>
+            <div class="col-12 my-5 overflow-hidden ">
+                <p class="recipe-detail-title">{{ recipe.recipe_name }}</p>
+                <p>{{ recipe.author }}, {{ recipe.created_on }}</p>
             </div>
         </div>
     </div>
@@ -32,11 +15,48 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-6">Details</div>
-            <div class="col-6">Ingredients</div>
+            <div class="col-3 bg-dark p-2">
+                <div class="bg-light">
+                    <img class="img-thumbnail" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-9 bg-dark p-2">
+                <div class="bg-light">
+                    <h3>Details:</h3>
+                    <ul>
+                        <li>Perfect for {{ recipe.get_type_display }}</li>
+                        <li>main ingredient: {{ recipe.get_main_ingredient_display }}</li>
+                        <li>prep time: {{ recipe.get_prep_time_display }}</li>
+                        <li>cooking time: {{ recipe.get_cooking_time_display }}</li>
+                        <li>difficulty: {{ recipe.difficulty }}</li>
+                        <li>difficulty: {{ recipe.get_difficulty_display }}
+                            <!-- <div class="progress" >
+                                <div class="bg-success" role="progressbar" aria-valuenow="{{ recipe.difficulty }}" aria-valuemin="0" aria-valuemax="4"" ></div>
+                            </div> -->
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar"
+                                    style="width: {{ recipe.difficulty }} aria-valuenow=" {{ recipe.difficulty }}"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
         <div class="row">
-            <div class="col-12">Method</div>
+            <div class="col-12 bg-dark p-2">
+                <div class="bg-light">
+                    <div><h3>Ingredients:</h3>{{ recipe.ingredients|safe }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 bg-dark p-2">
+                <div class="bg-light">
+                    <div><h3>Method:</h3>{{ recipe.method|safe }}</div>
+                </div>
+            </div>
         </div>
     </div>
 

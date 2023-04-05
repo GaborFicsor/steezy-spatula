@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap');
+
 
 body{
     padding-top: 55px;
@@ -106,6 +107,12 @@ body{
     position: absolute;
     bottom: 38px;
     left: 5px;
+}
+/* Recipe detail page */
+
+.recipe-detail-title {
+    font-family: 'Seaweed Script', cursive;
+    font-size: 4rem;
 }
 
 
