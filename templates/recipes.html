@@ -10,7 +10,7 @@
                 <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
                     alt="Card image cap">
                 <div class="card-body">
-                    <a href="#" class="btn btn-primary">{{ recipe.recipe_name }}</a>
+                    <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-primary">{{ recipe.recipe_name }}</a>
                 </div>
             </div>
         </div>
