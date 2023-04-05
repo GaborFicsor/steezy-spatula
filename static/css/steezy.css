@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&display=swap');
 
 body{
-    padding-top: 56px;
+    padding-top: 55px;
 }
 
 .header {
@@ -136,8 +136,8 @@ body{
     
     .relative-title-3 {
         position: relative;
-        left: 100px;
-        top: -55px;
+        left: 98px;
+        top: -58px;
         font-size: 1.1rem;
         letter-spacing: 1px;
         display: block;
@@ -189,8 +189,8 @@ body{
     }
 
     .relative-title-3 {
-        top: -49px;
-        left: 85px;
+        top: -52px;
+        left: 84px;
         display: block;
         font-weight: 300;
         position: relative;
@@ -231,8 +231,8 @@ body{
     }
     
     .relative-title-3 {
-        top: -55px;
-        left: 100px;
+        top: -58px;
+        left: 98px;
         display: block;
 
         position: relative;
