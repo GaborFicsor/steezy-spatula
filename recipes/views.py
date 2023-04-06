@@ -67,3 +67,6 @@ class RecipeDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+class RecipeCreateView(generic.CreateView):
+    model = Recipe
