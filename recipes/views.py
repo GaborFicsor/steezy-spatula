@@ -93,3 +93,9 @@ class RecipeUpdateView(generic.UpdateView):
         form.instance.author = self.request.user
         form.instance.slug = slugify(form.instance.recipe_name)
         return super().form_valid(form)
+
+
+class RecipeDeleteView(generic.DeleteView):
+    model = Recipe
+    template_name = 'delete_recipe.html'
+    success_url = reverse_lazy('recipes')

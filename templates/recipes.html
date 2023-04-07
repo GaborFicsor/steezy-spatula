@@ -20,6 +20,7 @@
                     <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-primary">{{ recipe.recipe_name }}</a>
                     {% if user == recipe.author %}
                     <a href="{% url 'update_recipe' recipe.slug %}">edit</a>
+                    <a href="{% url 'delete_recipe' recipe.slug %}">delete</a>
                     {% endif %}
                 </div>
             </div>
