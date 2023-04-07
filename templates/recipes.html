@@ -2,7 +2,14 @@
 
 {% block content %}
 
+
+
 <div class="container p-5">
+    <div>
+        <button>
+            <a href="{% url 'create_recipe' %}">+</a>
+        </button>
+    </div>
     <div class="row">
         {% for recipe in recipe_list %}
         <div class="col-12 col-sm-4 my-5">
@@ -11,6 +18,9 @@
                     alt="Card image cap">
                 <div class="card-body">
                     <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-primary">{{ recipe.recipe_name }}</a>
+                    {% if user == recipe.author %}
+                    <a href="{% url 'update_recipe' recipe.slug %}">edit</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

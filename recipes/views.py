@@ -81,3 +81,15 @@ class RecipeCreateView(generic.CreateView):
         form.instance.author = self.request.user
         form.instance.slug = slugify(form.instance.recipe_name)
         return super().form_valid(form)
+
+
+class RecipeUpdateView(generic.UpdateView):
+    model = Recipe
+    template_name = 'recipe_form.html'
+    form_class = RecipeForm
+    success_url = reverse_lazy('recipes')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.slug = slugify(form.instance.recipe_name)
+        return super().form_valid(form)
