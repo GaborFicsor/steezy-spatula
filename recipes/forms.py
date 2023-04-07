@@ -1,4 +1,4 @@
-from .models import Comment
+from .models import Comment, Recipe
 from django import forms
 from django_summernote.widgets import SummernoteWidget
 

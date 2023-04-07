@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.urls import reverse_lazy
+from django.template.defaultfilters import slugify
 from .models import Recipe
-from .forms import CommentForm
+from .forms import CommentForm, RecipeForm
 
 
 class HomeView(generic.TemplateView):
@@ -68,5 +70,14 @@ class RecipeDetail(View):
             },
         )
 
+
 class RecipeCreateView(generic.CreateView):
     model = Recipe
+    template_name = 'recipe_form.html'
+    form_class = RecipeForm
+    success_url = reverse_lazy('recipes')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.slug = slugify(form.instance.recipe_name)
+        return super().form_valid(form)
