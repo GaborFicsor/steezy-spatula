@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>My added recipes</h1>
+    <ul>
+        {% for recipe in recipe_list %}
+        <li>{{ recipe.recipe_name }}</li>
+        {% endfor %}
+    </ul>
+
+
+<h2>My saved recipes</h2>
+    <ul>{% for recipe in liked_recipes %}
+        <li>{{ recipe.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
