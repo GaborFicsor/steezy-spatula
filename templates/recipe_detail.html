@@ -37,8 +37,8 @@
                             </div> -->
                             <div class="progress">
                                 <div class="progress-bar bg-success" role="progressbar"
-                                    style="width: {{ recipe.difficulty }} aria-valuenow=" {{ recipe.difficulty }}"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                    style="width: {{ recipe.difficulty }}%" aria-valuenow="{{ recipe.difficulty }}%"
+                                    aria-valuemin="0%" aria-valuemax="4%"></div>
                             </div>
                         </li>
                     </ul>
@@ -83,6 +83,14 @@
                         <!-- The body of the comment goes before the | -->
                         {{ comment.body | linebreaks }}
                     </div>
+                    {% if user.username == comment.name %}
+                    <button>
+                        <a href="{% url 'edit_comment' comment.id %}">edit comment</a>
+                    </button>
+                    <button>
+                        <a href="{% url 'delete_comment' comment.id %}">delete comment</a>
+                    </button>
+                    {% endif %}
                     <!-- Our for loop ends here -->
                     {% endfor %}
                 </div>

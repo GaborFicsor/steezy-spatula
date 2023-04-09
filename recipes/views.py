@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
-from .models import Recipe
+from .models import Recipe, Comment
 from .forms import CommentForm, RecipeForm
 
 
@@ -97,5 +97,20 @@ class RecipeUpdateView(generic.UpdateView):
 
 class RecipeDeleteView(generic.DeleteView):
     model = Recipe
+    template_name = 'delete_recipe.html'
+    success_url = reverse_lazy('recipes')
+
+class CommentUpdateView(generic.UpdateView):
+    model = Comment
+    template_name = 'comment_form.html'
+    form_class = CommentForm
+    success_url = reverse_lazy('recipes')
+
+    def form_valid(self, form):
+
+        return super().form_valid(form)
+
+class CommentDeleteView(generic.DeleteView):
+    model = Comment
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('recipes')
