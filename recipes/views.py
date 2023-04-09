@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Recipe, Comment
 from .forms import CommentForm, RecipeForm
 
@@ -71,7 +72,7 @@ class RecipeDetail(View):
         )
 
 
-class RecipeCreateView(generic.CreateView):
+class RecipeCreateView(LoginRequiredMixin, generic.CreateView):
     model = Recipe
     template_name = 'recipe_form.html'
     form_class = RecipeForm
@@ -83,7 +84,7 @@ class RecipeCreateView(generic.CreateView):
         return super().form_valid(form)
 
 
-class RecipeUpdateView(generic.UpdateView):
+class RecipeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Recipe
     template_name = 'recipe_form.html'
     form_class = RecipeForm
@@ -95,12 +96,12 @@ class RecipeUpdateView(generic.UpdateView):
         return super().form_valid(form)
 
 
-class RecipeDeleteView(generic.DeleteView):
+class RecipeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Recipe
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('recipes')
 
-class CommentUpdateView(generic.UpdateView):
+class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Comment
     template_name = 'comment_form.html'
     form_class = CommentForm
@@ -110,7 +111,7 @@ class CommentUpdateView(generic.UpdateView):
 
         return super().form_valid(form)
 
-class CommentDeleteView(generic.DeleteView):
+class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Comment
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('recipes')
