@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Recipe, Comment
+from .models import Recipe, Comment, UserProfile
 from .forms import CommentForm, RecipeForm
 
 
@@ -115,3 +115,12 @@ class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Comment
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('recipes')
+
+class UserProfileView(LoginRequiredMixin, generic.ListView):
+    model = Recipe
+    template_name = 'profile.html'
+
+    def get_queryset(self):
+        user = self.request.user
+        recipes = Recipe.objects.filter(author=user)
+        return recipes
