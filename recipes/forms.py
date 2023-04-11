@@ -38,3 +38,6 @@ class SaveForm():
     class Meta:
         model = Recipe
         fields = ('saved',)
+
+class RecipeFilterForm(forms.Form):
+    name = forms.CharField()

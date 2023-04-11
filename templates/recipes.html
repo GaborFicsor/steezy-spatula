@@ -10,8 +10,12 @@
             <a href="{% url 'create_recipe' %}">+</a>
         </button>
     </div>
+    <form method="GET" action="{% url 'recipes' %}">
+        {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
     <div class="row">
-        {% for recipe in recipe_list %}
+        {% for recipe in recipes %}
         <div class="col-12 col-sm-4 my-5">
             <div class="card mx-auto" style="width: 18rem;">
                 <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"

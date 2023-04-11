@@ -5,7 +5,9 @@ from django.template.defaultfilters import slugify
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Recipe, Comment, UserProfile
-from .forms import CommentForm, RecipeForm, SaveForm
+from .forms import CommentForm, RecipeForm, SaveForm, RecipeFilterForm
+from .filters import RecipeFilter
+import django_filters
 
 
 class HomeView(generic.TemplateView):
@@ -17,6 +19,18 @@ class RecipeList(generic.ListView):
     template_name = 'recipes.html'
     paginate_by = 9
 
+    queryset = Recipe.objects.all()
+    context_object_name = 'recipes'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = RecipeFilter(self.request.GET, queryset=queryset)
+        return self.filterset.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.filterset.form
+        return context
 
 
 class RecipeDetail(generic.DetailView):
