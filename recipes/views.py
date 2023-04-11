@@ -1,10 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
+from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Recipe, Comment, UserProfile
-from .forms import CommentForm, RecipeForm
+from .forms import CommentForm, RecipeForm, SaveForm
 
 
 class HomeView(generic.TemplateView):
@@ -16,60 +17,44 @@ class RecipeList(generic.ListView):
     template_name = 'recipes.html'
     paginate_by = 9
 
-class RecipeDetail(View):
 
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Recipe.objects.filter(status=1)
-        recipe = get_object_or_404(queryset, slug=slug)
-        comments = recipe.comments.filter(approved=True).order_by('created_on')
-        liked = False
-        if recipe.likes.filter(id=self.request.user.id).exists():
-            liked = True
 
-        return render(
-            request,
-            "recipe_detail.html",
-            {
-                "recipe": recipe,
-                "comments": comments,
-                "commented": False,
-                "liked": liked,
-                "commented": False,
-                "comment_form": CommentForm()
-            },
-        )
+class RecipeDetail(generic.DetailView):
+    model = Recipe
+    template_name = "recipe_detail.html"
+    context_object_name = "recipe"
+    slug = "slug"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["comments"] = self.object.comments.filter(approved=True).order_by("created_on")
+        context["commented"] = False
+        context["comment_form"] = CommentForm()
+        if self.object.likes.filter(id=self.request.user.id).exists():
+            context["liked"] = True
+        if self.object.saves.filter(id=self.request.user.id).exists():
+            context["saved"] = True
+        return context
 
     def post(self, request, slug, *args, **kwargs):
-        queryset = Recipe.objects.filter(status=1)
-        recipe = get_object_or_404(queryset, slug=slug)
-        comments = recipe.comments.filter(approved=True).order_by('created_on')
-        liked = False
-        if recipe.likes.filter(id=self.request.user.id).exists():
-            liked = True
+        self.object = self.get_object()
+        context = self.get_context_data()
+        liked = context.get("liked", False)
+        saved = context.get("saved", False)
 
         comment_form = CommentForm(data=request.POST)
-
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
-            comment.recipe = recipe
+            comment.recipe = self.object
             comment.save()
+            context["commented"] = True
+            context["comment_form"] = CommentForm()
         else:
-            comment_form = CommentForm()
+            context["comment_form"] = comment_form
 
-        return render(
-            request,
-            "recipe_detail.html",
-            {
-                "recipe": recipe,
-                "comments": comments,
-                "commented": False,
-                "liked": liked,
-                "commented": True,
-                "comment_form": CommentForm()
-            },
-        )
+        return self.render_to_response(context)
 
 
 class RecipeCreateView(LoginRequiredMixin, generic.CreateView):
@@ -117,10 +102,28 @@ class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy('recipes')
 
 class UserProfileView(LoginRequiredMixin, generic.ListView):
-    model = Recipe
+
+    # https://stackoverflow.com/questions/48872380/display-multiple-queryset-in-list-view
     template_name = 'profile.html'
+    context_object_name = 'my_recipes'
 
     def get_queryset(self):
-        user = self.request.user
-        recipes = Recipe.objects.filter(author=user)
-        return recipes
+
+        queryset = {
+            'created': Recipe.objects.filter(author=self.request.user),
+            'saved': Recipe.objects.filter(saves=self.request.user)
+        }
+        return queryset
+
+
+class SaveRecipe(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug)
+        if recipe.saves.filter(id=request.user.id).exists():
+            recipe.saves.remove(request.user)
+        else:
+            recipe.saves.add(request.user)
+
+        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+

@@ -33,3 +33,8 @@ class RecipeForm(forms.ModelForm):
             'ingredients': SummernoteWidget(),
             'method': SummernoteWidget(),
         }
+
+class SaveForm():
+    class Meta:
+        model = Recipe
+        fields = ('saved',)

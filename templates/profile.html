@@ -4,15 +4,15 @@
 
 <h1>My added recipes</h1>
     <ul>
-        {% for recipe in recipe_list %}
+        {% for recipe in my_recipes.created %}
         <li>{{ recipe.recipe_name }}</li>
         {% endfor %}
     </ul>
 
 
 <h2>My saved recipes</h2>
-    <ul>{% for recipe in liked_recipes %}
-        <li>{{ recipe.title }}</li>
+    <ul>{% for recipe in my_recipes.saved %}
+        <li>{{ recipe.recipe_name }}</li>
         {% endfor %}
     </ul>
 {% endblock %}

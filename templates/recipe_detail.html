@@ -15,6 +15,19 @@
 
 <section>
     <div class="container">
+        <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
+            {% if user.is_authenticated %}
+            <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
+                {% csrf_token %}
+                {% if saved %}
+                <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="fas fa-heart"></i></button>
+                {% else %}
+                <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
+                {% endif %}
+            </form>
+            {% else %}
+            <span class="text-secondary"><i class="far fa-heart"></i></span>
+            {% endif %}
         <div class="row">
             <div class="col-3 bg-dark p-2">
                 <div class="bg-light">
@@ -106,7 +119,7 @@
                     </div>
                     {% else %}
                     {% if user.is_authenticated %}
-    
+
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
                     <form method="post" style="margin-top: 1.3em;">

@@ -18,9 +18,23 @@
                     alt="Card image cap">
                 <div class="card-body">
                     <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-primary">{{ recipe.recipe_name }}</a>
+                    {% if user.is_authenticated %}
+                    <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
+                        {% csrf_token %}
+                        {% if user in recipe.saves.all %}
+                        <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="fas fa-heart"></i></button>
+                        {% else %}
+                        <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
+                        {% endif %}
+                    </form>
+                    {% else %}
+                    <span class="text-secondary"><i class="far fa-heart"></i></span>
+
+                    {% endif %}
                     {% if user == recipe.author %}
                     <a href="{% url 'update_recipe' recipe.slug %}">edit</a>
                     <a href="{% url 'delete_recipe' recipe.slug %}">delete</a>
+                    
                     {% endif %}
                 </div>
             </div>

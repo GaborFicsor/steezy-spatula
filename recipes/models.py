@@ -109,6 +109,11 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    saves = models.ManyToManyField(
+        User,
+        related_name='recipe_saves',
+        blank=True
+    )
     likes = models.ManyToManyField(
         User,
         related_name='recipe_likes',
@@ -141,3 +146,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class UserProfile(models.Model):
+    profile_picture = CloudinaryField('image', default='placeholder')
