@@ -5,7 +5,7 @@
 <header class="text-white header">
     <div class="container">
         <div class="row">
-            <div class="col-12 my-5 overflow-hidden ">
+            <div class="col-6 my-5 overflow-hidden ">
                 <p class="recipe-detail-title">{{ recipe.recipe_name }}</p>
                 <p>{{ recipe.author }}, {{ recipe.created_on }}</p>
             </div>
@@ -15,28 +15,16 @@
 
 <section>
     <div class="container">
-        <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
-            {% if user.is_authenticated %}
-            <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
-                {% csrf_token %}
-                {% if saved %}
-                <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="fas fa-heart"></i></button>
-                {% else %}
-                <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
-                {% endif %}
-            </form>
-            {% else %}
-            <span class="text-secondary"><i class="far fa-heart"></i></span>
-            {% endif %}
+
         <div class="row">
-            <div class="col-3 bg-dark p-2">
-                <div class="bg-light">
+            <div class="col-3  p-2">
+                <div class="grey rounded border border-success shadow-lg">
                     <img class="img-thumbnail" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
                         alt="">
                 </div>
             </div>
-            <div class="col-9 bg-dark p-2">
-                <div class="bg-light">
+            <div class="col-4  p-2">
+                <div class="grey rounded border border-success shadow-lg">
                     <h3>Details:</h3>
                     <ul>
                         <li>Perfect for {{ recipe.get_type_display }}</li>
@@ -57,11 +45,31 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">like</div>
+                        <div class="col-6">        <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if saved %}
+                                <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                {% else %}
+                                <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            {% endif %}</div>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <div class="row">
-            <div class="col-12 bg-dark p-2">
-                <div class="bg-light">
+            <div class="col-12  p-2">
+                <div class="grey rounded border border-success shadow-lg">
                     <div>
                         <h3>Ingredients:</h3>{{ recipe.ingredients|safe }}
                     </div>
@@ -69,8 +77,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 bg-dark p-2">
-                <div class="bg-light">
+            <div class="col-12  p-2">
+                <div class="grey rounded border border-success shadow-lg">
                     <div>
                         <h3>Method:</h3>{{ recipe.method|safe }}
                     </div>

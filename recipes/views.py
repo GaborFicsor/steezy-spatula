@@ -18,6 +18,7 @@ class RecipeList(generic.ListView):
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = 'recipes.html'
     paginate_by = 9
+    form_class = RecipeFilterForm
 
     queryset = Recipe.objects.all()
     context_object_name = 'recipes'

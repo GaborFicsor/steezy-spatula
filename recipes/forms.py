@@ -39,5 +39,15 @@ class SaveForm():
         model = Recipe
         fields = ('saved',)
 
-class RecipeFilterForm(forms.Form):
-    name = forms.CharField()
+class RecipeFilterForm(forms.ModelForm):
+    # name = forms.CharField()
+    class Meta:
+        model = Recipe
+        fields = ('recipe_name', 'type', 'difficulty', 'label')
+
+        widgets = {
+            'recipe_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'type': forms.Select(attrs={'class': 'form-control'}),
+            'difficulty': forms.Select(attrs={'class': 'form-control'}),
+            'label': forms.Select(attrs={'class': 'form-control'})
+        }
