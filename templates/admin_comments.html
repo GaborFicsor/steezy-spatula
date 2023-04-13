@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>recipes</h1>
+
+
+
+<ul>
+    {% for recipe in recipes.to_approve %}
+    <li>{{ recipe.recipe_name }}</li>
+    {% endfor %}
+</ul>
+
+<h1>recipes to approve</h1>
+<ul>
+    {% for recipe in recipes.approved %}
+    <li>{{ recipe.recipe_name }}</li>
+    {% endfor %}
+</ul>
+
+<h1>Comments</h1>
+{% for comment in comments.to_approve %}
+<li>{{ comment.comment_id }}</li>
+{% endfor %}
+
+
+<h1>Comments to approve</h1>
+{% for comment in comments.approved %}
+<li>{{ comment.comment_id }}</li>
+{% endfor %}
+{% endblock %}

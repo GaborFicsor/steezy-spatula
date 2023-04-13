@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h2 class="text-center">Recipes</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Recipe</th>
+                        <th>Author</th>
+                        <th>Approved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recipe in recipes.approved %}
+                    <tr>
+                        <td>{{ recipe.recipe_name }}</td>
+                        <td>{{ recipe.author }}</td>
+                        <td>{{ recipe.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-lg-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Recipe</th>
+                        <th>Author</th>
+                        <th>Approved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recipe in recipes.not_approved %}
+                    <tr>
+                        <td>{{ recipe.recipe_name }}</td>
+                        <td>{{ recipe.author }}</td>
+                        <td>{{ recipe.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<h2 class="text-center">Comments</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-6">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Comments</th>
+                        <th>Author</th>
+                        <th>Approved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comment in approved_comments %}
+                    <tr>
+                        <td>{{ comment.name }}</td>
+                        <td>{{ comment.body }}</td>
+                        <td>{{ comment.approved }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="col-12 col-lg-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Comments</th>
+                        <th>Author</th>
+                        <th>Approved</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comment in not_approved_comments %}
+                    <tr>
+                        <td>{{ comment.name }}</td>
+                        <td>{{ comment.body }}</td>
+                        <td>{{ comment.approved }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

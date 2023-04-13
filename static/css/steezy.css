@@ -14,13 +14,35 @@ body{
     background-position: center;
 }
 
+a {
+    text-decoration: none;
+    color:#00a008;
+}
+
 .elara {
     background: #492c59;
+}
+
+.child {
+    height: 50%;
+}
+
+.grey {
+    background: #dedede77;
+}
+
+.green-text {
+    color:#006e05;
+}
+
+.hidden {
+    color:#bbbbbb;
 }
 
 .fa-lg {
     font-size: 2rem;
 }
+
 
 .relative-title-1 {
     top: 35%;
@@ -43,6 +65,7 @@ body{
     letter-spacing: 1px;
     display: none;
 }
+
 
 .bold {
     font-weight: bold;
@@ -111,7 +134,7 @@ body{
 }
 /* Recipe detail page */
 
-.recipe-detail-title {
+.header-title {
     font-family: 'Seaweed Script', cursive;
     font-size: 4rem;
 }

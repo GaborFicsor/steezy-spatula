@@ -129,6 +129,25 @@ class UserProfileView(LoginRequiredMixin, generic.ListView):
         }
         return queryset
 
+class DashBoardView(LoginRequiredMixin, generic.ListView):
+    template_name = 'dashboard.html'
+    context_object_name = 'recipes'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = Comment.objects.all()
+        context['approved_comments'] = Comment.objects.filter(approved=True)
+        context['not_approved_comments'] = Comment.objects.filter(approved=False)
+        return context
+
+
+    def get_queryset(self):
+        queryset = {
+            'approved': Recipe.objects.filter(status=1),
+            'not_approved': Recipe.objects.filter(status=0)
+        }
+        return queryset
+
 
 class SaveRecipe(View):
 
@@ -140,4 +159,5 @@ class SaveRecipe(View):
             recipe.saves.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
 
