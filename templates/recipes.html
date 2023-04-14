@@ -17,58 +17,44 @@
 </div>
 
 
-<div class="container p-5">
 
+<div class="container white shadow-lg">
 
     <div class="row">
         {% for recipe in recipes %}
-        <div class="col-12 col-sm-4 my-5 d-flex align-items-stretch">
-            <div class="card mx-auto">
-                <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="Card image cap">
-                <div class="card-img-overlay">
-                    {% if user.is_authenticated %}
-                    <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
-                        {% csrf_token %}
-                        {% if user in recipe.saves.all %}
-                        <button class="btn btn-lg btn-link" type="submit" name="blogpost_id" value="{{ recipe.slug }}"
-                            class="btn-like"><i class="text-white fa-sharp fa-solid fa-bookmark "></i></button>
-                        {% else %}
-                        <button class="btn btn-lg btn-link" type="submit" name="blogpost_id" value="{{ recipe.slug }}"
-                            class="btn-like"><i class="text-white fa-sharp fa-regular fa-bookmark"></i></button>
-                        {% endif %}
 
+        <div class="col-12 col-sm-4 p-5 d-flex align-items-stretch">
 
-
-                    </form>
-
-
-                    {% else %}
-                    <span class="text-secondary"><i class="far fa-heart"></i></span>
-
-                    {% endif %}
-                </div>
+            <div class="card rounded-0 border border-0 shadow-lg mx-auto">
                 
+                <img class="card-img-top rounded-0"
+                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="Card image cap">
                     
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush text-center">
-                          <li class="list-group-item"><a href="{% url 'recipe_detail' recipe.slug %}">{{ recipe.recipe_name }}</a></li>
-                          <li class="list-group-item">{% if user == recipe.author %}
-                            <a href="{% url 'update_recipe' recipe.slug %}"><i
-                                class="btn text-dark fa-solid fa-trash-can"></i></a>
-                            <a href="{% url 'delete_recipe' recipe.slug %}"><i
-                                class="btn text-dark fa-solid fa-pencil"></i></a>
-        
-                            {% endif %}</li>
-                          <li class="list-group-item">difficulty</li>
-                        </ul>
-                      </div>
-                
+                    
+                <div class="card-body">
+                    <a class="stretched-link"
+                        href="{% url 'recipe_detail' recipe.slug %}">{{ recipe.recipe_name }}</a>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item"><i class="fa-regular fa-face-smile"></i>
+                            {{ recipe.get_difficulty_display }}</li>
+                        <li class="list-group-item"><i class="fa-regular fa-clock"></i>
+                            {{ recipe.get_cooking_time_display}}</li>
+                    </ul>
+
+
+
+                </div>
+
+
             </div>
         </div>
         {% endfor %}
     </div>
 
+
 </div>
+
 
 
 
