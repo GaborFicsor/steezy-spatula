@@ -8,7 +8,7 @@
 
 <div class="container pt-5">
     <div class="row gap-5 gap-lg-0">
-        <div class="col-12 col-lg-6 grey rounded shadow-lg pt-5">
+        <div class="col-12 col-lg-6 white shadow-lg pt-5">
 
             <h1 class="cursive text-center">My Recipes <a href="{% url 'create_recipe' %}">+</a></h1>
 
@@ -27,10 +27,12 @@
                     <tr>
                         <td><a class="text-decoration-none"
                                 href="{% url 'recipe_detail' recipe.slug %}">{{ recipe.recipe_name }}</a></td>
-                        <td class="text-center"><a href="{% url 'update_recipe' recipe.slug %}"><i
-                                    class="btn text-dark fa-solid fa-pencil"></i></a></td>
-                        <td class="text-center"><a href="{% url 'delete_recipe' recipe.slug %}"><i
-                                    class="btn text-dark fa-solid fa-trash-can"></i></a></td>
+                        <td class="text-center">                <a href="{% url 'update_recipe' recipe.slug %}">
+                    <i class="btn   fa-solid fa-pencil"></i>
+                </a></td>
+                        <td class="text-center">                <a href="{% url 'delete_recipe' recipe.slug %}">
+                    <i class="btn   fa-solid fa-trash-can"></i>
+                </a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -42,7 +44,7 @@
             </div>
             {% endif %}
         </div>
-        <div class="col-12 col-lg-5 offset-lg-1 grey rounded shadow-lg pt-5">
+        <div class="col-12 col-lg-5 offset-lg-1 white shadow-lg pt-5">
 
             <h1 class="cursive text-center">My saved recipes</h1>
 

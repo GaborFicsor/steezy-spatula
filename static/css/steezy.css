@@ -4,6 +4,25 @@
 
 body{
     padding-top: 55px;
+    background: #e0ded9;
+    height: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+hr {
+    border: 1px solid #FF5733;
+    border-radius: 5px;
+}
+
+.big {
+    font-size: 2rem;
+}
+
+img {
+    max-width: 100%;
 }
 
 .header {
@@ -15,23 +34,25 @@ body{
 
 a {
     text-decoration: none;
-    color:#00a008;
+    color:#FF5733;
 }
 
 .elara {
-    background: #492c59;
+    background: #FF5733;
 }
 
 .child {
     height: 50%;
 }
 
-.grey {
-    background: #dedede77;
+.white {
+    background: rgb(255, 255, 255);
 }
 
 .green-text {
-    color:#006e05;
+    /* color:#006e05; */
+    color: #FF5733;
+
 }
 
 .hidden {

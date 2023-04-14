@@ -52,10 +52,10 @@ class Recipe(models.Model):
         (timedelta(minutes=60), '1 hour')
     ]
     DIFFICULTY = [
-        (0, 'Easy-peasy'),
-        (1, 'I know cooking'),
-        (2, 'Up for a challenge'),
-        (3, 'Battle hardened')
+        (20, 'Easy & quick'),
+        (40, 'Moderate'),
+        (60, 'Intermediate'),
+        (80, 'Challenging')
     ]
     author = models.ForeignKey(
         User,

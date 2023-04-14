@@ -1,6 +1,8 @@
 import django_filters
 from .models import Recipe
+from django import template
 
+register = template.Library()
 
 class RecipeFilter(django_filters.FilterSet):
     class Meta:
@@ -11,3 +13,4 @@ class RecipeFilter(django_filters.FilterSet):
             'difficulty': ['exact'],
             'label': ['exact']
         }
+

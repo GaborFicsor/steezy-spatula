@@ -1,146 +1,192 @@
 {% extends "home.html" %}
 
 {% block content %}
+<!-- {% block title %}{{ recipe.recipe_name }}{% endblock %} -->
 {% load crispy_forms_tags %}
+
+<!-- header start -->
 <header class="text-white header">
     <div class="container">
         <div class="row">
-            <div class="col-6 my-5 overflow-hidden ">
-                <p class="recipe-detail-title">{{ recipe.recipe_name }}</p>
-                <p>{{ recipe.author }}, {{ recipe.created_on }}</p>
+
+            <!-- display the name, author and the date of creation of the current recipe -->
+            <div class="col-12 my-5">
+                <h1 class="cursive">{{ recipe.recipe_name }}</h1>
+                <h5>{{ recipe.author }}, {{ recipe.created_on }}</h5>
             </div>
         </div>
     </div>
 </header>
+<!-- header end -->
 
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+
+            <!-- if the user is logged in they can save and unsave a recipe -->
+            {% if user.is_authenticated %}
+            <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
+                {% csrf_token %}
+                {% if saved %}
+                <button class="btn big btn-link" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
+                    <i class="text-dark fa-sharp fa-solid fa-bookmark "></i>
+                </button>
+                {% else %}
+                <button class="text-dark btn big btn-link" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
+                    <i class=" fa-sharp fa-regular fa-bookmark"></i>
+                </button>
+                {% endif %}
+            </form>
+            {% endif %}
+
+            <!-- if the user is the author of the recipe, display an edit and a delete icon -->
+            {% if user == recipe.author %}
+            <a href="{% url 'update_recipe' recipe.slug %}">
+                <i class="btn big fa-solid fa-pencil"></i>
+            </a>
+            <a href="{% url 'delete_recipe' recipe.slug %}">
+                <i class="btn big fa-solid fa-trash-can"></i>
+            </a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+<!-- main section start -->
 <section>
     <div class="container">
 
-        <div class="row">
-            <div class="col-3  p-2">
-                <div class="grey rounded border border-success shadow-lg">
-                    <img class="img-thumbnail" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-                        alt="">
-                </div>
-            </div>
-            <div class="col-4  p-2">
-                <div class="grey rounded border border-success shadow-lg">
-                    <h3>Details:</h3>
-                    <ul>
-                        <li>Perfect for {{ recipe.get_type_display }}</li>
-                        <li>main ingredient: {{ recipe.get_main_ingredient_display }}</li>
-                        <li>prep time: {{ recipe.get_prep_time_display }}</li>
-                        <li>cooking time: {{ recipe.get_cooking_time_display }}</li>
-                        <li>difficulty: {{ recipe.difficulty }}</li>
-                        <li>difficulty: {{ recipe.get_difficulty_display }}
-                            <!-- <div class="progress" >
-                                <div class="bg-success" role="progressbar" aria-valuenow="{{ recipe.difficulty }}" aria-valuemin="0" aria-valuemax="4"" ></div>
-                            </div> -->
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar"
-                                    style="width: {{ recipe.difficulty }}%" aria-valuenow="{{ recipe.difficulty }}%"
-                                    aria-valuemin="0%" aria-valuemax="4%"></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">like</div>
-                        <div class="col-6">        <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
-                            {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
-                                {% csrf_token %}
-                                {% if saved %}
-                                <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="fas fa-heart"></i></button>
-                                {% else %}
-                                <button type="submit" name="blogpost_id" value="{{ recipe.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
-                                {% endif %}
-                            </form>
-                            {% else %}
-                            <span class="text-secondary"><i class="far fa-heart"></i></span>
-                            {% endif %}</div>
-                    </div>
-                </div>
+        <!-- first row start -->
+        <div class="row white shadow mb-4">
+
+            <!-- recipe image -->
+            <div class=" col-12 col-md-5 col-lg-4 p-2">
+                <img class="img-fluid" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="">
             </div>
 
-        </div>
-        <div class="row">
-            <div class="col-12  p-2">
-                <div class="grey rounded border border-success shadow-lg">
-                    <div>
-                        <h3>Ingredients:</h3>{{ recipe.ingredients|safe }}
-                    </div>
-                </div>
+            <!-- recipe details -->
+            <div class="col-12 col-md-5 col-lg-6 p-4">
+                <h3>Details:</h3>
+                <ul>
+                    <li>Perfect for {{ recipe.get_type_display }}</li>
+                    <li>main ingredient: {{ recipe.get_main_ingredient_display }}</li>
+                    <li>prep time: {{ recipe.get_prep_time_display }}</li>
+                    <li>cooking time: {{ recipe.get_cooking_time_display }}</li>
+                    <li>difficulty: {{ recipe.get_difficulty_display }}</li>
+                </ul>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12  p-2">
-                <div class="grey rounded border border-success shadow-lg">
-                    <div>
-                        <h3>Method:</h3>{{ recipe.method|safe }}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- first row end -->
 
-        <div class="row">
-            <div class="col-md-8 card mb-4  mt-3 ">
+        <hr>
+
+        <!-- second row start / recipe ingredients -->
+        <div class="row white shadow mb-4">
+            <div class="col-12 p-4">
+                <div>
+                    <h3>Ingredients:</h3>{{ recipe.ingredients|safe }}
+                </div>
+            </div>
+        </div>
+        <!-- second row end  -->
+
+        <hr>
+
+        <!-- third row start / recipe method -->
+        <div class="row white shadow mb-4">
+            <div class="col-12 p-4">
+                <div>
+                    <h3>Method:</h3>{{ recipe.method|safe }}
+                </div>
+            </div>
+        </div>
+        <!-- third row end -->
+
+        <hr>
+
+        <!-- comment section start -->
+        <div class="row white shadow mb-4">
+            <div class="col-md-8 p-4">
                 <h3>Comments:</h3>
-                <div class="card-body">
-                    <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                <div>
+
+                    <!-- list comments -->
                     {% for comment in comments %}
-                    <div class="comments" style="padding: 10px;">
+                    <div class="comments">
                         <p class="font-weight-bold">
-                            <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                             {{ comment.name }}
-                            <span class=" text-muted font-weight-normal">
-                                <!-- The comment's created date goes here -->
+                            
+                            <span class="text-muted">
                                 {{ comment.created_on }}
-                            </span> wrote:
+                            </span>
+
+                            <span>
+                                <!-- if the existing comment belongs to the current user -->
+                                {% if user.username == comment.name %}
+
+                                <!-- edit comment -->
+                                <a href="{% url 'edit_comment' comment.id %}">
+                                    <i class="btn btn-sm text-dark fa-solid fa-pencil"></i>
+                                </a>
+
+                                <!-- delete comment -->
+                                <a href="{% url 'delete_comment' comment.id %}">
+                                    <i class="btn btn-sm text-dark fa-solid fa-trash-can"></i>
+                                </a>
+                                {% endif %}
+                            </span>
                         </p>
-                        <!-- The body of the comment goes before the | -->
+                        
                         {{ comment.body | linebreaks }}
+                        
+                        <hr>
                     </div>
-                    {% if user.username == comment.name %}
-                    <button>
-                        <a href="{% url 'edit_comment' comment.id %}">edit comment</a>
-                    </button>
-                    <button>
-                        <a href="{% url 'delete_comment' comment.id %}">delete comment</a>
-                    </button>
-                    {% endif %}
-                    <!-- Our for loop ends here -->
+
+                    <!-- if there are not comments yet -->
+                    {% empty %}
+
+                    <div class="p-5 d-flex align-items-center justify-content-center">
+                        <h5 class="text-center text-muted">Be the first to comment! &#128578;</h5>
+                    </div>
+
                     {% endfor %}
                 </div>
             </div>
 
+            
+            <!-- comment form -->
+            <div class="col-md-4 p-4">
+                <div>
 
-            <div class="col-md-4 card mb-4  mt-3 ">
-                <div class="card-body">
-                    <!-- For later -->
+                    <!-- alert if the user submitted a comment -->
                     {% if commented %}
+
                     <div class="alert alert-success" role="alert">
                         Your comment is awaiting approval
                     </div>
+
                     {% else %}
+
+                    <!-- if a user is logged in display the comment form -->
                     {% if user.is_authenticated %}
 
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
-                    <form method="post" style="margin-top: 1.3em;">
+                    <form method="POST">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        <button type="submit" class="btn elara btn mt-2">Submit</button>
                     </form>
                     {% endif %}
                     {% endif %}
                 </div>
             </div>
         </div>
-    </div>
+        <!-- comment section end -->
 
+    </div>
 </section>
+<!-- main section end -->
 {%endblock%}
