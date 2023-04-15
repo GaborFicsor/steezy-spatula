@@ -12,6 +12,7 @@
         <form method="GET">
             {% csrf_token %}
             {{ form.as_p }}
+            <input type="submit">
         </form>
     </div>
 </div>
@@ -26,14 +27,13 @@
         <div class="col-12 col-sm-4 p-5 d-flex align-items-stretch">
 
             <div class="card rounded-0 border border-0 shadow-lg mx-auto">
-                
+
                 <img class="card-img-top rounded-0"
                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="Card image cap">
-                    
-                    
+
+
                 <div class="card-body">
-                    <a class="stretched-link"
-                        href="{% url 'recipe_detail' recipe.slug %}">{{ recipe.recipe_name }}</a>
+                    <a class="stretched-link" href="{% url 'recipe_detail' recipe.slug %}">{{ recipe.recipe_name }}</a>
                     <ul class="list-group list-group-flush">
 
                         <li class="list-group-item"><i class="fa-regular fa-face-smile"></i>
@@ -58,22 +58,45 @@
 
 
 
-{% if is_paginated %}
-<br>
-<div>
-    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-</div>
-<nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-        {% endif %}
-        {% if page_obj.has_next %}
-        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+<div class="container white">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="pagination">
+                <span class="step-links">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
 
-        {% endif %}
-    </ul>
-</nav>
-{% endif %}
+                            <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+                            {% endif %}
+
+                            <span class="current">
+                                <li class="page-item disabled"><a href="#" class="page-link">Page {{ page_obj.number }}
+                                        of
+                                        {{ page_obj.paginator.num_pages }}.</a></li>
+                            </span>
+
+                            {% if page_obj.has_next %}
+                            <!-- https://stackoverflow.com/questions/52007038/pagination-using-listview-and-a-dynamic-filtered-queryset -->
+                            <li class="page-item"><a class="page-link"
+                                    href="?{{ request.GET.urlencode }}&page={{ page_obj.next_page_number }}">next</a>
+                            </li>
+                            <li class="page-item"><a class="page-link"
+                                    href="?{{ request.GET.urlencode }}&page={{ page_obj.paginator.num_pages }}">last
+                                    &raquo;</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </span>
+            </div>
+        </div>
+
+    </div>
 </div>
+
+
+
+
 {%endblock%}
