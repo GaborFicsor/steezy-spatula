@@ -12,7 +12,8 @@
             <!-- display the name, author and the date of creation of the current recipe -->
             <div class="col-12 my-5">
                 <h1 class="cursive">{{ recipe.recipe_name }}</h1>
-                <h5>{{ recipe.author }}, {{ recipe.created_on }}</h5>
+                <h5>added by: {{ recipe.author }}</h5>
+                <h5>{{ date_added }}</h5>
             </div>
         </div>
     </div>
@@ -43,7 +44,7 @@
             {% if user == recipe.author %}
             <button class="btn big">
                 <a href="{% url 'update_recipe' recipe.slug %}">
-                    <i class="fa-solid fa-pencil"></i>
+                    <i class="text-decoration-none fa-solid fa-pencil"></i>
                 </a>
             </button>
             <button class="btn big">
@@ -71,20 +72,50 @@
             </div>
 
             <!-- recipe details -->
-            <div class="col-12 col-md-5 col-lg-6 p-4">
+            <div class="col-12 col-md-5 col-lg-8 p-4">
                 <h3>Details:</h3>
-                <ul>
-                    <li>Perfect for {{ recipe.get_type_display }}</li>
-                    <li>main ingredient: {{ recipe.get_main_ingredient_display }}</li>
-                    <li>prep time: {{ recipe.get_prep_time_display }}</li>
-                    <li>cooking time: {{ recipe.get_cooking_time_display }}</li>
-                    <li>difficulty: {{ recipe.get_difficulty_display }}</li>
+                <ul class="list-unstyled">
+                    <li>
+                        <b>
+                            Perfect for:
+                        </b> {{ recipe.get_type_display }}
+                    </li>
+                    <li>
+                        <b>
+                            main ingredient:
+                        </b>
+                        {{ recipe.get_main_ingredient_display }}
+                    </li>
+                    <li>
+                        <b>
+                            prep time:
+                        </b>
+                        {{ recipe.get_prep_time_display }}
+                    </li>
+                    <li>
+                        <b>
+                            cooking time:
+                        </b>
+                        {{ recipe.get_cooking_time_display }}
+                    </li>
+                    <li>
+                        <b>
+                            difficulty:
+                        </b>
+                        {{ recipe.get_difficulty_display }}
+                    </li>
+                    <li>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar"
+                                style="width: {{ recipe.difficulty }}%;" aria-valuenow="{{ recipe.difficulty }}"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
         <!-- first row end -->
 
-        <hr>
 
         <!-- second row start / recipe ingredients -->
         <div class="row white shadow mb-4">
@@ -96,7 +127,6 @@
         </div>
         <!-- second row end  -->
 
-        <hr>
 
         <!-- third row start / recipe method -->
         <div class="row white shadow mb-4">
@@ -108,7 +138,6 @@
         </div>
         <!-- third row end -->
 
-        <hr>
 
         <!-- comment section start -->
         <div class="row white shadow mb-4">

@@ -48,11 +48,14 @@ class RecipeDetail(generic.DetailView):
         context["comments"] = self.object.comments.filter(approved=True).order_by("created_on")
         context["commented"] = False
         context["comment_form"] = CommentForm()
+        context["date_added"] = self.object.created_on.strftime('%B %d, %Y')
         if self.object.likes.filter(id=self.request.user.id).exists():
             context["liked"] = True
         if self.object.saves.filter(id=self.request.user.id).exists():
             context["saved"] = True
         return context
+
+
 
     def post(self, request, slug, *args, **kwargs):
         self.object = self.get_object()
