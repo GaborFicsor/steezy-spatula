@@ -41,6 +41,11 @@ hr {
     color: #ffffff;
 }
 
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem #FF5733;
+    color: #FF5733;
+}
+
 
 .big {
     font-size: 2rem;
