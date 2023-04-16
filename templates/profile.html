@@ -2,93 +2,160 @@
 {% block title %}My Steezy Stuff{% endblock %}
 {% block content %}
 
-<!-- display the current user's name as a header -->
+<!-- display the current user's name and date registered as header -->
 <div class="text-white text-center header py-5">
-    <p class="header-title">{{ user.username }}</p>
-    <p class="disabled">Member since: {{ date_joined }}</p>
+    <p class="header-title">
+        {{ user.username }}
+    </p>
+    <p>
+        Member since: {{ date_joined }}
+    </p>
 </div>
 
+<!-- maint container to hold tables of current user's created and saved recipes -->
 <div class="container pt-5">
+
+    <!-- current user's created and saved recipes section start -->
     <div class="row gap-5 gap-lg-0">
         <div class="col-12 col-lg-6 white shadow-lg pt-5 align-self-start">
 
+            <!-- title that functions as a button that takes the user to create a recipe -->
             <h1 class="text-center">
                 my recipes
                 <a href="{% url 'create_recipe' %}">&#43</a>
             </h1>
 
+            <!-- if the current user has any created recipes, list them here as a table -->
             {% if my_recipes.created %}
             <table class="table table-striped table-hover table-borderless">
+
+                <!-- table head -->
                 <thead>
                     <tr>
-                        <th>Recipe</th>
-                        <th class="text-center">Edit</th>
-                        <th class="text-center">Delete</th>
+                        <th>
+                            Recipe
+                        </th>
+                        <th class="text-center">
+                            Edit
+                        </th>
+                        <th class="text-center">
+                            Delete
+                        </th>
                     </tr>
                 </thead>
+
+                <!-- table body -->
                 <tbody>
+
+                    <!-- list every recipe the current user has created -->
                     {% for recipe in my_recipes.created %}
 
+                    <!-- table row for each recipe the current user has created -->
                     <tr>
-                        <td><a class="text-decoration-none"
-                                href="{% url 'recipe_detail' recipe.slug %}">{{ recipe.recipe_name }}</a></td>
-                        <td class="text-center"> <a href="{% url 'update_recipe' recipe.slug %}">
+                        <td>
+                            <a href="{% url 'recipe_detail' recipe.slug %}">
+                                {{ recipe.recipe_name }}
+                            </a>
+                        </td>
+
+                        <!-- edit button for each recipe -->
+                        <td class="text-center">
+                            <a class="a-reverse" href="{% url 'update_recipe' recipe.slug %}">
                                 <i class="fa-solid fa-pencil"></i>
-                            </a></td>
-                        <td class="text-center"> <a href="{% url 'delete_recipe' recipe.slug %}">
+                            </a>
+                        </td>
+
+                        <!-- delete button for each recipe -->
+                        <td class="text-center">
+                            <a class="a-reverse" href="{% url 'delete_recipe' recipe.slug %}">
                                 <i class="fa-solid fa-trash-can"></i>
-                            </a></td>
+                            </a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
+
+            <!-- if the current user has not created any recipes yet -->
             {% else %}
             <div class="p-5 d-flex align-items-center justify-content-center">
-                <h5 class="text-center">Looks like you haven't added anything just yet! Share your recipes with us <a
-                        href="{% url 'create_recipe' %}">here</a></h5>
+                <h5 class="text-center">
+                    Looks like you haven't added anything just yet! Share your recipes with us
+                    <a href="{% url 'create_recipe' %}">
+                        here
+                    </a>
+                </h5>
             </div>
             {% endif %}
         </div>
-        <div class="col-12 col-lg-5 offset-lg-1 white shadow-lg pt-5  align-self-start">
+        <!-- end of current user's recipes table -->
 
+        <!-- title for current user's saved recipes -->
+        <div class="col-12 col-lg-5 offset-lg-1 white shadow-lg pt-5  align-self-start">
             <h1 class="text-center">my saved recipes</h1>
 
+            <!-- if the current user has any saved recipes list them here as a table -->
             {% if my_recipes.saved %}
             <table class="table table-striped table-hover table-borderless">
+
+                <!-- table head -->
                 <thead>
                     <tr>
-                        <th>Recipe</th>
-                        <th class="text-center">Author</th>
-                        <th class="text-center">Saved</th>
+                        <th>
+                            Recipe
+                        </th>
+                        <th class="text-center">
+                            Author
+                        </th>
+                        <th class="text-center">
+                            Saved
+                        </th>
                     </tr>
                 </thead>
-                <tbody>
-                    {% for recipe in my_recipes.saved %}
-                    <tr>
-                        <td><a class="text-decoration-none"
-                                href="{% url 'recipe_detail' recipe.slug %}">{{ recipe.recipe_name }}</a></td>
-                        <td class="text-center">{{ recipe.author }}</td>
-                        <td class="text-center">
 
+                <!-- table body -->
+                <tbody>
+
+                    <!-- list every recipe the current user has saved -->
+                    {% for recipe in my_recipes.saved %}
+
+                    <!-- table row for each recipe the current user has saved -->
+                    <tr>
+                        <td>
+                            <a href="{% url 'recipe_detail' recipe.slug %}">
+                                {{ recipe.recipe_name }}
+                            </a>
+                        </td>
+
+                        <!-- saved recipes' original author -->
+                        <td class="text-center">
+                            {{ recipe.author }}
+                        </td>
+
+                        <!-- save button to unsave a recipe -->
+                        <td class="text-center">
                             <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if user in recipe.saves.all %}
                                 <button class="btn transparent btn-sm btn-link" type="submit" name="blogpost_id"
-                                    value="{{ recipe.slug }}"><i
-                                        class="text-dark fa-sharp fa-solid fa-bookmark "></i></button>
+                                    value="{{ recipe.slug }}">
+                                    <i class="text-dark fa-sharp fa-solid fa-bookmark "></i>
+                                </button>
+
                                 {% else %}
                                 <button class="btn btn-sm btn-link" type="submit" name="blogpost_id"
-                                    value="{{ recipe.slug }}"><i
-                                        class="text-dark fa-sharp fa-regular fa-bookmark"></i></button>
+                                    value="{{ recipe.slug }}">
+                                    <i class="text-dark fa-sharp fa-regular fa-bookmark"></i>
+                                </button>
                                 {% endif %}
-
                             </form>
                         </td>
                     </tr>
-
                     {% endfor %}
                 </tbody>
             </table>
+
+            <!-- if the current user has not saved any recipes yet -->
             {% else %}
             <div class="p-5 d-flex align-items-center justify-content-center">
                 <h5 class="text-center">Any <a href="{% url 'recipes' %}">recipe</a> you fancy will be saved here for
@@ -96,24 +163,13 @@
             </div>
             {% endif %}
         </div>
+        <!-- end of current user's saved recipes table -->
     </div>
 </div>
-<!-- <div class="container user-select-none">
-    <div class="row justify-content-center">
-        <div class="overflow-hidden mx-auto">
-            <div class="hidden relative-title bold">
-                <p>Steezy</p>
-                <div class="relative-title-2 bold">
-                    <p>Spatula</p>
-                    <div class="relative-title-3">
-                        <p>Cooking made less overwhelming</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<div class="container">
+<!-- current user's saved and created recipes section end -->
+
+<!-- fancy main logo and slogan of the site as decoration -->
+<div class="container user-select-none">
     <div class="row justify-content-center overflow-hidden">
         <div class="col-12 col-md-10 col-lg-6 offset-lg-1 my-5 centered overflow-hidden">
             <div class="hidden relative-title-1 bold">
@@ -127,8 +183,5 @@
             </div>
         </div>
     </div>
-
-
-
-
-    {% endblock %}
+</div>
+{% endblock %}

@@ -80,6 +80,15 @@ a:hover {
     color:#000000;
 }
 
+.a-reverse {
+    text-decoration: none;
+    color:#000000;
+}
+
+.a-reverse:hover {
+    color:#FF5733;
+}
+
 .elara {
     background: #FF5733;
 }
