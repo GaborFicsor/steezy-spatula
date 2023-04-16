@@ -1,26 +1,15 @@
 {% extends "home.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-
-<div class="text-white form-group header py-5">
-    <!-- <form class="form" method="GET" action="{% url 'recipes' %}">
-        {% csrf_token %}
-        {{ form.as_table }}
-        <input type="submit" value="Submit" class="btn btn-primary">
-    </form> -->
-    <div class="form-group">
-        <form method="GET">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit">
-        </form>
-    </div>
-</div>
 
 
 
 <div class="container white shadow-lg">
-
+<form class="form" method="GET" action="{% url 'recipes' %}">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
     <div class="row">
         {% for recipe in recipes %}
 

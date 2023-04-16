@@ -6,11 +6,11 @@ register = template.Library()
 
 
 class RecipeFilter(django_filters.FilterSet):
+    recipe_name = django_filters.CharFilter(lookup_expr='icontains')
     class Meta:
         model = Recipe
         fields = {
-            'recipe_name': ['icontains'],
-            'type': ['exact'],
-            'difficulty': ['exact'],
-            'label': ['exact']
+            'recipe_name',
+            'type',
+            'difficulty',
         }

@@ -43,11 +43,14 @@ class RecipeFilterForm(forms.ModelForm):
     # name = forms.CharField()
     class Meta:
         model = Recipe
-        fields = ('recipe_name', 'type', 'difficulty', 'label')
+        fields = ('recipe_name', 'type', 'difficulty',)
 
         widgets = {
             'recipe_name': forms.TextInput(attrs={'class': 'form-control'}),
             'type': forms.Select(attrs={'class': 'form-control'}),
             'difficulty': forms.Select(attrs={'class': 'form-control'}),
-            'label': forms.Select(attrs={'class': 'form-control'})
         }
+
+form = RecipeFilterForm()
+for field in form.fields:
+    print(field)
