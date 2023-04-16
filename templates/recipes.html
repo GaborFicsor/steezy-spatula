@@ -4,16 +4,29 @@
 
 
 
-<div class="container white shadow-lg">
-<form class="form" method="GET" action="{% url 'recipes' %}">
+<div class="container white shadow-lg p-5">
+    <form class="form" method="GET" action="{% url 'recipes' %}">
         {% csrf_token %}
-        {{ form.as_table }}
-        <input type="submit" value="Submit" class="btn btn-primary">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3">
+                {{ form.recipe_name|as_crispy_field }}
+            </div>
+            <div class="col-6 col-lg-3 ">
+                {{ form.difficulty|as_crispy_field }}
+            </div>
+            <div class="col-6 col-lg-3">
+                {{ form.type|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 align-self-end text-center pt-3">
+                <input type="submit" value="Search" class="btn btn-primary">
+            </div>
+        </div>
+
     </form>
     <div class="row">
         {% for recipe in recipes %}
 
-        <div class="col-12 col-sm-4 p-5 d-flex align-items-stretch">
+        <div class="col-12 col-md-6 col-lg-4 p-5 d-flex align-items-stretch">
 
             <div class="card rounded-0 border border-0 shadow-lg mx-auto">
 
