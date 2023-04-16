@@ -19,7 +19,7 @@
 </header>
 <!-- header end -->
 
-<div class="container">
+<div class="container my-4">
     <div class="row">
         <div class="col-12 text-center">
 
@@ -28,12 +28,12 @@
             <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
                 {% csrf_token %}
                 {% if saved %}
-                <button class="btn big btn-link" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
-                    <i class="text-dark fa-sharp fa-solid fa-bookmark "></i>
+                <button class="btn big" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
+                    <i class="fa-sharp fa-solid fa-bookmark "></i>
                 </button>
                 {% else %}
-                <button class="text-dark btn big btn-link" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
-                    <i class=" fa-sharp fa-regular fa-bookmark"></i>
+                <button class="btn big" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
+                    <i class="fa-sharp fa-regular fa-bookmark"></i>
                 </button>
                 {% endif %}
             </form>
@@ -41,12 +41,16 @@
 
             <!-- if the user is the author of the recipe, display an edit and a delete icon -->
             {% if user == recipe.author %}
-            <a href="{% url 'update_recipe' recipe.slug %}">
-                <i class="btn big fa-solid fa-pencil"></i>
-            </a>
-            <a href="{% url 'delete_recipe' recipe.slug %}">
-                <i class="btn big fa-solid fa-trash-can"></i>
-            </a>
+            <button class="btn big">
+                <a href="{% url 'update_recipe' recipe.slug %}">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+            </button>
+            <button class="btn big">
+                <a href="{% url 'delete_recipe' recipe.slug %}">
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+            </button>
             {% endif %}
 
         </div>
@@ -177,7 +181,7 @@
                     <form method="POST">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn elara btn mt-2">Submit</button>
+                        <button type="submit" class="btn elara mt-2">Submit</button>
                     </form>
                     {% endif %}
                     {% endif %}

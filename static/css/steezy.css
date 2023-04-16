@@ -17,6 +17,31 @@ hr {
     border-radius: 5px;
 }
 
+.btn {
+    background: #FF5733;
+    color: #ffffff;
+}
+
+.btn a {
+    color: #ffffff;
+}
+
+.btn:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+.pagination a {
+    background-color: #FF5733;
+    color: #ffffff;
+}
+
+.pagination a:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+
 .big {
     font-size: 2rem;
 }

@@ -8,7 +8,7 @@
     <form class="form" method="GET" action="{% url 'recipes' %}">
         {% csrf_token %}
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3 offset-lg-1">
                 {{ form.recipe_name|as_crispy_field }}
             </div>
             <div class="col-6 col-lg-3 ">
@@ -17,16 +17,26 @@
             <div class="col-6 col-lg-3">
                 {{ form.type|as_crispy_field }}
             </div>
-            <div class="col-12 col-md-6 col-lg-3 align-self-end text-center pt-3">
-                <input type="submit" value="Search" class="btn btn-primary">
+            <div class="col-12 col-md-6 col-lg-1 align-self-end text-center pt-3">
+                <input type="submit" value="Search" class="btn mt-2">
+            </div>
+            
+        </div>
+    </form>
+        <div class="row pt-5 text-center">
+            <div class="col-12">
+                <h1>
+                    <a href="{% url 'create_recipe' %}">&#43</a>
+                    <a class="text-dark" href="{% url 'create_recipe' %}">add your own</a>
+                </h1>
             </div>
         </div>
 
-    </form>
+    
     <div class="row">
         {% for recipe in recipes %}
 
-        <div class="col-12 col-md-6 col-lg-4 p-5 d-flex align-items-stretch">
+        <div class="col-12 col-md-6 col-lg-4 my-3 m-md-0 p-md-5 d-flex align-items-stretch">
 
             <div class="card rounded-0 border border-0 shadow-lg mx-auto">
 
