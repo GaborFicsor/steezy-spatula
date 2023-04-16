@@ -12,6 +12,7 @@ textarea {
     resize: none;
 }
 
+
 hr {
     border: 1px solid #FF5733;
     border-radius: 5px;
@@ -46,6 +47,14 @@ hr {
     color: #FF5733;
 }
 
+.transparent {
+    background-color: transparent;
+}
+
+.transparent:hover {
+    color:#FF5733;
+    background-color: transparent;
+}
 
 .big {
     font-size: 2rem;
@@ -65,6 +74,10 @@ img {
 a {
     text-decoration: none;
     color:#FF5733;
+}
+
+a:hover {
+    color:#000000;
 }
 
 .elara {

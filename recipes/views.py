@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Recipe, Comment, UserProfile
 from .forms import CommentForm, RecipeForm, SaveForm, RecipeFilterForm
 from .filters import RecipeFilter
+from django.contrib.auth import get_user_model
 import django_filters
 
 
@@ -131,6 +132,12 @@ class UserProfileView(LoginRequiredMixin, generic.ListView):
             'saved': Recipe.objects.filter(saves=self.request.user)
         }
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = get_user_model().objects.get(id=self.request.user.id)
+        context['date_joined'] = user.date_joined.strftime('%B %d, %Y')
+        return context
 
 class DashBoardView(LoginRequiredMixin, generic.ListView):
     template_name = 'dashboard.html'
