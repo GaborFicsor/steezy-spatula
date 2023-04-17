@@ -3,55 +3,58 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<!-- container of the editing form -->
-<div class="container white shadow-lg p-2 p-sm-5">
-    <div class="row">
-        <div class="col-12">
-            <div>
-                {% if posted %}
-                <div class="alert alert-success" role="alert">
-                    Your recipe is awaiting approval
+<body class="with-background">
+
+    <!-- container of the editing form -->
+    <div class="container white shadow-lg p-2 p-sm-5">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    {% if posted %}
+                    <div class="alert alert-success" role="alert">
+                        Your recipe is awaiting approval
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
+
+                    <!-- current recipe's details: author, created on and updated on -->
+                    <h1>
+                        <b class="orange">
+                            edit:
+                        </b>
+                        {{ recipe.recipe_name}}
+                    </h1>
+                    <p>
+                        added by: {{ recipe.author }}
+                    </p>
+                    <p>
+                        created on: {{ recipe.created_on }}
+                    </p>
+
+                    <!-- if the current recipe has not been updated yet -->
+                    {% if recipe.created_on|date:"F j, Y, g:i a" == recipe.updated_on|date:"F j, Y, g:i a" %}
+                    <p>
+                        last update: not yet updated
+                    </p>
+
+                    <!-- if the current recipe has already been updated once -->
+                    {% else %}
+                    <p>
+                        last update: {{ recipe.updated_on }}
+                    </p>
+                    {% endif %}
+
+                    <!-- update form and submit button -->
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <button type="submit" class="btn btn-signup elara mt-3 btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
                 </div>
-                {% else %}
-                {% if user.is_authenticated %}
-
-                <!-- current recipe's details: author, created on and updated on -->
-                <h1>
-                    <b class="orange">
-                        edit:
-                    </b>
-                    {{ recipe.recipe_name}}
-                </h1>
-                <p>
-                    added by: {{ recipe.author }}
-                </p>
-                <p>
-                    created on: {{ recipe.created_on }}
-                </p>
-
-                <!-- if the current recipe has not been updated yet -->
-                {% if recipe.created_on|date:"F j, Y, g:i a" == recipe.updated_on|date:"F j, Y, g:i a" %}
-                <p>
-                    last update: not yet updated
-                </p>
-
-                <!-- if the current recipe has already been updated once -->
-                {% else %}
-                <p>
-                    last update: {{ recipe.updated_on }}
-                </p>
-                {% endif %}
-
-                <!-- update form and submit button -->
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <button type="submit" class="btn btn-signup elara mt-3 btn-lg">Submit</button>
-                </form>
-                {% endif %}
-                {% endif %}
             </div>
         </div>
     </div>
-</div>
+</body>
 {%endblock%}

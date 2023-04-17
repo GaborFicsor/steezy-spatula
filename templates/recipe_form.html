@@ -3,41 +3,39 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<!-- container of the creating form -->
-<div class="container white shadow-lg p-2 p-sm-5">
-    <div class="row">
-        <div class="col-12">
-            <div>
-                {% if posted %}
-                <div class="alert alert-success" role="alert">
-                    Your recipe is awaiting approval
+<body class="with-background">
+
+    <!-- container of the creating form -->
+    <div class="container white shadow-lg p-2 p-sm-5">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    {% if posted %}
+                    <div class="alert alert-success" role="alert">
+                        Your recipe is awaiting approval
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
+
+                    <!-- creating as current user -->
+                    <h1>
+                        <b class="orange">
+                            {{ user.username }}'s
+                        </b>
+                        super-duper new recipe
+                    </h1>
+
+                    <!-- create form and submit button -->
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <button type="submit" class="btn btn-signup elara mt-3 btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
                 </div>
-                {% else %}
-                {% if user.is_authenticated %}
-
-                <!-- creating as current user -->
-                <h1>
-                    <b class="orange">
-                        {{ user.username }}'s
-                    </b>
-                    super-duper new recipe
-                </h1>
-
-                <!-- create form and submit button -->
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <button type="submit" class="btn btn-signup elara mt-3 btn-lg">Submit</button>
-                </form>
-                {% endif %}
-                {% endif %}
             </div>
         </div>
     </div>
-</div>
-
-
-
-
-
+</body>
 {%endblock%}

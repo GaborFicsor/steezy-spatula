@@ -3,139 +3,141 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<!-- main section white container -->
-<div class="container white shadow-lg p-5">
+<body class="with-background ">
 
-    <!-- form section for filtering and searching recipes -->
-    <form class="form" method="GET" action="{% url 'recipes' %}">
-        {% csrf_token %}
+    <!-- main section white container -->
+    <div class="container white shadow-lg p-5">
 
-        <!-- form row -->
-        <div class="row">
+        <!-- form section for filtering and searching recipes -->
+        <form class="form" method="GET" action="{% url 'recipes' %}">
+            {% csrf_token %}
 
-            <!-- recipe name as textfield / icontains -->
-            <div class="col-12 col-md-6 col-lg-3 offset-lg-1">
-                {{ form.recipe_name|as_crispy_field }}
+            <!-- form row -->
+            <div class="row">
+
+                <!-- recipe name as textfield / icontains -->
+                <div class="col-12 col-md-6 col-lg-3 offset-lg-1">
+                    {{ form.recipe_name|as_crispy_field }}
+                </div>
+
+                <!-- recipe difficulty / exact -->
+                <div class="col-6 col-lg-3 ">
+                    {{ form.difficulty|as_crispy_field }}
+                </div>
+
+                <!-- recipe type / exact -->
+                <div class="col-6 col-lg-3">
+                    {{ form.type|as_crispy_field }}
+                </div>
+
+                <!-- submit button for filter / search -->
+                <div class="col-12 col-md-6 col-lg-1 align-self-end text-center pt-3">
+                    <input type="submit" value="Search" class="btn mt-2">
+                </div>
             </div>
+        </form>
 
-            <!-- recipe difficulty / exact -->
-            <div class="col-6 col-lg-3 ">
-                {{ form.difficulty|as_crispy_field }}
-            </div>
 
-            <!-- recipe type / exact -->
-            <div class="col-6 col-lg-3">
-                {{ form.type|as_crispy_field }}
-            </div>
-
-            <!-- submit button for filter / search -->
-            <div class="col-12 col-md-6 col-lg-1 align-self-end text-center pt-3">
-                <input type="submit" value="Search" class="btn mt-2">
+        <!-- link that takes the user to creating a recipe  -->
+        <div class="row pt-5 text-center">
+            <div class="col-12">
+                <h1>
+                    <a href="{% url 'create_recipe' %}">&#43</a>
+                    <a class="text-dark" href="{% url 'create_recipe' %}">add your own</a>
+                </h1>
             </div>
         </div>
-    </form>
 
 
-    <!-- link that takes the user to creating a recipe  -->
-    <div class="row pt-5 text-center">
-        <div class="col-12">
-            <h1>
-                <a href="{% url 'create_recipe' %}">&#43</a>
-                <a class="text-dark" href="{% url 'create_recipe' %}">add your own</a>
-            </h1>
+        <!-- displaying the recipes / filtered recipes 9 per page -->
+        <div class="row">
+            {% for recipe in recipes %}
+
+            <!-- some crazy bootstrap shenanigans to achieve awesome responsiveness -->
+            <div class="col-12 col-md-6 col-lg-4 my-3 m-md-0 p-md-5 d-flex align-items-stretch">
+
+                <!-- bootstrap card container design -->
+                <div class="card rounded-0 border border-0 shadow-lg mx-auto">
+
+                    <!-- card image -->
+                    <img class="card-img-top rounded-0"
+                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="Card image cap">
+
+                    <!-- card body with stretched link -->
+                    <div class="card-body">
+                        <a class="stretched-link" href="{% url 'recipe_detail' recipe.slug %}">
+                            {{ recipe.recipe_name }}
+                        </a>
+
+                        <!-- card body with recipe details -->
+                        <ul class="list-group list-group-flush">
+
+                            <!-- recipe difficulty / human readable -->
+                            <li class="list-group-item">
+                                <i class="fa-regular fa-face-smile"></i>
+                                {{ recipe.get_difficulty_display }}
+                            </li>
+
+                            <!-- recipe cooking time / human readable -->
+                            <li class="list-group-item">
+                                <i class="fa-regular fa-clock"></i>
+                                {{ recipe.get_cooking_time_display}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 
 
-    <!-- displaying the recipes / filtered recipes 9 per page -->
-    <div class="row">
-        {% for recipe in recipes %}
+    <!-- pagination -->
+    <div class="container white">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <div class="pagination">
+                    <span class="step-links">
+                        <nav aria-label="pagination of the recipes">
+                            <ul class="pagination">
 
-        <!-- some crazy bootstrap shenanigans to achieve awesome responsiveness -->
-        <div class="col-12 col-md-6 col-lg-4 my-3 m-md-0 p-md-5 d-flex align-items-stretch">
+                                <!-- if current page has a previous page -->
+                                {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page=1">&laquo; first</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                </li>
+                                {% endif %}
 
-            <!-- bootstrap card container design -->
-            <div class="card rounded-0 border border-0 shadow-lg mx-auto">
+                                <!-- current page the user is browsing -->
+                                <span class="current">
+                                    <li class="page-item disabled">
+                                        <a href="#" class="page-link">Page {{ page_obj.number }} of
+                                            {{ page_obj.paginator.num_pages }}.</a>
+                                    </li>
+                                </span>
 
-                <!-- card image -->
-                <img class="card-img-top rounded-0"
-                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="Card image cap">
-
-                <!-- card body with stretched link -->
-                <div class="card-body">
-                    <a class="stretched-link" href="{% url 'recipe_detail' recipe.slug %}">
-                        {{ recipe.recipe_name }}
-                    </a>
-
-                    <!-- card body with recipe details -->
-                    <ul class="list-group list-group-flush">
-
-                        <!-- recipe difficulty / human readable -->
-                        <li class="list-group-item">
-                            <i class="fa-regular fa-face-smile"></i>
-                            {{ recipe.get_difficulty_display }}
-                        </li>
-
-                        <!-- recipe cooking time / human readable -->
-                        <li class="list-group-item">
-                            <i class="fa-regular fa-clock"></i>
-                            {{ recipe.get_cooking_time_display}}
-                        </li>
-                    </ul>
+                                <!-- if current page has a remaining page -->
+                                {% if page_obj.has_next %}
+                                <!-- https://stackoverflow.com/questions/52007038/pagination-using-listview-and-a-dynamic-filtered-queryset -->
+                                <li class="page-item">
+                                    <a class="page-link"
+                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.next_page_number }}">next</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.paginator.num_pages }}">last
+                                        &raquo;</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </span>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
-</div>
-
-
-<!-- pagination -->
-<div class="container white">
-    <div class="row justify-content-center">
-        <div class="col-auto">
-            <div class="pagination">
-                <span class="step-links">
-                    <nav aria-label="pagination of the recipes">
-                        <ul class="pagination">
-                            
-                            <!-- if current page has a previous page -->
-                            {% if page_obj.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page=1">&laquo; first</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link"href="?page={{ page_obj.previous_page_number }}">previous</a>
-                            </li>
-                            {% endif %}
-
-                            <!-- current page the user is browsing -->
-                            <span class="current">
-                                <li class="page-item disabled">
-                                    <a href="#" class="page-link">Page {{ page_obj.number }} of
-                                        {{ page_obj.paginator.num_pages }}.</a>
-                                </li>
-                            </span>
-
-                            <!-- if current page has a remaining page -->
-                            {% if page_obj.has_next %}
-                            <!-- https://stackoverflow.com/questions/52007038/pagination-using-listview-and-a-dynamic-filtered-queryset -->
-                            <li class="page-item">
-                                <a class="page-link"
-                                    href="?{{ request.GET.urlencode }}&page={{ page_obj.next_page_number }}">next</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link"
-                                    href="?{{ request.GET.urlencode }}&page={{ page_obj.paginator.num_pages }}">last
-                                    &raquo;</a>
-                                </li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-
+</body>
 {%endblock%}
