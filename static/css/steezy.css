@@ -31,12 +31,9 @@ hr {
 }
 
 .error-title {
-    top: -58px;
-    left: 55px;
-    display: block;
-
+    top: 0px;
+    left: 0px;
     position: relative;
-    font-size: 1.1rem;
 }
 
 .btn {
