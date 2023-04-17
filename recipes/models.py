@@ -7,8 +7,6 @@ from multiselectfield import MultiSelectField
 from datetime import timedelta
 
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
 
 class Recipe(models.Model):
     TYPE = [
@@ -16,26 +14,6 @@ class Recipe(models.Model):
         (1, 'Lunch'),
         (2, 'Dinner'),
         (3, 'Snack')
-    ]
-    MAIN_INGREDIENT = [
-        (0, 'Chicken'),
-        (1, 'Noodles'),
-        (2, 'Fish'),
-        (3, 'Beef'),
-        (4, 'Fruit'),
-        (5, 'Pork'),
-        (6, 'Rice'),
-        (7, 'Seafood'),
-        (8, 'Potato'),
-        (9, 'Bread'),
-        (10, 'Vegetables'),
-        (11, 'Eggs'),
-        (12, 'Oats')
-    ]
-    LABEL = [
-        (0, 'None'),
-        (1, 'Vegan'),
-        (2, 'Vegetarian'),
     ]
     DURATION = [
         (timedelta(minutes=5), '5 mins'),
@@ -63,60 +41,40 @@ class Recipe(models.Model):
         related_name="recipe_posts"
     )
     recipe_name = models.CharField(
-        max_length=150,
+        max_length=50,
         unique=True,
         null=False,
-        default=None
     )
     type = models.IntegerField(
         choices=TYPE,
         null=False,
-        default=None
     )
-    main_ingredient = models.IntegerField(
-        choices=MAIN_INGREDIENT,
-        null=False,
-        default=None
-    )
-    label = models.IntegerField(
-        choices=LABEL,
-        null=False,
-        default=None)
-    ingredients = models.TextField(null=False, default='')
-    method = models.TextField()
+    ingredients = models.TextField(null=False)
+    method = models.TextField(null=False)
     prep_time = models.DurationField(
         choices=DURATION,
         null=False,
-        default=None
     )
     cooking_time = models.DurationField(
         choices=DURATION,
         null=False,
-        default=None
     )
     nuts = models.BooleanField(default=False)
+    vegan = models.BooleanField(default=False)
     dairy = models.BooleanField(default=False)
-    eggs = models.BooleanField(default=False)
-    serving_size = models.IntegerField()
-    calories_per_serving = models.IntegerField()
+    serving_size = models.PositiveIntegerField(null=False)
+    calories_per_serving = models.PositiveIntegerField(null=False)
     difficulty = models.IntegerField(
         choices=DIFFICULTY,
         null=False,
-        default=None
     )
     slug = models.SlugField(max_length=200, unique=True)
     featured_image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=STATUS, default=0)
     saves = models.ManyToManyField(
         User,
         related_name='recipe_saves',
-        blank=True
-    )
-    likes = models.ManyToManyField(
-        User,
-        related_name='recipe_likes',
         blank=True
     )
 
@@ -126,9 +84,6 @@ class Recipe(models.Model):
     def __str__(self):
         return self.recipe_name
 
-    def number_of_likes(self):
-        return self.likes.count()
-
 
 class Comment(models.Model):
     recipe = models.ForeignKey(
@@ -137,16 +92,11 @@ class Comment(models.Model):
         related_name='comments')
     name = models.CharField(max_length=150)
     email = models.EmailField()
-    body = models.TextField()
+    body = models.TextField(null=False)
     created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
-
-
-class UserProfile(models.Model):
-    profile_picture = CloudinaryField('image', default='placeholder')

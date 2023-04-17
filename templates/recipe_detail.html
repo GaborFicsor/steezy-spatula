@@ -79,12 +79,6 @@
                     </li>
                     <li>
                         <b>
-                            main ingredient:
-                        </b>
-                        {{ recipe.get_main_ingredient_display }}
-                    </li>
-                    <li>
-                        <b>
                             prep time:
                         </b>
                         {{ recipe.get_prep_time_display }}
@@ -177,7 +171,7 @@
                         <hr>
                     </div>
 
-                    <!-- if there are not comments yet -->
+                    <!-- if there are no comments yet -->
                     {% empty %}
 
                     <div class="p-5 d-flex align-items-center justify-content-center">
@@ -193,14 +187,6 @@
             <div class="col-md-4 p-4">
                 <div>
 
-                    <!-- alert if the user submitted a comment -->
-                    {% if commented %}
-
-                    <div class="alert alert-success" role="alert">
-                        Your comment is awaiting approval
-                    </div>
-
-                    {% else %}
 
                     <!-- if a user is logged in display the comment form -->
                     {% if user.is_authenticated %}
@@ -212,7 +198,6 @@
                         {% csrf_token %}
                         <button type="submit" class="btn elara mt-2">Submit</button>
                     </form>
-                    {% endif %}
                     {% endif %}
                 </div>
             </div>
