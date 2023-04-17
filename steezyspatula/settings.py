@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['steezy-spatula.herokuapp.com', 'localhost']
 
@@ -70,7 +70,7 @@ SUMMERNOTE_CONFIG = {
     'width': '100%',
     'height': '400px',
     'disable_resize_editor': True,
-    'fontnames' : ['Lato','Catamaran'],
+    'fontnames': ['Lato', 'Catamaran'],
     'fontSizes': ['14'],
     'fontSizeUnits': ['px']
 }
