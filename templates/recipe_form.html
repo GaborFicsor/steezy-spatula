@@ -3,25 +3,41 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="col-md-4 card mb-4  mt-3 ">
-    <div class="card-body">
-        <!-- For later -->
-        {% if posted %}
-        <div class="alert alert-success" role="alert">
-            Your recipe is awaiting approval
-        </div>
-        {% else %}
-        {% if user.is_authenticated %}
+<div class="container white shadow-lg p-5">
+    <div class="row">
+        <div class="col-12">
 
-        <p>Posting as: {{ user.username }}</p>
-        <form method="post" style="margin-top: 1.3em;">
-            {{ form | crispy }}
-            {% csrf_token %}
-            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-        </form>
-        {% endif %}
-        {% endif %}
+                <div>
+                    {% if posted %}
+                    <div class="alert alert-success" role="alert">
+                        Your recipe is awaiting approval
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
+            
+                    <h1>
+                        <b class="user">
+                        {{ user.username }}'s 
+                        </b>
+                        super-duper new recipe</h1>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-signup elara mt-3 btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
+                </div>
+
+        </div>
+            
+
     </div>
 </div>
 
+
+
+
+
 {%endblock%}
+

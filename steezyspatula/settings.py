@@ -62,6 +62,19 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+SUMMERNOTE_CONFIG = {
+    'toolbar': [
+        ['style', ['bold', 'italic', 'underiline', 'clear']],
+        ['para', ['ul', 'ol']],
+    ],
+    'width': '100%',
+    'height': '400px',
+    'disable_resize_editor': True,
+    'fontnames' : ['Lato','Catamaran'],
+    'fontSizes': ['14'],
+    'fontSizeUnits': ['px']
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

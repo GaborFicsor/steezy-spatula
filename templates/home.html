@@ -23,6 +23,15 @@
                         <li>you're mental well-being interferes with your executive functioning</li>
                         <li>looking at unnecessary walls of text annoys you</li>
                     </ul>
+                    {% if user.is_authenticated %}
+                    <a class="d-none" href="{% url 'account_signup' %}">
+                        <button type="submit" class="btn elara mt-2">Register</button>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'account_signup' %}">
+                        <button type="submit" class="btn elara mt-2">Register</button>
+                    </a>
+                    {% endif%}
                 </div>
             </div>
         </div>
@@ -31,8 +40,8 @@
 
 <!-- Content section / a word on me-->
 
-<section >
-    <div class="container px-5">
+<section>
+    <div class="container white px-5">
         <div class="row align-items-center">
             <div class="col-lg-4 text-center">
                 <div class="p-5"><img class="img-fluid about-me" src="../static/images/me.jpg" alt="..." /></div>

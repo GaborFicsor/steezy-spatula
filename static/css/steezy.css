@@ -12,6 +12,14 @@ textarea {
     resize: none;
 }
 
+.view-height-50 {
+    height: 50vh;
+}
+
+.user {
+    color: #FF5733;
+}
+
 hr {
     border: 1px solid #FF5733;
     border-radius: 5px;

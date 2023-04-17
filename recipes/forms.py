@@ -50,7 +50,3 @@ class RecipeFilterForm(forms.ModelForm):
             'type': forms.Select(attrs={'class': 'form-control'}),
             'difficulty': forms.Select(attrs={'class': 'form-control'}),
         }
-
-form = RecipeFilterForm()
-for field in form.fields:
-    print(field)
