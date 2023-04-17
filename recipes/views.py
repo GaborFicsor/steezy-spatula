@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.template.defaultfilters import slugify
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 from .models import Recipe, Comment, UserProfile
 from .forms import CommentForm, RecipeForm, SaveForm, RecipeFilterForm
 from .filters import RecipeFilter
@@ -47,10 +48,11 @@ class RecipeDetail(generic.DetailView):
             .filter(approved=True) \
             .order_by("created_on")
         context["commented"] = False
+        context["deleted_comment"] = False
         context["comment_form"] = CommentForm()
         context["date_added"] = self.object.created_on.strftime('%B %d, %Y')
-        if self.object.likes.filter(id=self.request.user.id).exists():
-            context["liked"] = True
+        # if self.object.likes.filter(id=self.request.user.id).exists():
+        #     context["liked"] = True
         if self.object.saves.filter(id=self.request.user.id).exists():
             context["saved"] = True
         return context
@@ -58,7 +60,7 @@ class RecipeDetail(generic.DetailView):
     def post(self, request, slug, *args, **kwargs):
         self.object = self.get_object()
         context = self.get_context_data()
-        liked = context.get("liked", False)
+        # liked = context.get("liked", False)
         saved = context.get("saved", False)
 
         comment_form = CommentForm(data=request.POST)
@@ -70,6 +72,9 @@ class RecipeDetail(generic.DetailView):
             comment.save()
             context["commented"] = True
             context["comment_form"] = CommentForm()
+            messages.success(
+                self.request, 'You added a comment'
+            )
         else:
             context["comment_form"] = comment_form
 
@@ -81,10 +86,12 @@ class RecipeCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'recipe_form.html'
     form_class = RecipeForm
     success_url = reverse_lazy('recipes')
+    success_message = 'Your recipe has been created successfully!'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.slug = slugify(form.instance.recipe_name)
+        messages.success(self.request, self.success_message)
         return super().form_valid(form)
 
 
@@ -93,17 +100,28 @@ class RecipeUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'recipe_form_edit.html'
     form_class = RecipeForm
     success_url = reverse_lazy('recipes')
+    success_message = 'Your recipe has been updated successfully!'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.slug = slugify(form.instance.recipe_name)
+        messages.success(self.request, self.success_message)
         return super().form_valid(form)
 
+
+# class RecipeDeleteView(LoginRequiredMixin, generic.DeleteView):
+#     model = Recipe
+#     template_name = 'delete_confirm.html'
+#     success_url = reverse_lazy('recipes')
 
 class RecipeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Recipe
     template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, "Recipe has been deleted successfully.")
+        return super().delete(request, *args, **kwargs)
 
 
 class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -111,9 +129,10 @@ class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'comment_form.html'
     form_class = CommentForm
     success_url = reverse_lazy('recipes')
+    success_message = 'Your comment has been updated successfully!'
 
     def form_valid(self, form):
-
+        messages.success(self.request, self.success_message)
         return super().form_valid(form)
 
 
@@ -121,6 +140,10 @@ class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Comment
     template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, "Comment has been deleted successfully.")
+        return super().delete(request, *args, **kwargs)
 
 
 class UserProfileView(LoginRequiredMixin, generic.ListView):
@@ -169,8 +192,12 @@ class SaveRecipe(View):
     def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
         if recipe.saves.filter(id=request.user.id).exists():
+            success_message = '{recipe_name} has been removed from your saved recipes!'
             recipe.saves.remove(request.user)
+            messages.success(request, success_message.format(recipe_name=recipe.recipe_name))
         else:
+            success_message = '{recipe_name} has been added to your saved recipes!'
             recipe.saves.add(request.user)
+            messages.success(request, success_message.format(recipe_name=recipe.recipe_name))
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))

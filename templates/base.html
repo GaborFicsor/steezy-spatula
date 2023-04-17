@@ -26,7 +26,14 @@
     <title>{% block title %}Steezy Spatula{% endblock %}</title>
 
 </head>
-
+{% if messages %}
+<div class="alert alert-success alert-dismissible alert-message fade show mb-0" role="alert">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
 <body>
     <div class="d-flex flex-column min-vh-100">
         <!-- sticky navbar-->
