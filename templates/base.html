@@ -28,59 +28,102 @@
 
 <body>
     <div class="d-flex flex-column min-vh-100">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg  elara sticky-top">
+        <!-- sticky navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light elara sticky-top">
             <div class="container ">
-                <a class="navbar-brand" href="{% url 'homepage' %}">Steezy Spatula</a>
+
+                <!-- top left link that takes the user to the homepage -->
+                <a class="navbar-brand" href="{% url 'homepage' %}">
+                    Steezy Spatula
+                </a>
+
+                <!-- navbar toggler -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+                <!-- navbar items -->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'recipes' %}">Recipes</a></li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' user.username %}">My stuff</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Admin</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Register</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
 
+                        <!-- link to recipes -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'recipes' %}">Recipes</a>
+                        </li>
+
+                        <!-- if the user is logged in -->
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' user.username %}">
+                                My stuff
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}">
+                                Logout
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'dashboard' %}">
+                                Admin
+                            </a>
+                        </li>
+
+                        <!-- if the user is not logged in -->
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}">
+                                Register
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">
+                                Login
+                            </a>
+                        </li>
                         {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- navbar end -->
 
+        <!-- template inheritance block start -->
         <main>
             {% block content %}
             {% endblock %}
         </main>
+        <!-- template inheritance block end -->
 
-        <!-- Footer-->
+        <!-- footer section-->
         <footer class="py-3 mt-auto bg-black">
             <div class="container px-5 text-center">
 
-                <a href="" target="_blank" class="btn text-white">
+                <!-- social media links -->
+                <a href="https://www.linkedin.com/in/gabor-ficsor-58a936197/" target="_blank" class="btn text-white">
                     <i class="fa-brands fa-linkedin-in fa-lg"></i>
                 </a>
-                <a href="" target="_blank" class="btn text-white">
+                <a href="https://www.instagram.com/kidwalksthe.earth/" target="_blank" class="btn text-white">
                     <i class="fa-brands fa-instagram fa-lg"></i>
                 </a>
-                <a href="" target="_blank" class="btn text-white">
+                <a href="https://github.com/GaborFicsor" target="_blank" class="btn text-white">
                     <i class="fa-brands fa-github fa-lg"></i>
                 </a>
 
             </div>
+
+            <!-- my email address -->
             <div class="container px-5">
-                <p class="m-0 text-center text-white small">ficsorgabor@gmail.com</p>
+                <p class="m-0 text-center text-white small">
+                    ficsorgabor@gmail.com
+                </p>
             </div>
         </footer>
+        <!-- footer section end -->
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Core theme JS-->
     </div>
 </body>
 
