@@ -25,13 +25,18 @@ textarea {
     color: #FF5733;
 }
 
-.orange-dark {
-    color:
-}
-
 hr {
     border: 1px solid #FF5733;
     border-radius: 5px;
+}
+
+.error-title {
+    top: -58px;
+    left: 55px;
+    display: block;
+
+    position: relative;
+    font-size: 1.1rem;
 }
 
 .btn {
