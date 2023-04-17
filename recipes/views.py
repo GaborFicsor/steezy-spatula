@@ -14,21 +14,19 @@ import django_filters
 class HomeView(generic.TemplateView):
     template_name = 'home.html'
 
+
 class RecipeList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = 'recipes.html'
     paginate_by = 9
     form_class = RecipeFilterForm
-
     queryset = Recipe.objects.all()
     context_object_name = 'recipes'
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        # self.filterset = RecipeFilter(self.request.GET, queryset=queryset)
         self.filterset = RecipeFilter(self.request.GET, queryset=queryset)
-        # return self.filterset.qs
         return self.filterset.qs.distinct()
 
     def get_context_data(self, **kwargs):
@@ -45,7 +43,9 @@ class RecipeDetail(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["comments"] = self.object.comments.filter(approved=True).order_by("created_on")
+        context["comments"] = self.object.comments \
+            .filter(approved=True) \
+            .order_by("created_on")
         context["commented"] = False
         context["comment_form"] = CommentForm()
         context["date_added"] = self.object.created_on.strftime('%B %d, %Y')
@@ -54,8 +54,6 @@ class RecipeDetail(generic.DetailView):
         if self.object.saves.filter(id=self.request.user.id).exists():
             context["saved"] = True
         return context
-
-
 
     def post(self, request, slug, *args, **kwargs):
         self.object = self.get_object()
@@ -107,6 +105,7 @@ class RecipeDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
 
+
 class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Comment
     template_name = 'comment_form.html'
@@ -117,10 +116,12 @@ class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
 
         return super().form_valid(form)
 
+
 class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Comment
     template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
+
 
 class UserProfileView(LoginRequiredMixin, generic.ListView):
 
@@ -142,6 +143,7 @@ class UserProfileView(LoginRequiredMixin, generic.ListView):
         context['date_joined'] = user.date_joined.strftime('%B %d, %Y')
         return context
 
+
 class DashBoardView(LoginRequiredMixin, generic.ListView):
     template_name = 'dashboard.html'
     context_object_name = 'recipes'
@@ -150,9 +152,9 @@ class DashBoardView(LoginRequiredMixin, generic.ListView):
         context = super().get_context_data(**kwargs)
         context['comments'] = Comment.objects.all()
         context['approved_comments'] = Comment.objects.filter(approved=True)
-        context['not_approved_comments'] = Comment.objects.filter(approved=False)
+        context['not_approved_comments'] = Comment.objects \
+            .filter(approved=False)
         return context
-
 
     def get_queryset(self):
         queryset = {
@@ -172,5 +174,3 @@ class SaveRecipe(View):
             recipe.saves.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
-
-

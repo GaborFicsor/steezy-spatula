@@ -34,13 +34,14 @@ class RecipeForm(forms.ModelForm):
             'method': SummernoteWidget(),
         }
 
+
 class SaveForm():
     class Meta:
         model = Recipe
         fields = ('saved',)
 
+
 class RecipeFilterForm(forms.ModelForm):
-    # name = forms.CharField()
     class Meta:
         model = Recipe
         fields = ('recipe_name', 'type', 'difficulty',)

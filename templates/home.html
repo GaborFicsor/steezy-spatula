@@ -5,24 +5,44 @@
     <div class="container user-select-none">
         <div class="row">
             <div class="col-12 col-lg-6 my-5 centered overflow-hidden">
+                
+                <!-- website logo and slogan -->
                 <div class="relative-title-1 bold">
-                    <p>Steezy</p>
+                    <p>
+                        Steezy
+                    </p>
                     <div class="relative-title-2 bold">
-                        <p>Spatula</p>
+                        <p>
+                            Spatula
+                        </p>
                         <div class="relative-title-3">
-                            <p>Cooking made less overwhelming</p>
+                            <p>
+                                Cooking made less overwhelming
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 d-sm-none d-lg-block col-lg-6 my-5 overflow-hidden">
                 <div class="dedication">
-                    <p class="">This website is for <strong>You,</strong></p>
+
+                    <!-- website explanation -->
+                    <p>
+                        This website is for <strong>You,</strong>
+                    </p>
                     <ul>
-                        <li>If you find it difficult to follow complicated recipes</li>
-                        <li>you're mental well-being interferes with your executive functioning</li>
-                        <li>looking at unnecessary walls of text annoys you</li>
+                        <li>
+                            If you find it difficult to follow complicated recipes
+                        </li>
+                        <li>
+                            you're mental well-being interferes with your executive functioning
+                        </li>
+                        <li>
+                            looking at unnecessary walls of text annoys you
+                        </li>
                     </ul>
+
+                    <!-- call to action button dependig on the user is logged in  -->
                     {% if user.is_authenticated %}
                     <a class="d-none" href="{% url 'account_signup' %}">
                         <button type="submit" class="btn elara mt-2">Register</button>
@@ -37,8 +57,9 @@
         </div>
     </div>
 </header>
+<!-- header section end -->
 
-<!-- Content section / a word on me-->
+<!-- Content section / a word on the website-->
 
 <section>
     <div class="container white shadow-lg mt-5 px-5">
@@ -48,10 +69,10 @@
             </div>
             <div class="col-lg-8 order-sm-2">
                 <div class="p-5">
-                    <h2 class="display-4">A word on the creator...</h2>
+                    <h1 class="display-4">A word on this website...</h1>
                     <p>
                         My name is Gabor, and I have ADHD.
-                        I created this website to help people
+                        I created this website as a project to help people
                         who have depression, impaired executive functioning
                         or generally have a hard time dealing
                         with cooking and being in the kitchen
