@@ -104,7 +104,7 @@ class RecipeUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class RecipeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Recipe
-    template_name = 'delete_recipe.html'
+    template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
 
 class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -119,7 +119,7 @@ class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Comment
-    template_name = 'delete_recipe.html'
+    template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
 
 class UserProfileView(LoginRequiredMixin, generic.ListView):

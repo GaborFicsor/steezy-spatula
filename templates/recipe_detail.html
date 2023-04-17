@@ -42,16 +42,12 @@
 
             <!-- if the user is the author of the recipe, display an edit and a delete icon -->
             {% if user == recipe.author %}
-            <button class="btn big">
-                <a href="{% url 'update_recipe' recipe.slug %}">
-                    <i class="text-decoration-none fa-solid fa-pencil"></i>
-                </a>
-            </button>
-            <button class="btn big">
-                <a href="{% url 'delete_recipe' recipe.slug %}">
-                    <i class="fa-solid fa-trash-can"></i>
-                </a>
-            </button>
+            <a class="a-reverse" href="{% url 'update_recipe' recipe.slug %}">
+                <button class="btn big elara mt-2" type="submit"><i class="fa-solid fa-pencil"></i></button>
+            </a>
+            <a class="a-reverse" href="{% url 'delete_recipe' recipe.slug %}">
+                <button class="btn big elara mt-2" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+            </a>
             {% endif %}
 
         </div>
@@ -160,14 +156,17 @@
                                 {% if user.username == comment.name %}
 
                                 <!-- edit comment -->
-                                <a href="{% url 'edit_comment' comment.id %}">
-                                    <i class="btn btn-sm text-dark fa-solid fa-pencil"></i>
+
+                                <a class="a-reverse" href="{% url 'edit_comment' comment.id %}">
+                                    <i class="fa-solid fa-pencil"></i>
                                 </a>
 
                                 <!-- delete comment -->
-                                <a href="{% url 'delete_comment' comment.id %}">
-                                    <i class="btn btn-sm text-dark fa-solid fa-trash-can"></i>
+                                <a class="a-reverse" href="{% url 'delete_comment' comment.id %}">
+                                    <i class="fa-solid fa-trash-can"></i>
                                 </a>
+
+
                                 {% endif %}
                             </span>
                         </p>
