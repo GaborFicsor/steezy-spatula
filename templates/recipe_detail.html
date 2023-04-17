@@ -192,7 +192,7 @@
                     {% if user.is_authenticated %}
 
                     <h3>Leave a comment:</h3>
-                    <p>Posting as: {{ user.username }}</p>
+                    <p class="orange">{{ user.username }}</p>
                     <form method="POST">
                         {{ comment_form | crispy }}
                         {% csrf_token %}

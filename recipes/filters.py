@@ -6,6 +6,9 @@ register = template.Library()
 
 
 class RecipeFilter(django_filters.FilterSet):
+    """
+    filter for recipe model, filterform rendered on recipes.html
+    """
     recipe_name = django_filters.CharFilter(lookup_expr='icontains')
 
     class Meta:

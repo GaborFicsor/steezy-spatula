@@ -1,12 +1,13 @@
 from django.contrib import admin
 from .models import Recipe, Comment
-
 from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(Recipe)
-class PostAdmin(SummernoteModelAdmin):
-
+class RecipeAdmin(SummernoteModelAdmin):
+    """
+    admin panel table contents of recipe model
+    """
     list_display = (
         'recipe_name',
         'author',
@@ -23,7 +24,9 @@ class PostAdmin(SummernoteModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
+    """
+    admin panel table contents of comment model
+    """
     list_display = ('name', 'body', 'created_on',)
     list_filter = ('created_on',)
     search_fields = ('name', 'eamil', 'body')
-

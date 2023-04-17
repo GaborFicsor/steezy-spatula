@@ -9,6 +9,28 @@ from datetime import timedelta
 
 
 class Recipe(models.Model):
+    """
+    Recipe object model
+    fields:
+        -type
+        -difficulty
+        -author
+        -recipe-name
+        -ingredients
+        -method
+        -preparation time
+        -cooking time
+        -nuts
+        -dairy
+        -vegan
+        -serving size
+        -calories per serving
+        -slug
+        -featured image
+        -date of creation
+        -date of updating
+        -saves
+    """
     TYPE = [
         (0, 'Breakfast'),
         (1, 'Lunch'),
@@ -79,6 +101,9 @@ class Recipe(models.Model):
     )
 
     class Meta:
+        """
+        order by creation date, most recent is first
+        """
         ordering = ['-created_on']
 
     def __str__(self):
@@ -86,6 +111,17 @@ class Recipe(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Comment object model
+    fields:
+        -recipe (as foreignkey)
+        -name
+        -email
+        -body
+        -date of creation
+    credit:
+    I Think therefore I blog walkthrough project by Code Institute
+    """
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
@@ -96,7 +132,10 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['created_on']
+        """
+        order by creation date, most recent is at the top
+        """
+        ordering = ['-created_on']
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"

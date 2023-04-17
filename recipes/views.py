@@ -13,16 +13,24 @@ import django_filters
 
 
 class HomeView(generic.TemplateView):
+    """
+    render landing page
+    """
     template_name = 'home.html'
 
 
 class RecipeList(generic.ListView):
+    """
+    List 9 recipes per page with the ability to filter by:
+        -recipe name that contains entered characters
+        -meal type
+        -difficulty
+    """
     model = Recipe
     queryset = Recipe.objects.all().order_by('created_on')
     template_name = 'recipes.html'
     paginate_by = 9
     form_class = RecipeFilterForm
-    queryset = Recipe.objects.all()
     context_object_name = 'recipes'
 
     def get_queryset(self):
@@ -37,6 +45,13 @@ class RecipeList(generic.ListView):
 
 
 class RecipeDetail(generic.DetailView):
+    """
+    Render a detailed page of a recipe
+    with existing comments
+    also in this view:
+        -crud functionality for recipes
+        -crud functionality for comments
+    """
     model = Recipe
     template_name = "recipe_detail.html"
     context_object_name = "recipe"
@@ -76,6 +91,9 @@ class RecipeDetail(generic.DetailView):
 
 
 class RecipeCreateView(LoginRequiredMixin, generic.CreateView):
+    """
+    Rendering the form for creating a recipe
+    """
     model = Recipe
     template_name = 'recipe_form.html'
     form_class = RecipeForm
@@ -90,6 +108,10 @@ class RecipeCreateView(LoginRequiredMixin, generic.CreateView):
 
 
 class RecipeUpdateView(LoginRequiredMixin, generic.UpdateView):
+    """
+    Rendering the form of a selected recipe with prepopulated fields
+    for editing purposes
+    """
     model = Recipe
     template_name = 'recipe_form_edit.html'
     form_class = RecipeForm
@@ -104,6 +126,9 @@ class RecipeUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 
 class RecipeDeleteView(LoginRequiredMixin, generic.DeleteView):
+    """
+    Delete functionality for recipe objects
+    """
     model = Recipe
     template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
@@ -114,6 +139,10 @@ class RecipeDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
+    """
+    Rendering the form of a selected comment with prepopulated fields
+    for editing purposes
+    """
     model = Comment
     template_name = 'comment_form.html'
     form_class = CommentForm
@@ -126,6 +155,9 @@ class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 
 class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
+    """
+    Delete functionality for recipe objects
+    """
     model = Comment
     template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
@@ -136,13 +168,15 @@ class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 class UserProfileView(LoginRequiredMixin, generic.ListView):
-
-    # https://stackoverflow.com/questions/48872380/display-multiple-queryset-in-list-view
+    """
+    Rendering the user's created and saved recipes in a table
+    credit:
+    https://stackoverflow.com/questions/48872380/display-multiple-queryset-in-list-view
+    """
     template_name = 'profile.html'
     context_object_name = 'my_recipes'
 
     def get_queryset(self):
-
         queryset = {
             'created': Recipe.objects.filter(author=self.request.user),
             'saved': Recipe.objects.filter(saves=self.request.user)
@@ -161,12 +195,17 @@ class SaveRecipe(View):
     def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
         if recipe.saves.filter(id=request.user.id).exists():
-            success_message = '{recipe_name} has been removed from your saved recipes!'
+            success_message = '''
+            {recipe_name} has been removed from your saved recipes!
+            '''
             recipe.saves.remove(request.user)
-            messages.success(request, success_message.format(recipe_name=recipe.recipe_name))
+            message = success_message.format(recipe_name=recipe.recipe_name)
+            messages.success(request, message)
         else:
-            success_message = '{recipe_name} has been added to your saved recipes!'
+            success_message = '''
+            {recipe_name} has been added to your saved recipes!
+            '''
             recipe.saves.add(request.user)
-            messages.success(request, success_message.format(recipe_name=recipe.recipe_name))
-
+            message = success_message.format(recipe_name=recipe.recipe_name)
+            messages.success(request, message)
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
