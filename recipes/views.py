@@ -92,7 +92,7 @@ class RecipeCreateView(LoginRequiredMixin, generic.CreateView):
 
 class RecipeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Recipe
-    template_name = 'recipe_form.html'
+    template_name = 'recipe_form_edit.html'
     form_class = RecipeForm
     success_url = reverse_lazy('recipes')
 
