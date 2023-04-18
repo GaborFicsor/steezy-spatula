@@ -17,4 +17,5 @@ class RecipeFilter(django_filters.FilterSet):
             'recipe_name',
             'type',
             'difficulty',
+            'vegan'
         }

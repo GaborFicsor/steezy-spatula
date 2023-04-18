@@ -42,10 +42,11 @@ class SaveForm():
 class RecipeFilterForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ('recipe_name', 'type', 'difficulty',)
+        fields = ('recipe_name', 'type', 'difficulty', 'vegan')
 
         widgets = {
             'recipe_name': forms.TextInput(attrs={'class': 'form-control'}),
             'type': forms.Select(attrs={'class': 'form-control'}),
             'difficulty': forms.Select(attrs={'class': 'form-control'}),
+            'vegan': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }

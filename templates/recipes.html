@@ -17,22 +17,26 @@
             <div class="row">
 
                 <!-- recipe name as textfield / icontains -->
-                <div class="col-12 col-md-6 col-lg-3 offset-lg-1">
+                <div class="col-12 col-md-6 col-lg-3">
                     {{ form.recipe_name|as_crispy_field }}
                 </div>
 
                 <!-- recipe difficulty / exact -->
-                <div class="col-6 col-lg-3 ">
+                <div class="col-4 col-md-6 col-lg-3 ">
                     {{ form.difficulty|as_crispy_field }}
                 </div>
 
                 <!-- recipe type / exact -->
-                <div class="col-6 col-lg-3">
+                <div class="col-4 col-md-6 col-lg-3">
                     {{ form.type|as_crispy_field }}
                 </div>
 
+                <div class="col-4 col-md-6 col-lg-2">
+                    {{ form.vegan|as_crispy_field }}
+                </div>
+
                 <!-- submit button for filter / search -->
-                <div class="col-12 col-md-6 col-lg-1 align-self-end text-center pt-3">
+                <div class="col-12 col-lg-1 align-self-end text-center pt-3">
                     <input type="submit" value="Search" class="btn mt-2">
                 </div>
             </div>
@@ -52,8 +56,9 @@
 
         <!-- displaying the recipes / filtered recipes 9 per page -->
         <div class="row">
+
             {% for recipe in recipes %}
-            <!-- some crazy bootstrap shenanigans to achieve awesome responsiveness -->
+            <!-- some crazy bootstrap shenanigans in order to achieve awesome responsiveness -->
             <div class="col-12 col-md-6 col-lg-4 my-3 m-md-0 p-md-5 d-flex align-items-stretch">
 
                 <!-- bootstrap card container design -->
