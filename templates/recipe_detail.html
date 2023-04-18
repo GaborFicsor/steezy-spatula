@@ -94,10 +94,11 @@
                             difficulty:
                         </b>
                         {{ recipe.get_difficulty_display }}
+                        {{ recipe.difficulty }}
                     </li>
                     <li>
                         <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar"
+                            <div id="bar" class="progress-bar bg-success" role="progressbar"
                                 style="width: {{ recipe.difficulty }}%;" aria-valuenow="{{ recipe.difficulty }}"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>

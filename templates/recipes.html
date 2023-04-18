@@ -53,7 +53,6 @@
         <!-- displaying the recipes / filtered recipes 9 per page -->
         <div class="row">
             {% for recipe in recipes %}
-
             <!-- some crazy bootstrap shenanigans to achieve awesome responsiveness -->
             <div class="col-12 col-md-6 col-lg-4 my-3 m-md-0 p-md-5 d-flex align-items-stretch">
 
@@ -63,6 +62,11 @@
                     <!-- card image -->
                     <img class="card-img-top rounded-0"
                         src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="Card image cap">
+                    <div class="card-img-overlay">
+                        {% if recipe.vegan %}
+                        <i class="fa-solid fa-leaf big vegan"></i>
+                        {% endif %}
+                    </div>
 
                     <!-- card body with stretched link -->
                     <div class="card-body">
@@ -75,14 +79,17 @@
 
                             <!-- recipe difficulty / human readable -->
                             <li class="list-group-item">
-                                <i class="fa-regular fa-face-smile"></i>
-                                {{ recipe.get_difficulty_display }}
+                                <i class="fa-solid fa-fire"></i>
+                                {{ recipe.get_cooking_time_display }}
                             </li>
 
                             <!-- recipe cooking time / human readable -->
                             <li class="list-group-item">
-                                <i class="fa-regular fa-clock"></i>
-                                {{ recipe.get_cooking_time_display}}
+                                <div class="progress">
+                                    <div id="bar" class="progress-bar" role="progressbar"
+                                        style="width: {{ recipe.difficulty }}%" aria-valuenow="{{ recipe.difficulty }}"
+                                        aria-valuemin="0" aria-valuemax="100">{{ recipe.get_difficulty_display }}</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -141,4 +148,6 @@
         </div>
     </div>
 </body>
+
+
 {%endblock%}
