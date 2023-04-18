@@ -7,7 +7,6 @@ urlpatterns = [
 
     # all recipes list view
     path('recipes/', views.RecipeList.as_view(), name='recipes'),
-    # path('recipes/<int:pk>', views.RecipeList.as_view(), name='recipes'),
 
     # crud views for recipe model
     path('recipes/create',

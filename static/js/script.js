@@ -1,3 +1,4 @@
+// set progress-bar color based on recipe difficulty
 $(document).ready(function() {
     $('.progress-bar').each(function() {
       var difficulty = parseInt($(this).attr('aria-valuenow'));
@@ -14,11 +15,12 @@ $(document).ready(function() {
     });
   });
 
-
-
-// setTimeout(function() {
-//     let messages = document.getElementById("alert");
-//     let alert = new bootstrap.Alert(messages);
-//     alert.close();
-// }, 3000);
+  // hide alert messages after 3 seconds
+  $(document).ready(function() {
+    setTimeout(function() {
+        let messages = $('#alert');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 3000);
+});
 

@@ -42,7 +42,7 @@
             </div>
         </form>
 
-
+        {% if user.is_authenticated %}
         <!-- link that takes the user to creating a recipe  -->
         <div class="row pt-5 text-center">
             <div class="col-12">
@@ -52,7 +52,7 @@
                 </h1>
             </div>
         </div>
-
+        {% endif %}
 
         <!-- displaying the recipes / filtered recipes 9 per page -->
         <div class="row">
@@ -65,8 +65,12 @@
                 <div class="card rounded-0 border border-0 shadow-lg mx-auto">
 
                     <!-- card image -->
-                    <img class="card-img-top rounded-0"
-                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="Card image cap">
+                    {% if "placeholder" in recipe.featured_image.url %}
+                    <img class="card-img-top rounded-0" src="{% static 'images/placeholder.jpg' %}"
+                        alt="Card image cap">
+                    {% else %}
+                    <img class="card-img-top rounded-0" src="{{ recipe.featured_image.url }}" alt="Card image cap">
+                    {% endif %}
                     <div class="card-img-overlay">
                         {% if recipe.vegan %}
                         <i class="fa-solid fa-leaf big vegan"></i>
@@ -98,6 +102,14 @@
                             </li>
                         </ul>
                     </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="row pt-5 text-center">
+                <div class="col-12">
+                    <h3>
+                        Looks like we don't have that recipe... yet
+                    </h3>
                 </div>
             </div>
             {% endfor %}
@@ -153,6 +165,4 @@
         </div>
     </div>
 </body>
-
-
 {%endblock%}

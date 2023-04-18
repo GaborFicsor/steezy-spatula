@@ -27,7 +27,7 @@ class RecipeList(generic.ListView):
         -difficulty
     """
     model = Recipe
-    queryset = Recipe.objects.all().order_by('created_on')
+    queryset = Recipe.objects.all().order_by('-created_on')
     template_name = 'recipes.html'
     paginate_by = 9
     form_class = RecipeFilterForm

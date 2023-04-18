@@ -44,10 +44,10 @@
             <!-- if the user is the author of the recipe, display an edit and a delete icon -->
             {% if user == recipe.author %}
             <a class="a-reverse" href="{% url 'update_recipe' recipe.slug %}">
-                <button class="btn big elara mt-2" type="submit"><i class="fa-solid fa-pencil"></i></button>
+                <button class="btn big elara" type="submit"><i class="fa-solid fa-pencil"></i></button>
             </a>
             <a class="a-reverse" href="{% url 'delete_recipe' recipe.slug %}">
-                <button class="btn big elara mt-2" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                <button class="btn big elara" type="submit"><i class="fa-solid fa-trash-can"></i></button>
             </a>
             {% endif %}
 
@@ -64,9 +64,15 @@
         <div class="row white shadow mb-4">
 
             <!-- recipe image -->
+            {% if "placeholder" in recipe.featured_image.url %}
             <div class=" col-12 col-md-5 col-lg-4 p-2">
-                <img class="img-fluid" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="">
+                <img class="img-fluid" src="{% static 'images/placeholder.jpg' %}" alt="">
             </div>
+            {% else %}
+            <div class=" col-12 col-md-5 col-lg-4 p-2">
+                <img class="img-fluid" src="{{ recipe.featured_image.url }}" alt="">
+            </div>
+            {% endif %}
 
             <!-- recipe details -->
             <div class="col-12 col-md-5 col-lg-8 p-4">
@@ -91,18 +97,33 @@
                     </li>
                     <li>
                         <b>
+                            calories:
+                        </b>
+                        {{ recipe.calories_per_serving }}
+                    </li>
+                    <li>
+                        <b>
+                            serving size:
+                        </b>
+                        {{ recipe.serving_size }}
+                    </li>
+                    <li>
+                        <b>
                             difficulty:
                         </b>
                         {{ recipe.get_difficulty_display }}
-                        {{ recipe.difficulty }}
                     </li>
+                    {% if recipe.nuts %}
                     <li>
-                        <div class="progress">
-                            <div id="bar" class="progress-bar bg-success" role="progressbar"
-                                style="width: {{ recipe.difficulty }}%;" aria-valuenow="{{ recipe.difficulty }}"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
+                        <b>
+                            Contains:
+                        </b>
+                        Nuts
+                        {% if recipe.dairy %}
+                        Dairy
                     </li>
+                    {% endif %}
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -132,6 +153,7 @@
 
 
         <!-- comment section start -->
+        {% if user.is_authenticated %}
         <div class="row white shadow mb-4">
             <div class="col-md-8 p-4">
                 <h3>Comments:</h3>
@@ -190,7 +212,7 @@
 
 
                     <!-- if a user is logged in display the comment form -->
-                    {% if user.is_authenticated %}
+                    
 
                     <h3>Leave a comment:</h3>
                     <p class="orange">{{ user.username }}</p>

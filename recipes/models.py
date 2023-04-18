@@ -7,7 +7,6 @@ from multiselectfield import MultiSelectField
 from datetime import timedelta
 
 
-
 class Recipe(models.Model):
     """
     Recipe object model
@@ -52,7 +51,7 @@ class Recipe(models.Model):
         (timedelta(minutes=60), '1 hour')
     ]
     DIFFICULTY = [
-        (20, 'Easy & quick'),
+        (20, 'Easy'),
         (40, 'Moderate'),
         (60, 'Intermediate'),
         (80, 'Challenging')
