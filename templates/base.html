@@ -73,6 +73,13 @@
                             </a>
                         </li>
 
+                        {% if request.user.is_superuser %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:index' %}">
+                                Admin
+                            </a>
+                        </li>
+                        {% endif %}
                         <!-- if the user is not logged in -->
                         {% else %}
                         <li class="nav-item">

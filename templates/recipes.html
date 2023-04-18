@@ -69,7 +69,7 @@
                     <img class="card-img-top rounded-0" src="{% static 'images/placeholder.jpg' %}"
                         alt="Card image cap">
                     {% else %}
-                    <img class="card-img-top rounded-0" src="{{ recipe.featured_image.url }}" alt="Card image cap">
+                    <img class="card-img-top rounded-0" src="{{ recipe.featured_image.url }}" style="height: 100%" alt="Card image cap">
                     {% endif %}
                     <div class="card-img-overlay">
                         {% if recipe.vegan %}

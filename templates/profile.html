@@ -2,9 +2,11 @@
 {% load static %}
 {% block title %}My Steezy Stuff{% endblock %}
 {% block content %}
+<body class="with-background">
+    
 
 <!-- display the current user's name and date registered as header -->
-<div class="text-white text-center header py-5">
+<div class="text-white text-center py-5">
     <p class="header-title">
         {{ user.username }}
     </p>
@@ -185,5 +187,5 @@
         </div>
     </div>
 </div>
-
+</body>
 {% endblock %}
