@@ -62,14 +62,14 @@
             <div class="col-12 col-md-6 col-lg-4 my-3 m-md-0 p-md-5 d-flex align-items-stretch">
 
                 <!-- bootstrap card container design -->
-                <div class="card rounded-0 border border-0 shadow-lg mx-auto">
+                <div class="card rounded-0 border border-0 shadow-lg mx-auto" style="width: 20rem;">
 
                     <!-- card image -->
                     {% if "placeholder" in recipe.featured_image.url %}
-                    <img class="card-img-top rounded-0" src="{% static 'images/placeholder.jpg' %}"
+                    <img class="card-img-top img-fluid" src="{% static 'images/placeholder.jpg' %}"
                         alt="Card image cap">
                     {% else %}
-                    <img class="card-img-top rounded-0" src="{{ recipe.featured_image.url }}" style="height: 100%" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ recipe.featured_image.url }}" alt="Card image cap">
                     {% endif %}
                     <div class="card-img-overlay">
                         {% if recipe.vegan %}
@@ -129,10 +129,10 @@
                                 <!-- if current page has a previous page -->
                                 {% if page_obj.has_previous %}
                                 <li class="page-item">
-                                    <a class="page-link" href="?page=1">&laquo; first</a>
+                                    <a class="page-link" href="?{{ request.GET.urlencode }}&page={{ page_obj.paginator.num_pages }}">&laquo; first</a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                    <a class="page-link" href="?{{ request.GET.urlencode }}&page={{ page_obj.previous_page_number }}">previous</a>
                                 </li>
                                 {% endif %}
 

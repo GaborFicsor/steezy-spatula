@@ -37,6 +37,7 @@ class Recipe(models.Model):
         (3, 'Snack')
     ]
     DURATION = [
+        (timedelta(minutes=5), '0 mins'),
         (timedelta(minutes=5), '5 mins'),
         (timedelta(minutes=10), '10 mins'),
         (timedelta(minutes=15), '15 mins'),
