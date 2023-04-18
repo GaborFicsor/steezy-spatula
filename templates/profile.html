@@ -25,7 +25,7 @@
             <!-- title that functions as a button that takes the user to create a recipe -->
             <h1 class="text-center">
                 my recipes
-                <a href="{% url 'create_recipe' %}">&#43</a>
+                <a href="{% url 'create_recipe' %}" aria-label="create recipe">&#43</a>
             </h1>
 
             <!-- if the current user has any created recipes, list them here as a table -->
@@ -56,21 +56,21 @@
                     <!-- table row for each recipe the current user has created -->
                     <tr>
                         <td>
-                            <a href="{% url 'recipe_detail' recipe.slug %}">
+                            <a href="{% url 'recipe_detail' recipe.slug %}" aria-label="link to {{ recipe.recipe_name }}">
                                 {{ recipe.recipe_name }}
                             </a>
                         </td>
 
                         <!-- edit button for each recipe -->
                         <td class="text-center">
-                            <a class="a-reverse" href="{% url 'update_recipe' recipe.slug %}">
+                            <a class="a-reverse" href="{% url 'update_recipe' recipe.slug %}" aria-label="edit recipe">
                                 <i class="fa-solid fa-pencil"></i>
                             </a>
                         </td>
 
                         <!-- delete button for each recipe -->
                         <td class="text-center">
-                            <a class="a-reverse" href="{% url 'delete_recipe' recipe.slug %}">
+                            <a class="a-reverse" href="{% url 'delete_recipe' recipe.slug %}" aria-label="delete recipe">
                                 <i class="fa-solid fa-trash-can"></i>
                             </a>
                         </td>
@@ -84,7 +84,7 @@
             <div class="p-5 d-flex align-items-center justify-content-center">
                 <h5 class="text-center">
                     Looks like you haven't added anything just yet! Share your recipes with us
-                    <a href="{% url 'create_recipe' %}">
+                    <a href="{% url 'create_recipe' %}" aria-label="create recipe">
                         here
                     </a>
                 </h5>
@@ -125,7 +125,7 @@
                     <!-- table row for each recipe the current user has saved -->
                     <tr>
                         <td>
-                            <a href="{% url 'recipe_detail' recipe.slug %}">
+                            <a href="{% url 'recipe_detail' recipe.slug %}" aria-label="link to {{ recipe.recipe_name }}">
                                 {{ recipe.recipe_name }}
                             </a>
                         </td>
@@ -141,13 +141,13 @@
                                 {% csrf_token %}
                                 {% if user in recipe.saves.all %}
                                 <button class="btn transparent btn-sm btn-link" type="submit" name="blogpost_id"
-                                    value="{{ recipe.slug }}">
-                                    <i class="text-dark fa-sharp fa-solid fa-bookmark "></i>
+                                    value="{{ recipe.slug }}" aria-label="unsave recipe">
+                                    <i class="text-dark fa-sharp fa-solid fa-bookmark"></i>
                                 </button>
 
                                 {% else %}
                                 <button class="btn btn-sm btn-link" type="submit" name="blogpost_id"
-                                    value="{{ recipe.slug }}">
+                                    value="{{ recipe.slug }}" aria-label="save recipe">
                                     <i class="text-dark fa-sharp fa-regular fa-bookmark"></i>
                                 </button>
                                 {% endif %}
@@ -161,8 +161,9 @@
             <!-- if the current user has not saved any recipes yet -->
             {% else %}
             <div class="p-5 d-flex align-items-center justify-content-center">
-                <h5 class="text-center">Any <a href="{% url 'recipes' %}">recipe</a> you fancy will be saved here for
-                    You</h5>
+                <h5 class="text-center">Any <a href="{% url 'recipes' %}" aria-label="link to all recipes">recipe</a>
+                    you fancy will be saved here for You
+                </h5>
             </div>
             {% endif %}
         </div>

@@ -26,6 +26,8 @@
     <title>{% block title %}Steezy Spatula{% endblock %}</title>
 
 </head>
+
+<!-- alert messages -->
 {% if messages %}
 <div id="alert" class="alert alert-success alert-dismissible alert-message fade show mb-0" role="alert">
     {% for message in messages %}
@@ -111,13 +113,13 @@
             <div class="container px-5 text-center">
 
                 <!-- social media links -->
-                <a href="https://www.linkedin.com/in/gabor-ficsor-58a936197/" target="_blank" class="btn text-white">
+                <a href="https://www.linkedin.com/in/gabor-ficsor-58a936197/" target="_blank" rel="noopener" aria-label="the website owner's linkedin profile" class="btn text-white">
                     <i class="fa-brands fa-linkedin-in fa-lg"></i>
                 </a>
-                <a href="https://www.instagram.com/kidwalksthe.earth/" target="_blank" class="btn text-white">
+                <a href="https://www.instagram.com/kidwalksthe.earth/" target="_blank" rel="noopener" aria-label="the website owner's instagram profile" class="btn text-white">
                     <i class="fa-brands fa-instagram fa-lg"></i>
                 </a>
-                <a href="https://github.com/GaborFicsor" target="_blank" class="btn text-white">
+                <a href="https://github.com/GaborFicsor" target="_blank" rel="noopener" aria-label="the website owner's github profile" class="btn text-white">
                     <i class="fa-brands fa-github fa-lg"></i>
                 </a>
 

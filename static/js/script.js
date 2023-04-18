@@ -4,13 +4,13 @@ $(document).ready(function () {
     var difficulty = parseInt($(this).attr('aria-valuenow'));
 
     if (difficulty == 20) {
-      $(this).addClass('simple');
+      $(this).addClass('easy');
     } else if (difficulty == 40) {
-      $(this).addClass('feasible');
+      $(this).addClass('moderate');
     } else if (difficulty == 60) {
-      $(this).addClass('engaging');
+      $(this).addClass('intermediate');
     } else {
-      $(this).addClass('rewarding');
+      $(this).addClass('challenging');
     }
   });
 });

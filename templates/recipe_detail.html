@@ -33,11 +33,11 @@
                 {% csrf_token %}
                 {% if saved %}
                 <button class="btn big" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
-                    <i class="fa-sharp fa-solid fa-bookmark "></i>
+                    <i class="fa-sharp fa-solid fa-bookmark" aria-label="unsave recipe"></i>
                 </button>
                 {% else %}
                 <button class="btn big" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
-                    <i class="fa-sharp fa-regular fa-bookmark"></i>
+                    <i class="fa-sharp fa-regular fa-bookmark" aria-label="save recipe"></i>
                 </button>
                 {% endif %}
             </form>
@@ -45,11 +45,15 @@
 
             <!-- if the user is the author of the recipe, display an edit and a delete icon -->
             {% if user == recipe.author %}
-            <a class="a-reverse" href="{% url 'update_recipe' recipe.slug %}">
-                <button class="btn big elara" type="submit"><i class="fa-solid fa-pencil"></i></button>
+            <a class="a-reverse" href="{% url 'update_recipe' recipe.slug %}" aria-label="edit recipe">
+                <button class="btn big elara" type="submit">
+                    <i class="fa-solid fa-pencil"></i>
+                </button>
             </a>
-            <a class="a-reverse" href="{% url 'delete_recipe' recipe.slug %}">
-                <button class="btn big elara" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+            <a class="a-reverse" href="{% url 'delete_recipe' recipe.slug %}" aria-label="delete recipe">
+                <button class="btn big elara" type="submit">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
             </a>
             {% endif %}
 
@@ -68,11 +72,11 @@
             <!-- recipe image -->
             {% if "placeholder" in recipe.featured_image.url %}
             <div class=" col-12 col-md-5 col-lg-4 p-2">
-                <img class="img-fluid" src="{% static 'images/placeholder.jpg' %}" alt="">
+                <img class="img-fluid img-detail" src="{% static 'images/placeholder.jpg' %}" alt="image of a cutting board">
             </div>
             {% else %}
             <div class=" col-12 col-md-5 col-lg-4 p-2">
-                <img class="img-fluid" src="{{ recipe.featured_image.url }}" alt="">
+                <img class="img-fluid img-detail" src="{{ recipe.featured_image.url }}" alt="image of {{ recipe.recipe_name }}">
             </div>
             {% endif %}
 
@@ -154,7 +158,7 @@
         <!-- third row end -->
 
 
-        <!-- comment section start -->
+        <!-- comment section start / credit: Code Institute's "I think therefore I blog walkthrough project" -->
         {% if user.is_authenticated %}
         <div class="row white shadow mb-4">
             <div class="col-md-8 p-4">
@@ -177,12 +181,12 @@
 
                                 <!-- edit comment -->
 
-                                <a class="a-reverse" href="{% url 'edit_comment' comment.id %}">
+                                <a class="a-reverse" href="{% url 'edit_comment' comment.id %}" aria-label="edit recipe">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
 
                                 <!-- delete comment -->
-                                <a class="a-reverse" href="{% url 'delete_comment' comment.id %}">
+                                <a class="a-reverse" href="{% url 'delete_comment' comment.id %}" aria-label="delete comment">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </a>
 
@@ -190,9 +194,7 @@
                                 {% endif %}
                             </span>
                         </p>
-
                         {{ comment.body | linebreaks }}
-
                         <hr>
                     </div>
 
@@ -212,16 +214,15 @@
             <div class="col-md-4 p-4">
                 <div>
 
-
                     <!-- if a user is logged in display the comment form -->
-                    
-
                     <h3>Leave a comment:</h3>
                     <p class="orange">{{ user.username }}</p>
                     <form method="POST">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn elara mt-2">Submit</button>
+                        <button type="submit" class="btn elara mt-2" aria-label="submit comment">
+                            Submit
+                        </button>
                     </form>
                     {% endif %}
                 </div>

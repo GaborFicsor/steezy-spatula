@@ -2,61 +2,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap');
 
 
+/* body */
 body{
     background: #e0ded9;
-    height: 100%;
-}
-
-.card-img-top {
-  height: 200px; /* Set a fixed height for the image */
-  object-fit: cover;
+    height: 100;
 }
 
 .with-background {
-    background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(54,54,54,0.5) 75%, rgba(0,0,0,1) 100%),
+    background-image: linear-gradient(0deg, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 85%),
     url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752080/static/images/header.bd6ed4242628.jpg') !important; 
     background-size: cover;
 }
 
-.vegan {
-    color: #0dc300;
+.orange {
+    color: #FF5733;
 }
 
-.simple {
-    background-color: #2be22b;
-}
-
-.feasible {
-    background-color: #ff9500;
-}
-
-.engaging {
-    background-color: #0004ff;
-}
-
-.rewarding {
-    background-color: #8A2BE2;
-}
-
-.alert-message {
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    z-index: 9999;
-    text-align: center;
-    transform: translate(-50%, -50%);
+.elara {
+    background: #FF5733;
 }
 
 textarea {
     resize: none;
-}
-
-.view-height-50 {
-    height: 50vh;
-}
-
-.orange {
-    color: #FF5733;
 }
 
 hr {
@@ -64,12 +31,72 @@ hr {
     border-radius: 5px;
 }
 
+.white {
+    background: rgb(255, 255, 255);
+}
+
+.cursive {
+    font-family: 'Seaweed Script', cursive;
+    font-size: 3rem;
+}
+
+/* home page */
+.header {
+    background-image: linear-gradient(to top, rgba(45, 255, 21, 0) 0%, rgb(19, 22, 24)60%),
+    url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752080/static/images/header.bd6ed4242628.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* recipe-card */
+.card-img-top {
+  height: 200px; 
+  object-fit: cover;
+}
+
+.img-detail {
+    object-fit: contain;
+
+}
+
+.vegan {
+    color: #0dc300;
+}
+
+.easy {
+    background-color: #2be22b;
+}
+
+.moderate {
+    background-color: #ff9500;
+}
+
+.intermediate {
+    background-color: #0004ff;
+}
+
+.challenging {
+    background-color: #8A2BE2;
+}
+
+/* alert message */
+.alert-message {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    z-index: 9999;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+/* error pages */
 .error-title {
     top: 0px;
     left: 0px;
     position: relative;
 }
 
+/* buttons */
 .btn {
     background: #FF5733;
     color: #ffffff;
@@ -82,21 +109,6 @@ hr {
 .btn:hover {
     background: #000000;
     color: #ffffff;
-}
-
-.pagination a {
-    background-color: #FF5733;
-    color: #ffffff;
-}
-
-.pagination a:hover {
-    background: #000000;
-    color: #ffffff;
-}
-
-.page-link:focus {
-    box-shadow: 0 0 0 0.2rem #FF5733;
-    color: #FF5733;
 }
 
 .transparent {
@@ -112,17 +124,24 @@ hr {
     font-size: 2rem;
 }
 
-img {
-    max-width: 100%;
+
+/* pagination */
+.pagination a {
+    background-color: #FF5733;
+    color: #ffffff;
 }
 
-.header {
-    background-image: linear-gradient(to top, rgba(45, 255, 21, 0) 0%, rgb(19, 22, 24)60%),
-    url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752080/static/images/header.bd6ed4242628.jpg'); 
-    background-size: cover;
-    background-position: center;
+.pagination a:hover {
+    background: #000000;
+    color: #ffffff;
 }
 
+.page-link:focus {
+    box-shadow: 0 0 0 0.2rem #FF5733;
+    color: #FF5733;
+}
+
+/* links */
 a {
     text-decoration: none;
     color:#FF5733;
@@ -141,32 +160,10 @@ a:hover {
     color:#FF5733;
 }
 
-.elara {
-    background: #FF5733;
-}
-
-.child {
-    height: 50%;
-}
-
-.white {
-    background: rgb(255, 255, 255);
-}
-
-.green-text {
-    /* color:#006e05; */
-    color: #FF5733;
-
-}
-
+/* logo */
 .hidden {
     color:#bbbbbb;
 }
-
-.fa-lg {
-    font-size: 2rem;
-}
-
 
 .relative-title-1 {
     top: 35%;
@@ -190,7 +187,6 @@ a:hover {
     display: none;
 }
 
-
 .bold {
     font-weight: bold;
     font-size: 4rem;
@@ -205,20 +201,14 @@ a:hover {
     display: none;
 }
 
-.solid {
-    border-style: solid;
-    border-color: red;
+
+/* footer icons */
+.fa-lg {
+    font-size: 2rem;
 }
 
-.absolute {
-    position: absolute;
-}
 
-.cursive {
-    font-family: 'Seaweed Script', cursive;
-    font-size: 3rem;
-}
-
+/* about me section */
 .circle {
     height: 120px;
     width: 120px;
@@ -239,24 +229,7 @@ a:hover {
     background-size: cover;
 }
 
-.recipe-img {
-    height: 250px;
-    width: 250px;
-    object-fit: cover;
-}
-
-.recipe-display {
-    width: 600px;
-    height: 300px;
-    overflow: hidden;
-}
-
-.display-recipe-name {
-    position: absolute;
-    bottom: 38px;
-    left: 5px;
-}
-/* Recipe detail page */
+/* Recipe detail and profile header */
 
 .header-title {
     font-family: 'Seaweed Script', cursive;

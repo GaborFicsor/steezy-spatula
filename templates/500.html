@@ -5,20 +5,24 @@
 <div class="container user-select-none">
     <div class="row justify-content-center overflow-hidden">
         <div class="col-12 col-md-10 col-lg-6 offset-lg-1 my-5 centered overflow-hidden">
-            <div class="hidden relative-title-1 bold">
-                <p>error</p>
-                <div class="relative-title-2 bold">
-                    <p>400</p>
-                    <div class="error-title">
-                        <p>bad request</p>
-                    </div>
-                </div>
-            </div>
             <div class="hidden">
-                <h3>invalid or missing data</h3>
+                <h3>Something has gone wrong on our end... but we're working on it!</h3>
             </div>
             <a href="{% url 'recipes' %}">
                 <button type="submit" class="btn elara mt-2">Go back</button>
+            </a>
+        </div>
+        <div class="col-12 col-md-10 col-lg-6 offset-lg-1 my-5 centered overflow-hidden">
+            <div class="hidden error-title bold">
+                <p>error</p>
+                <div class="relative-title-2 bold">
+                    <p>500</p>
+                </div>
+            </div>
+            <a href="{% url 'recipes' %}" aria-label="back to recipes">
+                <button type="submit" class="btn elara mt-2">
+                    Go back
+                </button>
             </a>
         </div>
     </div>
