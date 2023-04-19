@@ -146,12 +146,14 @@ class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Comment
     template_name = 'comment_form.html'
     form_class = CommentForm
-    success_url = reverse_lazy('recipes')
     success_message = 'Your comment has been updated successfully!'
 
     def form_valid(self, form):
         messages.success(self.request, self.success_message)
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('recipe_detail', args=[self.object.recipe.slug])
 
 
 class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -160,11 +162,13 @@ class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     """
     model = Comment
     template_name = 'delete_confirm.html'
-    success_url = reverse_lazy('recipes')
 
     def delete(self, request, *args, **kwargs):
         messages.success(request, "Comment has been deleted successfully.")
         return super().delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy('recipe_detail', args=[self.object.recipe.slug])
 
 
 class UserProfileView(LoginRequiredMixin, generic.ListView):
