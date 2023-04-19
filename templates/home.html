@@ -45,13 +45,14 @@
 
                     <!-- call to action button dependig on the user is logged in  -->
                     {% if user.is_authenticated %}
-                    <a class="d-none" href="{% url 'account_signup' %}">
-                        <button type="submit" class="btn elara mt-2">Register</button>
+                    <a class="d-none btn bg-success mt-3 btn-lg" href="{% url 'account_signup' %}" aria-label="link to register form">
+                        Register
                     </a>
                     {% else %}
-                    <a href="{% url 'account_signup' %}">
-                        <button type="submit" class="btn elara mt-2">Register</button>
+                    <a class="btn bg-success mt-3 btn-lg" href="{% url 'account_signup' %}" aria-label="link to register form">
+                        Register
                     </a>
+
                     {% endif%}
                 </div>
             </div>
@@ -62,12 +63,12 @@
 
 <!-- Content section / a word on the website-->
 
-<section>
+<div>
     <div class="container white shadow-lg mt-5 px-sm-5">
         <div class="row align-items-center">
             <div class="col-12 col-lg-6 col-xl-4 text-center">
                 <div class="p-5">
-                    <img class="img-fluid about-me" src="https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752081/static/images/me.cb9dd8d0d679.jpg" alt="a picture of my favourite teddy" />
+                    <img class="img-fluid about-me" src="https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752081/static/images/me.cb9dd8d0d679.jpg" alt="a picture of my favourite teddy">
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-8 order-sm-2">
@@ -93,5 +94,5 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}

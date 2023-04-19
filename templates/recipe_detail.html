@@ -4,234 +4,228 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
+
 <body class="with-background">
-    
-
-<!-- header start -->
-<header class="text-white">
-    <div class="container">
-        <div class="row">
-
-            <!-- display the name, author and the date of creation of the current recipe -->
-            <div class="col-12 my-5">
-                <h1 class="cursive">{{ recipe.recipe_name }}</h1>
-                <h5>added by: {{ recipe.author }}</h5>
-                <h5>{{ date_added }}</h5>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- header end -->
-
-<div class="container my-4">
-    <div class="row">
-        <div class="col-12 text-center">
-
-            <!-- if the user is logged in they can save and unsave a recipe -->
-            {% if user.is_authenticated %}
-            <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
-                {% csrf_token %}
-                {% if saved %}
-                <button class="btn big" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
-                    <i class="fa-sharp fa-solid fa-bookmark" aria-label="unsave recipe"></i>
-                </button>
-                {% else %}
-                <button class="btn big" type="submit" name="blogpost_id" value="{{ recipe.slug }}">
-                    <i class="fa-sharp fa-regular fa-bookmark" aria-label="save recipe"></i>
-                </button>
-                {% endif %}
-            </form>
-            {% endif %}
-
-            <!-- if the user is the author of the recipe, display an edit and a delete icon -->
-            {% if user == recipe.author %}
-            <a class="a-reverse" href="{% url 'update_recipe' recipe.slug %}" aria-label="edit recipe">
-                <button class="btn big elara" type="submit">
-                    <i class="fa-solid fa-pencil"></i>
-                </button>
-            </a>
-            <a class="a-reverse" href="{% url 'delete_recipe' recipe.slug %}" aria-label="delete recipe">
-                <button class="btn big elara" type="submit">
-                    <i class="fa-solid fa-trash-can"></i>
-                </button>
-            </a>
-            {% endif %}
-
-        </div>
-    </div>
-</div>
 
 
-<!-- main section start -->
-<section>
-    <div class="container">
+    <!-- header start -->
+    <header class="text-white">
+        <div class="container">
+            <div class="row">
 
-        <!-- first row start -->
-        <div class="row white shadow mb-4">
-
-            <!-- recipe image -->
-            {% if "placeholder" in recipe.featured_image.url %}
-            <div class=" col-12 col-md-5 col-lg-4 p-2">
-                <img class="img-fluid img-detail" src="{% static 'images/placeholder.jpg' %}" alt="image of a cutting board">
-            </div>
-            {% else %}
-            <div class=" col-12 col-md-5 col-lg-4 p-2">
-                <img class="img-fluid img-detail" src="{{ recipe.featured_image.url }}" alt="image of {{ recipe.recipe_name }}">
-            </div>
-            {% endif %}
-
-            <!-- recipe details -->
-            <div class="col-12 col-md-5 col-lg-8 p-4">
-                <h3>Details:</h3>
-                <ul class="list-unstyled">
-                    <li>
-                        <b>
-                            Perfect for:
-                        </b> {{ recipe.get_type_display }}
-                    </li>
-                    <li>
-                        <b>
-                            Prep time:
-                        </b>
-                        {{ recipe.get_prep_time_display }}
-                    </li>
-                    <li>
-                        <b>
-                            Cooking time:
-                        </b>
-                        {{ recipe.get_cooking_time_display }}
-                    </li>
-                    <li>
-                        <b>
-                            Calories:
-                        </b>
-                        {{ recipe.calories_per_serving }}
-                    </li>
-                    <li>
-                        <b>
-                            Serving size:
-                        </b>
-                        {{ recipe.serving_size }}
-                    </li>
-                    <li>
-                        <b>
-                            Difficulty:
-                        </b>
-                        {{ recipe.get_difficulty_display }}
-                    </li>
-                    {% if recipe.nuts %}
-                    <li>
-                        <b>
-                            Contains:
-                        </b>
-                        Nuts
-                        {% if recipe.dairy %}
-                        Dairy
-                    </li>
-                    {% endif %}
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-        <!-- first row end -->
-
-
-        <!-- second row start / recipe ingredients -->
-        <div class="row white shadow mb-4">
-            <div class="col-12 p-4">
-                <div>
-                    <h3>Ingredients:</h3>{{ recipe.ingredients|safe }}
+                <!-- display the name, author and the date of creation of the current recipe -->
+                <div class="col-12 my-5">
+                    <h1>{{ recipe.recipe_name }}
+                        {% if recipe.vegan %}
+                        <i class="fa-solid fa-leaf big vegan"></i>
+                        {% endif %}
+                    </h1>
+                    <h5>added by: {{ recipe.author }}</h5>
+                    <h5>{{ date_added }}</h5>
                 </div>
             </div>
         </div>
-        <!-- second row end  -->
+    </header>
+    <!-- header end -->
+    <div class="container text-center text-sm-start">
 
-
-        <!-- third row start / recipe method -->
-        <div class="row white shadow mb-4">
-            <div class="col-12 p-4">
-                <div>
-                    <h3>Method:</h3>{{ recipe.method|safe }}
-                </div>
-            </div>
-        </div>
-        <!-- third row end -->
-
-
-        <!-- comment section start / credit: Code Institute's "I think therefore I blog walkthrough project" -->
+        <!-- if the user is logged in they can save and unsave a recipe -->
         {% if user.is_authenticated %}
-        <div class="row white shadow mb-4">
-            <div class="col-md-8 p-4">
-                <h3>Comments:</h3>
-                <div>
+        <form class="d-inline" action="{% url 'saved' recipe.slug %}" method="POST">
+            {% csrf_token %}
+            {% if saved %}
+            <button class="btn big text-white" type="submit" value="{{ recipe.slug }}">
+                <i class="fa-sharp fa-solid fa-bookmark" aria-label="unsave recipe"></i>
+            </button>
+            {% else %}
+            <button class="btn big text-white" type="submit" value="{{ recipe.slug }}">
+                <i class="fa-sharp fa-regular fa-bookmark" aria-label="save recipe"></i>
+            </button>
+            {% endif %}
+        </form>
+        {% endif %}
 
-                    <!-- list comments -->
-                    {% for comment in comments %}
-                    <div class="comments">
-                        <p class="font-weight-bold">
-                            {{ comment.name }}
-
-                            <span class="text-muted">
-                                {{ comment.created_on }}
-                            </span>
-
-                            <span>
-                                <!-- if the existing comment belongs to the current user -->
-                                {% if user.username == comment.name %}
-
-                                <!-- edit comment -->
-
-                                <a class="a-reverse" href="{% url 'edit_comment' comment.id %}" aria-label="edit recipe">
-                                    <i class="fa-solid fa-pencil"></i>
-                                </a>
-
-                                <!-- delete comment -->
-                                <a class="a-reverse" href="{% url 'delete_comment' comment.id %}" aria-label="delete comment">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </a>
-
-
-                                {% endif %}
-                            </span>
-                        </p>
-                        {{ comment.body | linebreaks }}
-                        <hr>
-                    </div>
-
-                    <!-- if there are no comments yet -->
-                    {% empty %}
-
-                    <div class="p-5 d-flex align-items-center justify-content-center">
-                        <h5 class="text-center text-muted">Be the first to comment! &#128578;</h5>
-                    </div>
-
-                    {% endfor %}
-                </div>
-            </div>
-
-
-            <!-- comment form -->
-            <div class="col-md-4 p-4">
-                <div>
-
-                    <!-- if a user is logged in display the comment form -->
-                    <h3>Leave a comment:</h3>
-                    <p class="orange">{{ user.username }}</p>
-                    <form method="POST">
-                        {{ comment_form | crispy }}
-                        {% csrf_token %}
-                        <button type="submit" class="btn elara mt-2" aria-label="submit comment">
-                            Submit
-                        </button>
-                    </form>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-        <!-- comment section end -->
+        <!-- if the user is the author of the recipe, display an edit and a delete icon -->
+        {% if user == recipe.author %}
+        <a class="btn big text-white" href="{% url 'update_recipe' recipe.slug %}" aria-label="edit recipe">
+            <i class="fa-solid fa-pencil"></i>
+        </a>
+        <a class="btn big text-white" href="{% url 'delete_recipe' recipe.slug %}" aria-label="delete recipe">
+            <i class="fa-solid fa-trash-can"></i>
+        </a>
+        {% endif %}
 
     </div>
-</section>
-<!-- main section end -->
+
+
+    <!-- main section start -->
+    <div>
+        <div class="container">
+
+            <!-- first row start -->
+            <div class="row white shadow mb-4">
+
+                <!-- recipe image -->
+                {% if "placeholder" in recipe.featured_image.url %}
+                <div class="col-12 col-md-5 col-lg-4 p-2 image-container">
+                    <img class="" src="{% static 'images/placeholder.jpg' %}" alt="image of a cutting board">
+                </div>
+                {% else %}
+                <div class="col-12 col-md-5 col-lg-4 p-2 image-container">
+                    <img class="" src="{{ recipe.featured_image.url }}" alt="image of {{ recipe.recipe_name }}">
+                </div>
+                {% endif %}
+
+                <!-- recipe details -->
+                <div class="col-12 col-md-5 col-lg-4 p-4">
+                    <h3 class="underline">Details:</h3>
+                    <ul class="list-unstyled mx-2">
+                        <li>
+                            <b>
+                                Perfect for:
+                            </b> {{ recipe.get_type_display }}
+                        </li>
+                        <li>
+                            <b>
+                                Prep time:
+                            </b>
+                            {{ recipe.get_prep_time_display }}
+                        </li>
+                        <li>
+                            <b>
+                                Cooking time:
+                            </b>
+                            {{ recipe.get_cooking_time_display }}
+                        </li>
+                        <li>
+                            <b>
+                                Calories:
+                            </b>
+                            {{ recipe.calories_per_serving }}
+                        </li>
+                        <li>
+                            <b>
+                                Serving size:
+                            </b>
+                            {{ recipe.serving_size }}
+                        </li>
+                        <li>
+                            <b>
+                                Difficulty:
+                            </b>
+                            {{ recipe.get_difficulty_display }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- first row end -->
+
+
+            <!-- second row start / recipe ingredients -->
+            <div class="row white shadow mb-4 ">
+                <div class="col-12 p-4">
+                    <div>
+                        <h3 class="underline">Ingredients:</h3>
+                        <div class="mx-2">
+                            {{ recipe.ingredients|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- second row end  -->
+
+
+            <!-- third row start / recipe method -->
+            <div class="row white shadow mb-4">
+                <div class="col-12 p-4">
+                    <div>
+                        <h3 class="underline">Method:</h3>
+                        <div class="mx-2">
+                            {{ recipe.method|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- third row end -->
+
+
+            <!-- comment section start / credit: Code Institute's "I think therefore I blog walkthrough project" -->
+            {% if user.is_authenticated %}
+            <div class="row white shadow mb-4">
+                <div class="col-md-8 p-4">
+                    <h3>Comments:</h3>
+                    <div class="mx-2">
+
+                        <!-- list comments -->
+                        {% for comment in comments %}
+                        <div class="comments">
+                            <p class="font-weight-bold">
+                                {{ comment.name }}
+
+                                <span class="text-muted">
+                                    {{ comment.created_on }}
+                                </span>
+
+                                <span>
+                                    <!-- if the existing comment belongs to the current user -->
+                                    {% if user.username == comment.name %}
+
+                                    <!-- edit comment -->
+
+                                    <a class="a-reverse" href="{% url 'edit_comment' comment.id %}"
+                                        aria-label="edit recipe">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+
+
+                                    <!-- delete comment -->
+                                    <a class="a-reverse" href="{% url 'delete_comment' comment.id %}"
+                                        aria-label="delete comment">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </a>
+
+
+                                    {% endif %}
+                                </span>
+                            </p>
+                            {{ comment.body | linebreaks }}
+                            <hr>
+                        </div>
+
+                        <!-- if there are no comments yet -->
+                        {% empty %}
+
+                        <div class="p-5 d-flex align-items-center justify-content-center">
+                            <h5 class="text-center text-muted">Be the first to comment! &#128578;</h5>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+                <!-- comment form -->
+                <div class="col-md-4 p-4">
+                    <div>
+
+                        <!-- if a user is logged in display the comment form -->
+                        <h3>Leave a comment:</h3>
+                        <p class="orange">{{ user.username }}</p>
+                        <form method="POST">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn bg-success mt-3 btn-lg" aria-label="submit updated recipe">
+                                Submit
+                            </button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- comment section end -->
+
+        </div>
+    </div>
+    <!-- main section end -->
 </body>
 {%endblock%}

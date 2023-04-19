@@ -27,7 +27,10 @@
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                         {% endif %}
-                        <button class="btn btn-signup right mt-3" type="submit">{% trans "Sign Up" %}</button>
+                        <button class="btn bg-success btn-lg mt-3" type="submit">{% trans "Sign Up" %}</button>
+                        <a class="btn bg-danger mt-3 btn-lg" href="{% url 'recipes' %}" aria-label="cancel signup">
+                            Cancel
+                        </a>
                     </form>
                 </div>
             </div>

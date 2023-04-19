@@ -13,15 +13,11 @@
                     <form method="post">
                         {% csrf_token %}
                         <p>Are you sure you want to delete "{{ object }}"</p>
-                        <button class="btn bg-danger btn-signup" value="Delete" type="submit" aria-label="confirm delete">
+                        <button class="btn btn-lg bg-success mt-2" value="Delete" type="submit" aria-label="confirm delete">
                             Delete
                         </button>
+                        <a class="btn btn-lg bg-danger mt-2" href="{% url 'recipes' %}" aria-label="Cancel delete">Cancel</a>
                     </form>
-                </div>
-                <div class="col-md-8 mt-3 offset-md-2">
-                    <a class="a-reverse" href="{% url 'recipes' %}" aria-label="back to recipes">
-                        <button class="btn bg-success">Cancel</button>
-                    </a>
                 </div>
             </div>
         </div>

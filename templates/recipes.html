@@ -37,7 +37,7 @@
 
                 <!-- submit button for filter / search -->
                 <div class="col-12 col-lg-1 align-self-end text-center pt-3">
-                    <input type="submit" value="Search" class="btn mt-2">
+                    <input type="submit" value="Search" class="btn bg-success">
                 </div>
             </div>
         </form>
@@ -80,7 +80,7 @@
 
                     <!-- card body with stretched link -->
                     <div class="card-body">
-                        <a class="stretched-link" href="{% url 'recipe_detail' recipe.slug %}" aria-label="link to {{ recipe.recipe_name }}">
+                        <a class="a-reverse stretched-link paytone" href="{% url 'recipe_detail' recipe.slug %}" aria-label="link to {{ recipe.recipe_name }}">
                             {{ recipe.recipe_name }}
                         </a>
 
@@ -131,7 +131,7 @@
                                 {% if page_obj.has_previous %}
                                 <li class="page-item">
                                     <a class="page-link"
-                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.paginator.num_pages }}" aria-label="first page">&laquo;
+                                        href="?{{ request.GET.urlencode }}&page=1" aria-label="first page">&laquo;
                                         first</a>
                                 </li>
                                 <li class="page-item">
