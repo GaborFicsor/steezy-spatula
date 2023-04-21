@@ -1,7 +1,10 @@
 // set progress-bar color based on recipe difficulty
+// https://www.w3schools.com/jquery/misc_each.asp
+// https://www.w3schools.com/jquery/html_addclass.asp
+
 $(document).ready(function () {
   $('.progress-bar').each(function () {
-    var difficulty = parseInt($(this).attr('aria-valuenow'));
+    var difficulty = $(this).attr('aria-valuenow');
 
     if (difficulty == 20) {
       $(this).addClass('easy');
@@ -16,6 +19,7 @@ $(document).ready(function () {
 });
 
 // hide alert messages after 3 seconds
+// Code Institute's I think therefore I blog walkthrough project
 $(document).ready(function () {
   setTimeout(function () {
     let messages = $('#alert');

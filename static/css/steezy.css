@@ -5,14 +5,13 @@
 
 
 /* body */
-body{
+body {
     background: #e0ded9;
-    height: 100;
 }
 
 .with-background {
-    background-image: linear-gradient(0deg, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 85%),
-    url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752080/static/images/header.bd6ed4242628.jpg') !important; 
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 85%),
+        url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752080/static/images/header.bd6ed4242628.jpg') !important;
     background-size: cover;
 }
 
@@ -29,13 +28,6 @@ h4 {
     font-family: "Paytone One", sans-serif;
 }
 
-.underline {
-    border-bottom: 3px solid ;
-    color: rgb(255,87,51);
-    border-image: linear-gradient(to right,#000000,#ffffff);
-    border-image-slice: 1; /* set the border image to cover the entire border */
-
-}
 
 .paytone {
     font-family: 'Paytone One', sans-serif;
@@ -45,7 +37,7 @@ h4 {
     color: #FF5733;
 }
 
-button > a {
+button>a {
     text-decoration: none;
 }
 
@@ -66,28 +58,22 @@ hr {
     background: rgb(255, 255, 255);
 }
 
-.cursive {
-    font-family: 'Seaweed Script', cursive;
-    font-size: 3rem;
-}
-
 /* home page */
 .header {
     background-image: linear-gradient(to top, rgba(45, 255, 21, 0) 0%, rgb(19, 22, 24)60%),
-    url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752080/static/images/header.bd6ed4242628.jpg'); 
+        url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752080/static/images/header.bd6ed4242628.jpg');
     background-size: cover;
     background-position: center;
 }
 
 /* recipe-card */
 .card-img-top {
-  height: 200px; 
-  object-fit: cover;
+    height: 200px;
+    object-fit: cover;
 }
 
 .img-detail {
     object-fit: contain;
-
 }
 
 .vegan {
@@ -113,7 +99,7 @@ hr {
 /* alert message */
 .alert-message {
     position: fixed;
-    top: 20%;
+    top: 10%;
     left: 50%;
     z-index: 9999;
     text-align: center;
@@ -136,19 +122,16 @@ hr {
 }
 
 .btn:hover {
-    color :#000000
+    color: #000000
 }
 
-.bg-elara {
-    background: #FF5733;
-}
 
 .transparent {
     background-color: transparent;
 }
 
 .transparent:hover {
-    color:#FF5733;
+    color: #FF5733;
     background-color: transparent;
 }
 
@@ -157,10 +140,8 @@ hr {
 }
 
 .big:hover {
-    color:#FF5733;
+    color: #FF5733;
 }
-
-
 
 /* pagination */
 .pagination a {
@@ -181,25 +162,25 @@ hr {
 /* links */
 a {
     text-decoration: none;
-    color:#FF5733;
+    color: #FF5733;
 }
 
 a:hover {
-    color:#000000;
+    color: #000000;
 }
 
 .a-reverse {
     text-decoration: none;
-    color:#000000;
+    color: #000000;
 }
 
 .a-reverse:hover {
-    color:#FF5733;
+    color: #FF5733;
 }
 
 /* logo */
 .hidden {
-    color:#bbbbbb;
+    color: #bbbbbb;
 }
 
 .relative-title-1 {
@@ -257,22 +238,26 @@ a:hover {
     background-size: cover;
 }
 
-
 .about-me {
-    border-radius:50%;
-    width:200px;
-    height:200px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     background-size: cover;
 }
 
 /* Recipe detail and profile header */
-
 .header-title {
     font-family: "Paytone One", sans-serif;
     font-size: 4rem;
 }
 
+.underline {
+    border-bottom: 3px solid;
+    color: rgb(255, 87, 51);
+    border-image: linear-gradient(to right, #000000, #ffffff);
+    border-image-slice: 1;
+}
 
 /* media queries */
 
@@ -283,7 +268,7 @@ a:hover {
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-    .bold{
+    .bold {
         font-size: 7rem;
     }
 
@@ -292,13 +277,13 @@ a:hover {
         left: 0%;
         position: relative;
     }
-    
+
     .relative-title-2 {
         position: relative;
         left: 65px;
         top: -95px;
     }
-    
+
     .relative-title-3 {
         position: relative;
         left: 98px;
@@ -310,7 +295,7 @@ a:hover {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .bold{
+    .bold {
         font-size: 8rem;
     }
 
@@ -319,13 +304,13 @@ a:hover {
         left: 10%;
         position: relative;
     }
-    
+
     .relative-title-2 {
         position: relative;
         left: 75px;
         top: -105px;
     }
-    
+
     .relative-title-3 {
         position: relative;
         left: 115px;
@@ -361,20 +346,20 @@ a:hover {
         position: relative;
         font-size: 0.90rem;
     }
-    
+
     .dedication {
         display: block;
         top: 35%;
     }
 
     .about-me {
-        width:300px;
-        height:300px;
+        width: 300px;
+        height: 300px;
     }
 }
 
 @media (min-width: 1200px) {
-    .bold{
+    .bold {
         font-size: 7rem;
     }
 
@@ -388,13 +373,13 @@ a:hover {
         left: 10%;
         position: relative;
     }
-    
+
     .relative-title-2 {
         position: relative;
         left: 65px;
         top: -95px;
     }
-    
+
     .relative-title-3 {
         top: -58px;
         left: 98px;
@@ -404,5 +389,3 @@ a:hover {
         font-size: 1.1rem;
     }
 }
-
-

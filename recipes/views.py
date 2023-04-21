@@ -82,7 +82,7 @@ class RecipeDetail(generic.DetailView):
             comment.save()
             context["comment_form"] = CommentForm()
             messages.success(
-                self.request, 'You added a comment'
+                self.request, 'Your comment has been added successfully!'
             )
         else:
             context["comment_form"] = comment_form
@@ -128,13 +128,16 @@ class RecipeUpdateView(LoginRequiredMixin, generic.UpdateView):
 class RecipeDeleteView(LoginRequiredMixin, generic.DeleteView):
     """
     Delete functionality for recipe objects
+    credit:
+    https://stackoverflow.com/questions/47636968/django-messages-for-a-successfully-delete-add-or-edit-item
     """
     model = Recipe
     template_name = 'delete_confirm.html'
     success_url = reverse_lazy('recipes')
+    success_message = 'Recipe has been deleteted successfully!'
 
     def delete(self, request, *args, **kwargs):
-        messages.success(request, "Recipe has been deleted successfully.")
+        messages.success(self.request, self.success_message)
         return super().delete(request, *args, **kwargs)
 
 
@@ -162,9 +165,10 @@ class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     """
     model = Comment
     template_name = 'delete_confirm.html'
+    success_message = 'Your comment has been deleted succefully'
 
     def delete(self, request, *args, **kwargs):
-        messages.success(request, "Comment has been deleted successfully.")
+        messages.success(self.request, self.success_message)
         return super().delete(request, *args, **kwargs)
 
     def get_success_url(self):
@@ -195,7 +199,10 @@ class UserProfileView(LoginRequiredMixin, generic.ListView):
 
 
 class SaveRecipe(View):
-
+    """
+    Adds/removes the current recipe to the user's
+    saved recipes list with a button
+    """
     def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
         if recipe.saves.filter(id=request.user.id).exists():

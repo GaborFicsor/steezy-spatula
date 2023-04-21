@@ -8,8 +8,8 @@
             <div class="hidden">
                 <h3>Something has gone wrong on our end... but we're working on it!</h3>
             </div>
-            <a href="{% url 'recipes' %}">
-                <button type="submit" class="btn elara mt-2">Go back</button>
+            <a class="btn bg-danger mt-3 btn-lg" href="{% url 'recipes' %}" aria-label="go back to recipes">
+                Go back
             </a>
         </div>
         <div class="col-12 col-md-10 col-lg-6 offset-lg-1 my-5 centered overflow-hidden">
@@ -19,11 +19,6 @@
                     <p>500</p>
                 </div>
             </div>
-            <a href="{% url 'recipes' %}" aria-label="back to recipes">
-                <button type="submit" class="btn elara mt-2">
-                    Go back
-                </button>
-            </a>
         </div>
     </div>
 </div>
