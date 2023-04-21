@@ -1,4 +1,5 @@
 {% load crispy_forms_tags %}
+{% load active_link_tags %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -59,18 +60,23 @@
 
                         <!-- link to recipes -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'recipes' %}">Recipes</a>
+                            <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{% url 'homepage' %}" class="{% active_link 'homepage'}">Home</a>
+                        </li>
+
+                        <!-- link to recipes -->
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'recipes' in request.path %} active {% endif %}" href="{% url 'recipes' %}" class="{% active_link 'recipes'}">Recipes</a>
                         </li>
 
                         <!-- if the user is logged in -->
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile' user.username %}">
+                            <a class="nav-link {% if 'profile' in request.path %} active {% endif %}" href="{% url 'profile' user.username %}">
                                 My stuff
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_logout' %}">
+                            <a class="nav-link {% if 'logout' in request.path %} active {% endif %}" href="{% url 'account_logout' %}">
                                 Logout
                             </a>
                         </li>
@@ -85,12 +91,12 @@
                         <!-- if the user is not logged in -->
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">
+                            <a class="nav-link {% if 'signup' in request.path %} active {% endif %}" href="{% url 'account_signup' %}">
                                 Register
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}">
+                            <a class="nav-link {% if 'login' in request.path %} active {% endif %}" href="{% url 'account_login' %}">
                                 Login
                             </a>
                         </li>

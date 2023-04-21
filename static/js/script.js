@@ -23,10 +23,3 @@ $(document).ready(function () {
     alert.close();
   }, 3000);
 });
-
-$(document).ready(function() {
-  $('#summernote').summernote({
-    pastePlain: false,
-    // other options...
-  });
-});

@@ -22,8 +22,8 @@ urlpatterns = [
          views.RecipeDeleteView.as_view(), name='delete_recipe'),
 
     # crud views for comment model
-    path('<int:pk>', views.CommentUpdateView.as_view(), name='edit_comment'),
-    path('delete/<int:pk>',
+    path('comment/<int:pk>', views.CommentUpdateView.as_view(), name='edit_comment'),
+    path('comment/delete/<int:pk>',
          views.CommentDeleteView.as_view(), name='delete_comment'),
 
     # profile views

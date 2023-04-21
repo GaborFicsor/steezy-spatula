@@ -132,10 +132,11 @@ hr {
 .btn {
     transition: none;
     border: none;
+    color: #ffffff;
 }
 
-.btn {
-    color: #ffffff;
+.btn:hover {
+    color :#000000
 }
 
 .bg-elara {
