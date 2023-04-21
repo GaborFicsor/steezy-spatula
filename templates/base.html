@@ -60,12 +60,12 @@
 
                         <!-- link to recipes -->
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{% url 'homepage' %}" class="{% active_link 'homepage'}">Home</a>
+                            <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{% url 'homepage' %}">Home</a>
                         </li>
 
                         <!-- link to recipes -->
                         <li class="nav-item">
-                            <a class="nav-link {% if 'recipes' in request.path %} active {% endif %}" href="{% url 'recipes' %}" class="{% active_link 'recipes'}">Recipes</a>
+                            <a class="nav-link {% if 'recipes' in request.path %} active {% endif %}" href="{% url 'recipes' %}">Recipes</a>
                         </li>
 
                         <!-- if the user is logged in -->
