@@ -1,8 +1,10 @@
 # Steezy Spatula - cooking made less overwhelming
 
-The Steezy Spatula is a responsive web application aiming to help people who are struggling with idea of cooking in general, by providing recipes that are easy to follow and without any unnecessary or additional information.
+Steezy Spatula is a responsive web application aiming to help people who are struggling with the idea of cooking in general, by providing recipes that are easy to follow and without any unnecessary or additional information. Agile methodology was used to pland and design throughout development. A data model was implemented to make features like managing, querying and manipulating data possible for the users of this website who are able to access these features through authorisation. Registering to the website will give people permission to handle CRUD functionalities such as, create, read, update and delete. For version control GitHub was used. The repository can be found here: [GitHub repository](https://github.com/GaborFicsor/steezy-spatula)
 
-!!! amiresponsive image !!!
+For the admin panel the default django admin dashboard was used, where the admin is able to perform CRUD functionalities related to every model and object.
+
+![image of the amiresponsive testing](static/images/amiresponsive.png)
 
 The live website can be viewed here: [Steezy Spatula - cooking made less overwhelming](https://steezy-spatula.herokuapp.com/)
 
@@ -11,9 +13,9 @@ The live website can be viewed here: [Steezy Spatula - cooking made less overwhe
 ## CONTENTS
 
 * [User Experience](#user-experience-ux)
-  * [User Stories](#user-stories)
 
 * [Design](#design)
+  * [Design Thinking](#design-thinking)
   * [Colour Scheme](#colour-scheme)
   * [Typography](#typography)
   * [Imagery](#imagery)
@@ -42,74 +44,116 @@ The live website can be viewed here: [Steezy Spatula - cooking made less overwhe
   * [Media](#media)
   * [Acknowledgments](#acknowledgments)
 
----
+<hr>
 
 ## User Experience (UX)
 
-The primary aim of this website is to help users gain confidence in the kitchen by providing simple and easy-to-follow recipes. The main goal is to make the experience as stress-free and uncomplicated as possible, without overwhelming users with unnecessary information.
+The main goal of this website is to give its users the ability to gain more confidence in the kitchen by providing simple recipes. The whole project aims to make the experience the least overwhelming possible. People should not be discouraged by excess information and should only be told the most important things to get started.
 
-By registering on the website, users can access additional features, including the ability to add recipes they believe are worth sharing and beneficial to others. Registered users can also edit their uploaded recipes and view their saved recipes under the "My Stuff" tab. While deleting a recipe entry is available, I would encourage users not to do so, as it someone could fint it helpful.
+People can register on the website which gives them access to features like adding the recipes that they feel are worth sharing in the sense that it would be beneficial to their peers. Registered users can edit or delte their own uploaded recipes to the site. If people don't have any idea to share yet, they are welcome to browse the existing list of recipes that can be found in the recipes section from which they can save recipes to their list that can be viewed anytime under the "My Stuff" tab. Furthermore, users of the site can comment under any recipe and share their thoughts and be a part of a conversation. Comments can also be deleted or updated by the users.
 
-Even if users don't have a recipe to share yet, they can browse the existing list of recipes found in the recipes section and save recipes they like to their list. Additionally, users can share their thoughts and participate in conversations by leaving comments under any recipe. Users can also delete or update their comments as needed.
 
-## Design thinking
+### Client Goals originalised
 
-I was thrilled to come up with the idea for my project, as it was something I could see myself using. Having a difficult relationship with cooking myself, it was easy to empathize with potential end-users of the website. For me, the most important aspect of the design was to ensure that the webpage had the least amount of clutter possible.
+* To have an immediate understanding of what the website's purpose is.
+* To be able to view the site on a range of device sizes, without any distortions that would lower the quality or usability of the website.
+* To be able to navigate through the website effortlessly and gain feedback on the actions undertaken to avoid confusion.
+* To give users the ability to create, read, edit and delete their recipes and comments.
 
-While there are many recipe websites out there, I could not find any that truly catered to individuals with depression and anxiety, especially when it came to cooking. Even if I found an easy recipe on one of these sites, I often had to scroll through endless descriptions and irrelevant information, which only further discouraged me from cooking. This tedious experience is not a solution for people who need guidance, like myself. That's why my website cuts straight to the point, presenting only the relevant and important information.
-
-One of my proudest accomplishments in the design is the progress bar displayed with different colors on the recipe card. I had the idea to make this progress bar differently colored based on the recipe's difficulty, so users can easily judge if they have the mental capacity to follow through or try it another day. The difficulty levels are categorized into four tiers: easy, moderate, intermediate, and challenging. I had additional ideas to improve the design, such as avoiding discouraging colors like red for the challenging difficulty, as it might give people the impression that it is too difficult to attempt. Another idea was to not fill the bar all the way up, even with the hardest difficulty, as it could also be discouraging. My ultimate goal is to improve the website further, by researching and implementing features that these individuals would find truly useful.
-
-Overall, I believe this project is a great idea, and I put in considerable effort to polish the design.
-
-### Client Goals
-
-* To ensure that users can quickly and easily understand the purpose of the website immediately.
-* To create a responsive design that adapts to a variety of device sizes, ensuring that the quality and usability of the site remain consistent across all platforms.
-* To implement intuitive navigation that enables users to effortlessly move throughout the website, while providing clear and concise feedback to avoid any confusion.
-* To give users the ability to create, view, modify, and delete their own recipes and comments
-
-### User Stories
+### User Stories originalised
 
 As a site User
 
-Client Goals
+* I want to be able to register on the website to gain access to the full experience provided by the application.
+* I want to be able to create and share my recipe.
+* I want to have the ability to edit the recipes I have created if needed.
+* I want to have the ability to delete the recipes I have created if needed.
+* I want to have the ability to view other users' shared recipes.
+* I want to have the ability to save and 'unsave' the recipes I like, to access them faster and easier anytime.
+* I want to have the ability to engage in conversations regarding a recipe.
+* I want to be able to view my recipes in one place to manage them faster and easier.
+* I want to be reinforced by the actions I undertake during my time on the website.
+* I want to search and filter recipes to cater for my own needs.
 
-I want to be able to register on the website to gain access to the full range of features provided by the application.
-I want to be able to create and share my recipe.
-I want to have the ability to edit the recipes I have created if needed.
-I want to have the ability to delete the recipes I have created if needed.
-I want to have the ability to view other users' shared recipes.
-I want to have the ability to save and 'unsave' the recipes I like, to access them faster and easier anytime.
-I want to have the ability to engage in conversations regarding a recipe.
-I want to be able to view my recipes in one place to manage them faster and easier.
-I want to be reinforced by the actions I undertake during my time on the website.
-I want to search and filter recipes to cater for my own needs.
+<hr>
 
+## Design
 
+### Design thinking
 
-### Colour Scheme
+I was excited to come up with this idea for my project because it is definitely something I could see myself using. I have a bad relationship with cooking so it was easy to have a viewpoint of an end-user of the website. I think the most important thing about the design was to make the whole webpage have the least clutter possible. 
 
-For the design, I selected vivid colors that are visually appealing and engaging, to create a pleasant experience for visitors. My goal was to not only capture their attention but also encourage them to explore the website further and ultimately return to it. I aimed to create a positive and welcoming atmosphere that would make visitors feel at ease and comfortable.
+Whenever I look for recipes online there are several websites out there on the web, but I have not found any that is truly focusing on people with depression and anxiety, at least not in regard to cooking. Even if I find an easy recipe on one of these websites I have to scroll down a lot to get to the actual details and information which just further discourages me to look for recipes like this. It is tedious and for people who really need guidance -like me-, it is not a solution. My website however cuts straight to the point with recipes. No description, and no scrolling down, only the relevant and most important information is presented.
 
-!!!image of coolors palette!!!
+One of my proudest accomplishments in designing this website was the idea I had to make the progress bars differently coloured based on a recipe's difficulty, so people can easily judge if they have the mental capacity to follow through, or give it a try another day. There are 4 levels of difficulties, which are easy, moderate, intermediate, and challenging. I had further ideas to make this even better. One of them was to not use discouraging colours like red on the challenging difficulty for example because it might give people the impression that the recipe can be a bit too difficult to handle. The other one was, to not fill the bar all the way up even for the hardest difficulty because that can also be discouraging to people, which I don't want. I would like to further improve this website, maybe research what features the potential users would truly find useful. I think this is a good project idea and I did spend my time polishing the design.
+
+### Colour Scheme 
+
+For the design, I picked vivid colours to make the overall look of the website engaging and visually pleasing. I aimed to make the visitors have a good experience, so they would consider coming back more often.
+
+<details>
+  <summary>Colour Palette</summary>
+
+![images of the website's color palette using coolors.co](static/images/colour_palette.png)
+
+</details>
+
+### Typography
+
+For the font styles I used the default Arial font provided and for some parts I picked [Paytone One](https://fonts.google.com/specimen/Paytone+One?query=Paytone)
+
+<details>
+  <summary>Paytone One font from Google Fonts</summary>
+
+![image of the Paytone One font style](static/images/paytone.png)
+
+</details>
+
+### Imagery 
+
+For the images on the website I used stock images from [pexels](https://www.pexels.com/)
+<details>
+  <summary>background image</summary>
+
+![background image of the website](static/images/header.jpg)
+
+</details>
+
+<details>
+  <summary>placeholder image for the recipe card</summary>
+
+![placeholder image of the recipe carr](static/images/placeholder.jpg)
+
+</details>
+
+<hr>
 
 ### Wireframes
 
 <details>
   <summary>image of the landing page</summary>
 
-![images of an early mock-up](static/images/figma_mockup.jpg)
+![images of an early mock-up](static/images/early_mockup.png)
 
 </details>
 
-During the early stages of development, I experimented with [figma](https://www.figma.com/) to create the landing page for my website. However, as someone with a neurodivergent brain, I found it overwhelming and struggled to come up with a rough mock-up for a complete design. However, this is clearly something that I am getting the hang of and I can see myself progressing with creating a plan before I start working on the next design.
+During the early stages of development, I tried using [figma](https://www.figma.com/), where I came up with the idea for the landing page, but due to my neurodivergent brain I found it hard and overwhelming to even come up with a rough mock-up for a complete design, However, this is clearly something that I am getting the hang of and I can see myself progressing with.
+
+### Database
+
+<details>
+  <summary>image of the relational database</summary>
+
+![image of the relational database]()
+
+</details>
+
+<hr>
 
 ## Features
-The website's structure is carefully designed to provide a seamless user experience. The landing page is thoughtfully crafted to engage and guide visitors towards the main purpose of the website, while the recipes page is where users can browse, search, and interact with recipes uploaded by themselves and other users. The 'profile' page allows users to manage their own, and saved recipes.
-In addition to these main pages, the website also features various forms for creating and editing recipes, authorization pages provided by django-allauth to ensure secure login and registration, custom error pages for common HTTP errors, and a confirmation page designed with a defensive approach to prevent accidental or unwanted actions.
-All pages on the website are designed with a responsive layout, ensuring optimal viewing experience on different devices and screen sizes. Each page has a unique and descriptive title, and a favicon that helps users quickly recognize the website in their bookmarks or browser tabs. To provide consistency and easy navigation, all pages share a common navbar and footer section.
+The main pages of the website are a landing page, a recipes page and a profile page. Further pages for features include: creating and editing forms, authorization pages provided by django-allauth, custom error pages for 400, 403, 404 and 500 errors, and a confirmation page with the purpose of defensive design.
 
+All pages on the website are responsive, have a favicon and a unique title displaying in the browser tab. Every page shares a common navbar and a footer section.
 ### Landing Page
 <details>
   <summary>image of the landing page</summary>
@@ -118,11 +162,7 @@ All pages on the website are designed with a responsive layout, ensuring optimal
 
 </details>
 
-To create an engaging and informative landing page, I carefully designed the visual elements and content to grab the users' attention and make them want to explore further. The site logo, with a catchy slogan, is prominently displayed to give a clear idea of what the site is about. The landing page also includes a brief description of the site's purpose and its target audience to make it more relatable.
-
-The landing page also features a call-to-action button to prompt visitors to register and create an account. This button is only visible if the user is not logged in. The registration form is user-friendly and easy to fill out, making the registration process quick and hassle-free.
-
-Furthermore, the landing page includes a section that provides a brief introduction about the me and my motivations behind building the website. Overall, I think that the landing page serves as an excellent introduction to the website.
+The landing page is what users see the first time they visit my website, so I wanted to make it eye-catching by having a site logo with a slogan on display, and a short explanation as to who this site is dedicated to. The landing page also features a call to action button -only present when the user is not logged in- which takes the visitor to the registration form. Further down a short description can be found about me, where I explain the purpose and the targeted audience.
 
 ### Recipes Page
 <details>
@@ -138,7 +178,8 @@ Furthermore, the landing page includes a section that provides a brief introduct
 
 </details>
 
-The recipes page is designed to provide users with a visually appealing and organized view of all the uploaded recipes. The filter form, which is located at the top of the page, allows users to easily search and filter through the recipes by narrowing down their preferences. Users can filter by searching for specific keywords, selecting a difficulty level, choosing a particular recipe type, or selecting strictly vegan recipes. It's also possible to combine multiple filters to get the most relevant and accurate results. With these filter options, users can easily find the recipes that best fit their needs and preferences.
+The recipes page give the users a well structured and designed view of the uploaded recipes. A filter form placed at the top give people the ability to search and filter for recipes by narrowing down their needs. Users can filter by looking up words, select a  difficulty, type or strictly vegan recipes, It is also possible to combine these filters to get the best result possible.
+
 <details>
   <summary>image of 'add your own' link</summary>
 
@@ -146,7 +187,7 @@ The recipes page is designed to provide users with a visually appealing and orga
 
 </details>
 
-At the bottom of the filter form, a short text reads 'Add Your Own'. Clicking on this hyperlink takes the user to the recipe creation form.
+Below the filter form a short text saying 'add your own' serves as a hyperlink that takes the user to the recipe creation form.
 <details>
   <summary>image of a recipe card</summary>
 
@@ -154,7 +195,7 @@ At the bottom of the filter form, a short text reads 'Add Your Own'. Clicking on
 
 </details>
 
-The recipes page is designed to display up to 9 recipes at a time. Additional recipes trigger pagination, allowing users to easily browse through different pages. The recipes are ordered by the date of creation, with the latest recipe appearing first. Each recipe is presented as a card that includes an image, title, cooking time, and a progress bar that visually indicates the recipe's level of difficulty. This layout allows users to quickly decide if a recipe is within their ability to follow through or if they need to keep searching. Moreover, vegan-friendly recipes are indicated by a small icon at the top left corner, making it easy for people who follow a vegan diet to find appropriate recipes.
+For the most part, the page can hold 9 entries at once, any more results will create a pagination, where people can browse by looking at different pages. Recipes shown are ordered by their date of creation, with the most recent showing up first. The recipes are presented in a form of a card where -to my judgement- the utmost important details are presented, which are an image, a title, the cooking time and a progress bar which gives a visual representation of how difficult the task could be. All of this combined can give people the ability to judge if they can tackle it, or decide that they look further. There is also a small indicator at the top left corner of a recipe if it's vegan-friendly, so people who only eat vegan food can find these recipes more easily.
 <details>
   <summary>image of pagination</summary>
 
@@ -162,13 +203,16 @@ The recipes page is designed to display up to 9 recipes at a time. Additional re
 
 </details>
 
-At the bottom of the recipes page, a convenient pagination feature is available for users to navigate through multiple pages of results in case there are more than 9 recipes uploaded. This makes it easier for users to browse and explore all the available recipes on the website without feeling overwhelmed.
+
+Mentioned above, at the bottom of the recipes page a pagination can be found to help navigating if there are more results than 9 at once. 
 
 ### My Stuff
 
+When the user clicks on the 'My Stuff' tab in the navigation bar, they are directed to their profile page that displays their username and the date they registered on the website. In addition, the page includes two tables that allow the user to view their shared and saved recipes, providing a convenient and accessible way to keep track of their recipes.
+
+My recipes table holds entries of the recipes that the current user has ever uploaded to the website. Over the table next to the title 'my recipes' a plus sign serves as a link to the recipe creation form. In the table are 3 columns present. The first one is the recipe's name which also serves as a hyperlink to the corresponding recipe's detailed page. A pencil icon represents the ability to edit the corresponding recipe. Clicking this icon will take the user to the recipe's editing form. Lastly, a trash-can icon is used to indicate the ability to delete the corresponding recipe. Clicking this icon will take the user to a confirmation page, where they need to affirm their intentions.
 
 
-When the user clicks on the 'My Stuff' tab in the navigation bar, they are directed to their profile page that displays their username and the date they registered on the website. In addition, the page includes two tables that allow the user to view their shared and saved recipes, providing a convenient and accessible way to keep track of their recipes. These tables hold the user's own recipes and the ones they saved. Overall, the 'My Stuff' page is a valuable feature that enhances the user experience by providing a 'hub' to the users.
 <details>
   <summary>image of 'My Stuff'</summary>
 
@@ -184,7 +228,8 @@ On the 'My Stuff' page, there is a table dedicated to displaying all the recipes
 
 </details>
 
-If the user hasn't created any recipes yet, the table on the "My Recipes" page will be empty. In this case, a friendly message is displayed saying, "You haven't added anything yet! Share your recipes with us here" The word 'here' at the end is a hyperlink to the recipe creation form
+If the user has not created any recipes yet, instead of a table a text is shown saying, 'Looks like you haven't added anything just yet! Share your recipes with us here', the word 'here' at the end serves as a hyperlink to the recipe creation page.
+
 <details>
   <summary>image of my saved recipes</summary>
 
@@ -192,7 +237,8 @@ If the user hasn't created any recipes yet, the table on the "My Recipes" page w
 
 </details>
 
-The second table on the profile page displays all the recipes that the user has saved. Each row in the table provides information about the recipe's name, its author, and a button to remove the recipe from the list. By clicking on the recipe's name, the user can access the detailed recipe page and view its ingredients and instructions(method). Users can add recipes to this list by clicking the 'save' button on any recipe page, and it takes just one click to remove them as well. If the user has not yet saved any recipes, a message is displayed on the table saying, 'Any recipe you fancy will be saved here for You' The word 'recipe' is a hyperlink to the recipes page.
+The second table holds entries that have been saved by the user. Three table columns hold information about the recipe's name, which is also a hyperlink to the corresponding recipe's detailed page, the recipe's author, and a button to 'unsave' or 'delete' recipes from this list. Any recipe on the website can be saved, and it only takes one click to add them to this list. If, however, the user has not saved any recipes yet, instead of a table a text is present, saying 'Any recipe you fancy will be saved here for You', the word 'recipe' serves as a hyperlink to the recipes page.
+
 <details>
   <summary>image of logo</summary>
 
@@ -209,14 +255,17 @@ At the bottom of the 'My Stuff' page, the site logo is shown only for visual pur
 ![image of recipe detail page](static/images/recipe_detail.jpg)
 
 </details>
-At this point, users have various ways to access a recipe's detailed page, but the most straightforward method is by accessing them through the recipes page. Upon clicking on a recipe card, users will be directed to the recipe's detailed page, which displays essential information such as the title, author, and date of creation of the recipe. Registered users can also find a 'save' button that allows them to add the recipe to their 'my saved recipes' table, as mentioned earlier. For unsaved recipes, an empty flag icon is present. Once the 'save' button is clicked, the icon changes to a solid flag, and an alert message pops up, confirming the successful addition of the recipe to the user's saved list. If the user clicks the 'save' button again, the icon returns to its original form, and an alert message pops up, stating that the recipe has been removed from their saved recipes list. This process can also be executed on the 'My Stuff' page.
+At this point, the users have more ways to access a detailed page of a recipe, but the most straightforward way is to access them via the recipes page. Clicking on a recipe card will take the user to the detailed page of the recipe, where they can see the title, the author, and the date of creation of the recipe they clicked on. There is also a button that shows up for registered users which is the 'save' button. Clicking this button will 'save' this recipe to the user's 'my saved recipes' table mentioned earlier. If a recipe is not 'saved' an empty flag icon is present. After clicking this button the icon changes to a solid flag and an alert message pops up saying that the current recipe the user is viewing has been successfully saved to their list. Clicking again this button replaces the icon to its original form and an alert message pops up saying that the current recipe the user is viewing has been removed from their saved recipes list. This process can also be done on the 'My Stuff' page.
+
 <details>
   <summary>image of buttons</summary>
 
 ![image of icons](static/images/buttons.jpg)
 
 </details>
-When viewing the detailed page of a recipe that the user has created, in addition to the 'save' button, two icons are also displayed next to it. The first icon is a pencil, which allows the user to edit the recipe by clicking on it. Clicking the pencil icon takes the user to the recipe editing form, where they can modify the recipe details as needed. The second icon is a trash can, which allows the user to delete the recipe entirely. Clicking the trash can icon takes the user to a confirmation page before the recipe is deleted.
+
+If the user is viewing the detailed page of a recipe that they created, there are also two icons present next to the 'save' button. Which are the pencil icon for editing and trash can icon for deleting.
+
 <details>
   <summary>image of page details section</summary>
 
@@ -224,7 +273,8 @@ When viewing the detailed page of a recipe that the user has created, in additio
 
 </details>
 
-The first row of the detail section features an image of the recipe. If the author provided an one, it will be displayed, otherwise, a placeholder image will be shown. Next to the image, a details section provides essential information about the recipe, such as its type, preparation and cooking time, serving size, calorie count, and difficulty level. Additionally, if the recipe contains nuts, dairy, or both, this information is also highlighted in this section.
+The first row of the detail section shows an image of the recipe, which is either a placeholder image or an image of the actual recipe if it was provided by the author. Next to the image, A short details section gives information about the recipe's type, preparation and cooking time, the calories and serving size, difficulty, and finally, if it contains Nuts, Dairy or both at the same time it is also shown.
+
 <details>
   <summary>image of ingredients and method section</summary>
 
@@ -240,7 +290,7 @@ The next section is the ingredients and method sections which hold information r
 
 </details>
 
-The recipe detail page features a comment section available only to registered users. If there are no comments yet, a message is shown to users saying 'be the first to comment', next to the comment section a comment form can be found. Upon submission, the comment appears at the bottom of the list with a pop-up message confirming the successful addition, along with the username of the current commenter. If there are comments already present under the recipe, they are displayed in order, with the newest one appearing on top. Each comment includes the author's name and the date of creation. If the current user is the author of a comment, two additional icons are prestend to them: a pencil for editing and a trash can for deletion. Clicking the pencil icon takes the user to the comment editing form, where they can modify and re-submit their comment. Upon successful submission, a pop-up message appears, acknowledging the updated comment. The trash can icon, on the other hand, leads the user to a confirmation page, where they can confirm their intention to delete the comment.
+At the bottom of the recipe detail page, a comment section can be found which is only available to the registered users of the website. If there are no comments yet under a recipe, a text is shown saying 'Be the first to comment!' with the comment form next to it. The comment form is a text area where people can write and submit a comment with the button below. Doing so will display the newly submitted comment and make an alert pop-up that the comment has been added. The current username is also reflected on the form. If there are comments under a recipe, they are listed below each other with the most recent comment at the top. Each comment has information about the author and the date of creation. If the current user is the author of a comment, a pencil icon for editing and a trash can icon for deleting the comment is shown. The pencil icon takes the user to the comment editing form where they can update and resubmit their comment. Doing so will make an alert pop-up saying that the comment has been updated successfully. Clicking on the trash-can icon will take the user to a confirmation page, where they need to affirm their intentions.
 
 Authorization pages
 <details>
@@ -250,7 +300,7 @@ Authorization pages
 
 </details>
 
-To register on the website, users can either click the 'Register' button in the navigation bar or the call-to-action button on the landing page. Both options lead to the sign-up form, where users must select a unique username and password. Email address is optional. If a user has already registered on the site, there is a link at the top of the page that will take them to the login form if clicked.
+If a user decides to register to the website, they can do so by clicking either on the 'Register' button in the navbar or by clicking the call to action button on the landing page. Both actions will take the user to the sign-up form, where they need to choose a unique username and password. The E-mail address is set to optional. If the user has already registered to the website, there is a link at the top that will take them to the login form if clicked.
 <details>
   <summary>image of login page</summary>
 
@@ -258,7 +308,7 @@ To register on the website, users can either click the 'Register' button in the 
 
 </details>
 
-To log in to the website, users can click on the login button in the navigation bar. From there, they will be asked to enter their unique username and password. If they would like to avoid entering their login information every time they visit, they can choose the "Remember me" option. If a user is not yet registered and cannot log in, a link to the signup form is available at the top of the page. After successfully logging in, users are redirected to the landing page with a pop-up message that says: 'Successfully logged in'.
+If a user wants to log in after returning to the website they can do so, by clicking on the login button in the navbar. Here they need to type in their username and password and they can make the website remember them, so they don't have to log in every time they visit the website. If the user is not registered yet and therefore can not use the login form to enter the website, a link is present at the top that will take them to the signup form. If the user filled out the login form and pressed the sign in button they are then taken back to the landing page with an alert message saying that they have successfully logged in.
 <details>
   <summary>image of logout page</summary>
 
@@ -266,7 +316,7 @@ To log in to the website, users can click on the login button in the navigation 
 
 </details>
 
-Once a user is logged in, they can sign out by clicking on the 'Logout' link in the navigation bar. This will direct the user to the Sign Out page, where they will have two options: 'Sign Out' and 'Cancel.' If the user confirms that they want to sign out by clicking on 'Sign Out,' they will be redirected back to the landing page and receive a message confirming that they have successfully signed out. (It's worth mentioning that after signing out, the user will no longer have access to any features or content that require authentication until they log back in again.)
+If a user wants to sign out, they can do so by clicking on the Logout link on the navigation bar. This action will take the user to the Sign Out page where they can choose to click on 'Sign Out' or 'Cancel'. Clicking on 'Sign Out' will take the user back to the landing page with a message saying they have successfully signed out.
 <details>
   <summary>image of delete form</summary>
 
@@ -274,7 +324,7 @@ Once a user is logged in, they can sign out by clicking on the 'Logout' link in 
 
 </details>
 
-When a user wants to delete a recipe, or a comment they have created, they need to confirm this action with a form. Once they submit the form, the recipe or the comment will be permanently deleted from the website. A confirmation message will appear, asking the user to confirm their intention. This is to prevent accidental deletion. If the user confirms the deletion, they will be redirected back to the recipes page and an alert message will appear, notifying them that the object has been successfully deleted. It's important to mention that once an object is deleted, it cannot be restored.
+Before a delete request can be processed, the user needs to confirm this with a form. Confirming the deletion will take the user back to the recipes page and an alert will pop up saying that the deleting was successful.
 <details>
   <summary>image of creation form</summary>
 
@@ -282,7 +332,7 @@ When a user wants to delete a recipe, or a comment they have created, they need 
 
 </details>
 
-There are multiple ways to access the recipe creation form. The form itself contains several fields including Recipe Name, Recipe Type, and checkboxes for indicating whether the recipe is vegan, contains dairy, or contains nuts. There are also fields for listing the ingredients and method, as well as specifying the preparation time, cooking time, serving size, calories, and difficulty level. Additionally, users can upload an image to their recipe, though this is optional. If an image is not provided, a placeholder image will be displayed on the recipe card and detailed page. Once the user has completed the form and submitted it, they will be taken back to the recipes page, and an alert will notify them that the recipe was successfully added.
+Navigating to the creating form of a recipe can be done more than one way at this point. The form has a Recipe name field, a type field, checkboxes for being vegan or containing dairy or nuts, an ingredients and method field, preparation time and cooking time, serving size, calories and difficulty. Lastly, the user can provide an image for the recipe but it's not mandatory. If the user doesn't provide an image, a placeholder image will be shown instead on the recipe card and the recipe's detailed page as well. Submitting the form will take the user back to the recipes page and an alert message pops up saying the recipe has been added successfully.
 <details>
   <summary>image of editing form</summary>
 
@@ -290,7 +340,7 @@ There are multiple ways to access the recipe creation form. The form itself cont
 
 </details>
 
-Accessing the editing page of a recipe can be done through multiple ways. Once the user reaches the editing form, they will find a familiar layout that resembles the creating form. All fields are pre-filled with existing data, allowing the user to easily manipulate each field to make updates. Additionally, the form displays the date the recipe was added and the date of the last update to provide useful information for the user. The image field is optional, and if the user chooses not to include an image, the recipe card and detailed page will display a placeholder image. Upon submitting the updated recipe, an alert message will appear, confirming that the recipe has been successfully updated.
+Reaching the editing page of a recipe can be done more than one way at this point. This form is very similar to the creating form except all the fields are pre-populated with the existing data, and the user is able to manipulate every field and submit their updated version. The form also tells the user when the recipe was added, and when was it last updated. If the user submits the updated recipe an alert message will pop up saying that the update was successful.
 <details>
   <summary>image of comment edidting form</summary>
 
@@ -298,7 +348,7 @@ Accessing the editing page of a recipe can be done through multiple ways. Once t
 
 </details>
 
-The comment editing form is a feature that can only be accessed through the recipe detail page, where the comment that the user wants to edit is located. To edit their comment, the user can click on the pencil icon, which takes them to the comment editing form page where they can update their comment. Once the user has made the changes, they can submit the updated comment. Upon submission, the user is redirected back to the recipes page, and a confirmation message will pop up, indicating that the comment has been successfully updated.
+The comment editing form can only be accessed through the recipe detail page where the comment the user wants to edit is present. There he can click on the pencil icon mentioned earlier which takes them to the comment editing form page where they can edit and resubmit their comment. Doing so will take them back to the recipes page and an alert message will pop up saying the comment was updated successfully.
 <details>
   <summary>image of error 404 page</summary>
 
@@ -307,10 +357,10 @@ The comment editing form is a feature that can only be accessed through the reci
 </details>
 
 
+Deleting either a recipe or a comment can be done by finding a trash-can icon of the recipe or the comment the user wants to delete. Clicking the trash-can icon will take them to a page where they need to confirm their action. Deleting an item will take them back to the recipes page with an alert saying the request for deletion was successful, and the item no longer exists.
 
 
-
-As mentioned earlier, I have implemented four custom error pages to the website to provide a better user experience in case of errors. The most common error page is the 404, which is displayed when the user navigates to a page that does not exist, such as a recipe that has been deleted or a URL that is mistyped
+As mentioned earlier, there are four custom error pages provided to the website. The most common is the 404 which is shown to the user if they navigate to a page that does not exist, for example a recipe that has been deleted.
 
 ## Future Implementations
 
@@ -425,12 +475,10 @@ Validators
 ### Solved
 * Model relation During early development, I had issues with my models, when I was trying to connect my Recipe model with a many-to-many relationship to a model called Allergens. My lack of understanding of how a many-to-many relationship should work ended me up breaking my models beyond repair. Not even deleting the model from the models.py helped. I had to contact Code Institute Tutor Support where Jason helped me out a lot by giving instructions on how to reset my database.
 
-* Rendering form field in templateAt a later stage in development, I attempted to render the filter form in my recipe template. The filter form had three fields to filter by, one of which was a TextInput field used to search for recipes. I wanted to render each field individually to make it easier to style with Bootstrap, rather than using Crispy Forms. However, the recipe_name field would not render, and when I tried to render it using {{ form.recipe_name|as_crispy_field }}, I received an error message stating that the field either did not exist or was invalid.
-I reached out to Code Institute Tutor Support, and Joshua pointed out that I was using the icontains lookup type incorrectly. By adding lookup_expr='icontains' to the variable inside the RecipeFilter class, I was able to resolve the issue and render the field as expected.
+* Rendering form field in template:
+At a later stage in development, I was trying to render the filter form in my recipe template. At this stage, it had 3 fields to filter by, of which one was a TextInput field to look up recipes. I wanted to render every field individually to be able to style them easier, rather than using crispy forms, but my text field would not want to render. When I tried to render {{ form.recipe_name|as_crispy_field }} I got an error stating that the field that I am trying to pass is either non-existent or invalid. I had to contact Code Institute Tutor Support where Joshua pointed out that I am using the icontains lookup type the wrong way. Adding lookup_expr='icontains' to the variable inside the RecipeFilter Class solved this problem and the field was rendering as expected. 
 
 * Pagination bug, during manual testing I found that after filtering the recipe list I was able to look through the paginated views in my recipes template, by viewing the next pages, however, when I tried to click on the previous page the filtered list was not working properly and every recipe got listed again without filtering. Replacing the correct url inside the first and previous page-links solved this problem
-
-* Deleting an object during manual testing I tried to delete an object from the model, which is done by being redirected to the delete_confirm template. This template has a form with submit and a cancel button. When I tried pressing cancel, I inadvertently deleted the object from the model. After replacing the cancel button outside the form,  the cancel button behaved as expected.
 
 
 ## Credits
@@ -454,8 +502,3 @@ I would like to thank
  * my girlfriend, for testing the usability and user experience of the website, as well as creating a profile and uploading recipes.
  * my Mentor [Jubril Akolade](https://github.com/Jubrillionaire) for taking the time to review my project and answering my questions.
  * Code Institute Tutor staff: Joshua, Ed, and Jason for helping me out with problems I would have not be able to solve on my own.
-
-
-### Final Note
-
-I am fully aware of the poor quality of this README.md document and the hiatus within the project issues. I have worked tirelessly on this project, but still, I did not get to finish most of what I wanted. I am having trouble planning and micromanaging issues, especially for the first time with an enormous project like this. Although my ADHD causes problems with my management skills, I am still responsible for improving them. I am truly aiming to make the best of my oncoming project, and I am ashamed of how I ended up handling this one due to time constraints. I am truly sorry from the bottom of my heart, and I wish I had started writing this README.md document on time and created issues more regularly.
