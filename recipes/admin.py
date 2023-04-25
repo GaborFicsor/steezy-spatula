@@ -7,6 +7,8 @@ from django_summernote.admin import SummernoteModelAdmin
 class RecipeAdmin(SummernoteModelAdmin):
     """
     admin panel table contents of recipe model
+    credit:
+    Code Institute's "I think therefore I blog walkthrough project"
     """
     list_display = (
         'recipe_name',
@@ -26,6 +28,8 @@ class RecipeAdmin(SummernoteModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     """
     admin panel table contents of comment model
+    credit:
+    Code Institute's "I think therefore I blog walkthrough project"
     """
     list_display = ('name', 'body', 'created_on',)
     list_filter = ('created_on',)

@@ -212,8 +212,8 @@
                         <h3>Leave a comment:</h3>
                         <p class="orange">{{ user.username }}</p>
                         <form method="POST">
-                            {{ comment_form | crispy }}
                             {% csrf_token %}
+                            {{ comment_form | crispy }}
                             <button type="submit" class="btn bg-success mt-3 btn-lg" aria-label="submit updated recipe">
                                 Submit
                             </button>

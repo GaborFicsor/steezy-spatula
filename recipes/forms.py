@@ -4,12 +4,20 @@ from django_summernote.widgets import SummernoteWidget
 
 
 class CommentForm(forms.ModelForm):
+    """
+    credit:
+    Code Institute's "I think therefore I blog walkthrough project"
+    """
     class Meta:
         model = Comment
         fields = ('body',)
 
 
 class RecipeForm(forms.ModelForm):
+    """
+    credit:
+    https://github.com/summernote/django-summernote
+    """
     class Meta:
         model = Recipe
         fields = (
@@ -33,13 +41,11 @@ class RecipeForm(forms.ModelForm):
         }
 
 
-class SaveForm():
-    class Meta:
-        model = Recipe
-        fields = ('saved',)
-
-
 class RecipeFilterForm(forms.ModelForm):
+    """
+    credit:
+    https://www.youtube.com/watch?v=6-XXvUENY_8
+    """
     class Meta:
         model = Recipe
         fields = ('recipe_name', 'type', 'difficulty', 'vegan')

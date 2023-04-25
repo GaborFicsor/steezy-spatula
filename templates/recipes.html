@@ -69,8 +69,7 @@
                     <img class="card-img-top img-fluid" src="{% static 'images/placeholder.jpg' %}"
                         alt="Card image cap">
                     {% else %}
-                    <img class="card-img-top img-fluid" src="{{ recipe.featured_image.url }}"
-                        alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ recipe.featured_image.url }}" alt="Card image cap">
                     {% endif %}
                     <div class="card-img-overlay">
                         {% if recipe.vegan %}
@@ -80,7 +79,8 @@
 
                     <!-- card body with stretched link -->
                     <div class="card-body">
-                        <a class="a-reverse stretched-link paytone" href="{% url 'recipe_detail' recipe.slug %}" aria-label="link to {{ recipe.recipe_name }}">
+                        <a class="a-reverse stretched-link paytone" href="{% url 'recipe_detail' recipe.slug %}"
+                            aria-label="link to {{ recipe.recipe_name }}">
                             {{ recipe.recipe_name }}
                         </a>
 
@@ -119,6 +119,7 @@
 
 
     <!-- pagination -->
+    <!-- credit: https://www.youtube.com/watch?v=wY_BNsxCEi4 -->
     <div class="container white">
         <div class="row justify-content-center">
             <div class="col-auto">
@@ -130,13 +131,14 @@
                                 <!-- if current page has a previous page -->
                                 {% if page_obj.has_previous %}
                                 <li class="page-item">
-                                    <a class="page-link"
-                                        href="?{{ request.GET.urlencode }}&page=1" aria-label="first page">&laquo;
+                                    <a class="page-link" href="?{{ request.GET.urlencode }}&page=1"
+                                        aria-label="first page">&laquo;
                                         first</a>
                                 </li>
                                 <li class="page-item">
                                     <a class="page-link"
-                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.previous_page_number }}" aria-label="previous page">previous</a>
+                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.previous_page_number }}"
+                                        aria-label="previous page">previous</a>
                                 </li>
                                 {% endif %}
 
@@ -153,11 +155,13 @@
                                 <!-- https://stackoverflow.com/questions/52007038/pagination-using-listview-and-a-dynamic-filtered-queryset -->
                                 <li class="page-item">
                                     <a class="page-link"
-                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.next_page_number }}" aria-label="next page">next</a>
+                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.next_page_number }}"
+                                        aria-label="next page">next</a>
                                 </li>
                                 <li class="page-item">
                                     <a class="page-link"
-                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.paginator.num_pages }}" aria-label="last page">last
+                                        href="?{{ request.GET.urlencode }}&page={{ page_obj.paginator.num_pages }}"
+                                        aria-label="last page">last
                                         &raquo;</a>
                                 </li>
                                 {% endif %}

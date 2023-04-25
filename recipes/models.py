@@ -120,7 +120,7 @@ class Comment(models.Model):
         -body
         -date of creation
     credit:
-    I Think therefore I blog walkthrough project by Code Institute
+    Code Institute's "I think therefore I blog walkthrough project"
     """
     recipe = models.ForeignKey(
         Recipe,

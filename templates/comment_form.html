@@ -31,10 +31,12 @@
                     <form method="post">
                         {% csrf_token %}
                         {{ form | crispy }}
-                        <button type="submit" class="btn btn-signup elara mt-3 btn-lg" aria-label="submit comment">Submit</button>
+                        <button type="submit" class="btn btn-signup elara mt-3 btn-lg"
+                            aria-label="submit comment">Submit</button>
                     </form>
                     <a class="a-reverse" href="{% url 'recipes' %}">
-                        <button class="btn btn-signup bg-success mt-3 btn-lg" aria-label="back to recipes page" type="submit">Cancel</button>
+                        <button class="btn btn-signup bg-success mt-3 btn-lg" aria-label="back to recipes page"
+                            type="submit">Cancel</button>
                     </a>
                     {% endif %}
                     {% endif %}

@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from .models import Recipe, Comment
-from .forms import CommentForm, RecipeForm, SaveForm, RecipeFilterForm
+from .forms import CommentForm, RecipeForm, RecipeFilterForm
 from .filters import RecipeFilter
 from django.contrib.auth import get_user_model
 import django_filters
@@ -25,6 +25,8 @@ class RecipeList(generic.ListView):
         -recipe name that contains entered characters
         -meal type
         -difficulty
+    credit:
+    https://www.youtube.com/watch?v=FTUxl5ZCMb8
     """
     model = Recipe
     queryset = Recipe.objects.all().order_by('-created_on')
@@ -36,7 +38,7 @@ class RecipeList(generic.ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         self.filterset = RecipeFilter(self.request.GET, queryset=queryset)
-        return self.filterset.qs.distinct()
+        return self.filterset.qs
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -51,6 +53,10 @@ class RecipeDetail(generic.DetailView):
     also in this view:
         -crud functionality for recipes
         -crud functionality for comments
+    credit:
+    Code Institute's "I think therefore I blog walkthrough project"
+    https://docs.djangoproject.com/en/4.2/ref/class-based-views/generic-display/
+    https://www.programiz.com/python-programming/datetime/strftime
     """
     model = Recipe
     template_name = "recipe_detail.html"
@@ -93,6 +99,8 @@ class RecipeDetail(generic.DetailView):
 class RecipeCreateView(LoginRequiredMixin, generic.CreateView):
     """
     Rendering the form for creating a recipe
+    credit:
+    https://www.pythontutorial.net/django-tutorial/django-createview/
     """
     model = Recipe
     template_name = 'recipe_form.html'
@@ -156,6 +164,11 @@ class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
+        """
+        credit:
+        Code Institute's "I think therefore I blog walkthrough project"
+        https://docs.djangoproject.com/en/4.2/ref/urlresolvers/
+        """
         return reverse_lazy('recipe_detail', args=[self.object.recipe.slug])
 
 
@@ -202,6 +215,11 @@ class SaveRecipe(View):
     """
     Adds/removes the current recipe to the user's
     saved recipes list with a button
+    credit:
+        View:
+            Code Institute's "I think therefore I blog walkthrough project"
+        Custom alert:
+            https://stackoverflow.com/questions/53117826/django-translate-messages-success-with-variable
     """
     def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)

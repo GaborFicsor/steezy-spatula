@@ -42,6 +42,7 @@
     <div class="d-flex flex-column min-vh-100">
         <!-- sticky navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark elara sticky-top">
+            <!-- credit: https://startbootstrap.com/theme/one-page-wonder -->
             <div class="container ">
 
                 <!-- top left link that takes the user to the homepage -->
@@ -58,29 +59,34 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
 
-                        <!-- link to recipes -->
+                        <!-- link to homepage -->
                         <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{% url 'homepage' %}">Home</a>
+                            <a class="nav-link {% if request.path == '/' %} active {% endif %}"
+                                href="{% url 'homepage' %}">Home</a>
                         </li>
 
                         <!-- link to recipes -->
                         <li class="nav-item">
-                            <a class="nav-link {% if 'recipes' in request.path %} active {% endif %}" href="{% url 'recipes' %}">Recipes</a>
+                            <a class="nav-link {% if 'recipes' in request.path %} active {% endif %}"
+                                href="{% url 'recipes' %}">Recipes</a>
                         </li>
 
                         <!-- if the user is logged in -->
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link {% if 'profile' in request.path %} active {% endif %}" href="{% url 'profile' user.username %}">
+                            <a class="nav-link {% if 'profile' in request.path %} active {% endif %}"
+                                href="{% url 'profile' user.username %}">
                                 My stuff
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if 'logout' in request.path %} active {% endif %}" href="{% url 'account_logout' %}">
+                            <a class="nav-link {% if 'logout' in request.path %} active {% endif %}"
+                                href="{% url 'account_logout' %}">
                                 Logout
                             </a>
                         </li>
 
+                        <!-- if the current user is admin -->
                         {% if request.user.is_superuser %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'admin:index' %}">
@@ -88,15 +94,18 @@
                             </a>
                         </li>
                         {% endif %}
+                        
                         <!-- if the user is not logged in -->
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link {% if 'signup' in request.path %} active {% endif %}" href="{% url 'account_signup' %}">
+                            <a class="nav-link {% if 'signup' in request.path %} active {% endif %}"
+                                href="{% url 'account_signup' %}">
                                 Register
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if 'login' in request.path %} active {% endif %}" href="{% url 'account_login' %}">
+                            <a class="nav-link {% if 'login' in request.path %} active {% endif %}"
+                                href="{% url 'account_login' %}">
                                 Login
                             </a>
                         </li>
@@ -119,13 +128,16 @@
             <div class="container px-5 text-center">
 
                 <!-- social media links -->
-                <a href="https://www.linkedin.com/in/gabor-ficsor-58a936197/" target="_blank" rel="noopener" aria-label="the website owner's linkedin profile" class="btn text-white">
+                <a href="https://www.linkedin.com/in/gabor-ficsor-58a936197/" target="_blank" rel="noopener"
+                    aria-label="the website owner's linkedin profile" class="btn text-white">
                     <i class="fa-brands fa-linkedin-in fa-lg"></i>
                 </a>
-                <a href="https://www.instagram.com/kidwalksthe.earth/" target="_blank" rel="noopener" aria-label="the website owner's instagram profile" class="btn text-white">
+                <a href="https://www.instagram.com/kidwalksthe.earth/" target="_blank" rel="noopener"
+                    aria-label="the website owner's instagram profile" class="btn text-white">
                     <i class="fa-brands fa-instagram fa-lg"></i>
                 </a>
-                <a href="https://github.com/GaborFicsor" target="_blank" rel="noopener" aria-label="the website owner's github profile" class="btn text-white">
+                <a href="https://github.com/GaborFicsor" target="_blank" rel="noopener"
+                    aria-label="the website owner's github profile" class="btn text-white">
                     <i class="fa-brands fa-github fa-lg"></i>
                 </a>
 
