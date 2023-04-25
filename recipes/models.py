@@ -19,8 +19,6 @@ class Recipe(models.Model):
         -method
         -preparation time
         -cooking time
-        -nuts
-        -dairy
         -vegan
         -serving size
         -calories per serving
@@ -81,9 +79,7 @@ class Recipe(models.Model):
         choices=DURATION,
         null=False,
     )
-    nuts = models.BooleanField(default=False)
     vegan = models.BooleanField(default=False)
-    dairy = models.BooleanField(default=False)
     serving_size = models.PositiveIntegerField(null=False)
     calories_per_serving = models.PositiveIntegerField(null=False)
     difficulty = models.IntegerField(

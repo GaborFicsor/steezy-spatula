@@ -24,8 +24,6 @@ class RecipeForm(forms.ModelForm):
             'recipe_name',
             'type',
             'vegan',
-            'nuts',
-            'dairy',
             'ingredients',
             'method',
             'prep_time',

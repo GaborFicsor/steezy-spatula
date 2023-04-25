@@ -4,7 +4,7 @@
 
 $(document).ready(function () {
   $('.progress-bar').each(function () {
-    var difficulty = $(this).attr('aria-valuenow');
+    let difficulty = $(this).attr('aria-valuenow');
 
     if (difficulty == 20) {
       $(this).addClass('easy');
