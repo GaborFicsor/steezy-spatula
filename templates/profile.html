@@ -8,9 +8,9 @@
 
     <!-- display the current user's name and date registered as header -->
     <div class="text-white text-center py-5">
-        <p class="header-title">
+        <h1>
             {{ user.username }}
-        </p>
+        </h1>
         <p>
             Member since: {{ date_joined }}
         </p>
@@ -24,10 +24,10 @@
             <div class="col-12 col-lg-6 white shadow-lg pt-5 align-self-start">
 
                 <!-- title that functions as a button that takes the user to create a recipe -->
-                <h1 class="text-center">
+                <h2 class="text-center">
                     my recipes
                     <a href="{% url 'create_recipe' %}" aria-label="create recipe">&#43</a>
-                </h1>
+                </h2>
 
                 <!-- if the current user has any created recipes, list them here as a table -->
                 {% if my_recipes.created %}
@@ -99,7 +99,7 @@
 
             <!-- title for current user's saved recipes -->
             <div class="col-12 col-lg-5 offset-lg-1 white shadow-lg pt-5  align-self-start">
-                <h1 class="text-center">my saved recipes</h1>
+                <h2 class="text-center">my saved recipes</h2>
 
                 <!-- if the current user has any saved recipes list them here as a table -->
                 {% if my_recipes.saved %}
