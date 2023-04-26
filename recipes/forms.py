@@ -27,6 +27,8 @@ class RecipeForm(forms.ModelForm):
     """
     credit:
     https://github.com/summernote/django-summernote
+    form validators:
+    https://www.youtube.com/watch?v=yFGj4ZDbiiE
     """
     class Meta:
         model = Recipe
