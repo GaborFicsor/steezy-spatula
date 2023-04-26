@@ -49,8 +49,6 @@ The live website can be viewed here: [Steezy Spatula - cooking made less overwhe
 
 ## User Experience
 
-<hr>
-
 The main goal of this website is to give its users the ability to gain more confidence in the kitchen by providing simple recipes. The whole project aims to make the experience the least overwhelming possible. People should not be discouraged by excess information and should only be told the most important things to get started.
 
 People can register on the website which gives them access to features like adding the recipes that they feel are worth sharing in the sense that it would be beneficial to their peers. Registered users can edit or delte their own uploaded recipes to the site. If people don't have any idea to share yet, they are welcome to browse the existing list of recipes that can be found in the recipes section from which they can save recipes to their list that can be viewed anytime under the "My Stuff" tab. Furthermore, users of the site can comment under any recipe and share their thoughts and be a part of a conversation. Comments can also be deleted or updated by the users.
@@ -83,8 +81,6 @@ As a site User
 * I want to search and filter recipes to cater for my own needs.
 
 ## Design
-
-<hr>
 
 ### Design thinking
 
@@ -146,14 +142,14 @@ For the images on the website I used stock images from [pexels](https://www.pexe
 
 <hr>
 
+During the early stages of development, I tried using [figma](https://www.figma.com/), where I came up with the idea for the landing page, but due to my neurodivergent brain I found it hard and overwhelming to even come up with a rough mock-up for a complete design, however, this is clearly something that I am getting the hang of and I can see myself progressing with.
+
 <details>
   <summary>image of the landing page</summary>
 
 ![images of an early mock-up](static/images/early_mockup.png)
 
 </details>
-
-During the early stages of development, I tried using [figma](https://www.figma.com/), where I came up with the idea for the landing page, but due to my neurodivergent brain I found it hard and overwhelming to even come up with a rough mock-up for a complete design, However, this is clearly something that I am getting the hang of and I can see myself progressing with.
 
 ### Database
 
@@ -169,8 +165,6 @@ For creating a relational database diagram, I used [figma](https://www.figma.com
 </details>
 
 ## Features
-
-<hr>
 
 The main pages of the website are a landing page, a recipes page and a profile page. Further pages for features include: creating and editing forms, authorization pages provided by django-allauth, custom error pages for 400, 403, 404 and 500 errors, and a confirmation page with the purpose of defensive design.
 
