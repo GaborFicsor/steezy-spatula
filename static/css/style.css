@@ -9,7 +9,7 @@ body {
 
 .with-background {
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 85%),
-        url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1682602930/static/images/background.3e4d7bdd4100.jpg') !important;
+        url('https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752080/static/images/header.bd6ed4242628.jpg') !important;
     background-size: cover;
 }
 
