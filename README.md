@@ -530,7 +530,7 @@ Custom validation for the comment form
 * [Favicon](https://favicon.io/) - for creating the favicon
 * [Cssgradient](https://cssgradient.io/) - for adding an overlay to the background image
 * [Picresize](https://picresize.com/) - for resizing images
-* [Google Fonts](https://fonts.google.com/) - Catamaran and Seaweed fonts
+* [Google Fonts](https://fonts.google.com/) - Paytone One font
 * [Font Awesome](https://fontawesome.com/) - for using icons
 * [Pexels](https://pexels.com/) - for the background image
 
@@ -708,7 +708,6 @@ Custom validation for the comment form
      * The reason for doing this, is to reduce the size of the deployed application and improve the performance of the deployment process
      * When we are finished developing our project we need to remove it from the **Config Vars**
 
- * We should store every image on Cloudinary, except the ones that go into the **README.md** documentation
 ### Forking
 
 <hr>
