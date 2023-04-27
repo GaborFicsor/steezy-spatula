@@ -83,14 +83,14 @@ class RecipeForm(forms.ModelForm):
 
     def clean_ingredients(self):
         ingredients = self.cleaned_data.get('ingredients')
-        if len(ingredients) >= 1500:
+        if len(ingredients) > 1500:
             raise forms.ValidationError(
                 'Please try adding a shorter description for the ingredients')
         return ingredients
 
     def clean_method(self):
         method = self.cleaned_data.get('method')
-        if len(method) >= 4000:
+        if len(method) > 4000:
             raise forms.ValidationError(
                 'Please try adding a shorter description for the method')
         return method

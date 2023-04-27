@@ -180,7 +180,7 @@ The landing page is what users see the first time they visit my website, so I wa
 
 </details>
 
-After a registered user logs in to the website the call to action button disappears, and the navbar changes. The user now has access to the 'My Stuff' which will be mentioned further down the features.
+After a registered user logs in to the website the call to action button disappears, and the navbar changes. The user now has access to the 'My Stuff' tab which will be mentioned further down the features.
 
 <details>
   <summary>image of the landing page when the user is logged in</summary>
@@ -201,7 +201,7 @@ If the current user of the website is logged in as the admin(superuser), then th
 ### Recipes Page
 
 <hr>
-The recipes page give the users a well structured and designed view of the uploaded recipes. A filter form placed at the top give people the ability to search and filter for recipes by narrowing down their needs. Users can filter by looking up words, select a  difficulty, type or strictly vegan recipes, It is also possible to combine these filters to get the best result possible.
+The recipes page give the users a well structured and designed view of the uploaded recipes. A filter form placed at the top gives people the ability to search and filter for recipes by narrowing down their needs. Users can filter by looking up words, select a  difficulty, type or strictly vegan recipes, It is also possible to combine these filters to get the best result possible.
 
 The recipes page also changes based on user authentication. If the user is not logged in, then they don't have access to all crud functionalities of the website. They can only filter, search and view the existing recipes.
 
@@ -411,10 +411,36 @@ As mentioned earlier, there are four custom error pages provided to the website.
 
 </details>
 
+## Defensive design
+
+### Recipe form
+
+Default form validations of the recipe form provided by django
+* The recipe has to be unique, so if the user tries to add a recipe with the same name more than one time they will be informed that a recipe with the same name already exists.
+* The form can not be submitted without specifing the recipe's type
+* The form can not be submitted with an empty ingredients field
+* The form can not be submitted with an empty method field
+* The form can not be submitted without selecting the preparation time
+* The form can not be submitted without selecting the cooking time
+* The form can not be submitted without selecting a difficulty
+
+The following custom validations have been added to the recipe form
+* The maximum character count for the ingredients is capped at 1500 characters, the form can not be submitted with more characters than 1500 characters in the ingredients field
+* The maximum character count for the method is capped at 4000 characters, the form can not be submitted with more characters than 4000 characters in the ingredients field
+* The serving size can not be 0
+* The serving size can not be more than 99, as it should be a realistic number
+* The amount of calories per serving can not be less than 50
+* The amount of calories per serving can not be over 5000, as it should be a realistic number
+
+### Comment form
+
+Default form validations of the comment form provided by django
+* The comment form can not be empty
+
+Custom validation for the comment form
+* The length of the comment text can not be more than 300 characters
 
 ## Future Implementations
-
-<hr>
 
 ### Ideas for later
 
@@ -442,6 +468,29 @@ As mentioned earlier, there are four custom error pages provided to the website.
 * With keeping accessibility in mind, I provided aria-label texts to hyperlinks as well as to buttons. Also, descriptions of the images can be found throughout the website.
 
 * I tried using colours that are visually appealing while also maintaining a good contrast so that every text is easily readable.
+
+* The current page the user is viewing is reflected in the navigation bar by highligting
+
+
+![image of the lighthouse extension's report](static/images/ligthhouse_report.png)
+
+### Validation with external tools
+
+#### W3C HTML validator
+
+![image of the w3c html validator's result](static/images/)
+
+### W3c CSS validator
+
+![image of the w3c css validator's result](static/images/)
+
+### JSHint JavaScript validator
+
+![image of the JSHint JavaScript validator's result](static/images/)
+
+### Code Institute's Python Linter
+
+![image of Code Institute's Python Linter's result](static/images/)
 
 ## Technologies Used
 
@@ -499,45 +548,192 @@ As mentioned earlier, there are four custom error pages provided to the website.
 
 <hr>
 
- 1. Create Repository using Code Insitute's Full Template
- 2. Open repository in gitpod IDE
- 3. Install Django and supporting libraries
- 4. Update requirements.txt
- 5. Create Django project
- 6. Create recipes app
- 7. Add recipes to INSTALLED_APPS in settings.py
- 8. Migrate changes to the database
- 9. Create a procfile for deployment to Heroku
- 10. Create new app on Heroku and connect to GitHub repository
- 11. Create ElephantSQL database for the project
- 13. Create env.py
- 14. Create Recipe and Comment models in models.py
- 15. Create migration file and migrate changes to database
- 16. Push changes to github
- 17. Add config vars to Heroku
- 18. Deploy Branch from main - create app from the last commit pushed to github
- 19. Set DEBUG to false before final deployment
+ 1. Navigate to [GitHub](https://github.com/) in the browser
+ 2. Open the [Code Institute Full Template](https://github.com/Code-Institute-Org/ci-full-template) provided by [Code Institute](https://codeinstitute.net/ie/)
+ 3. Click **'Use this Template'** button and select **'Create a new repository'**
+ 4. Enter a name for the project and an optional description
+ 5. Click the **'Create Repository from Template'** button
+ 6. Once the repository is created we can open a new workspace with [Gitpod](https://gitpod.io/workspaces/) 2 ways:
+    * We can either install a Google [chrome extension](https://www.gitpod.io/docs/configure/user-settings/browser-extension) provided by gitpod
+      1. If we added this extension to our Google Chrome browser, a green 'Gitpod' button will show up in our newly created repository
+      2. Clicking this button will generate a new workspace with Gitpod's [integrated development environment](https://en.wikipedia.org/wiki/Integrated_development_environment) where we can start working on our project
+    * Or we can use our GitHub repository's URL
+      1. Copy the repository URL from the browser
+      2. Enter gitpod.io/# in the browser and change the '#' symbol to our GitHub repository's URL
 
+<br>
+
+ 7. When the workspace is up and running we need to set up our Django environment first, to do that:
+      1. Install Django by entering the following in the terminal: ```pip3 install 'django<4'```
+      2. Install [psycopg2](https://pypi.org/project/psycopg2/) PostgreSQL database adapter, by entering the following in the terminal: ```pip3 install dj3-cloudinary-storage```
+      3. We need to add every supporting dependencies and libraries to a **'requirements.txt'** file by entering the following in the terminal after a dependency like **psycopg2** has been installed: ```pip3 freeze --local>requirements.txt``` (this will create a **requirements.txt file in our local repository which is important for deploying the project later)
+      4. Create our project by entering the following in the terminal: ```django-admin startproject 'PROJECT_NAME' .``` (replace **'PROJECT_NAME'** with out desired name for the project, also don't forget to add the '.' at the end of the command.)
+      5. Create a new App by entering the following in the terminal: ```python3 manage.py startapp APP_NAME``` (replace the **'APP_NAME'** with the desired name for the app)
+      6. After the app has been created and showed up in our local directory, we need to add the app to the **INSTALLED_APPS** list in our **PROJECT_NAME** folder's **SETTINGS.py** file
+      7. After our **APP_NAME** has been added to the **INSTALLED_APPS** enter the following in the terminal: ```python3 manage.py makemigrations```, followed by ```python3 manage.py migrate``` (this will create our skeleton django project)
+      8. In order to see how our django skeleton project looks rendered in the browser, we need to add **'localhost'** to the **ALLOWED_HOSTS** in our **PROJECT_NAME** folder's **SETTINGS.py** file
+      9. Now we can run a local server with the following entered in the terminal: ```python3 manage.py runserver```
+      10. Click **Open Browser** to see the rendered application in the browser
+ 
+<br>
+
+ 8. For deploying the website we need to set up [Heroku](https://heroku.com/) cloud platform service
+      1. Create a new account on Heroku and connect it with our GitHub account
+      2. Sign in to our Heroku profile
+      3. Click on **'New'** and select **'Create new app'**
+      4. Name the app and choose the region(select Europe)
+      5. Once the app is created, navigate to the **Settings** tab and add the following Buildpack:
+          * **'heroku/python'**
+      6. Then add the following Config Vars:
+          * **PORT** : **8000**
+          * **SECRET_KEY** : **YOUR_SECRET_KEY**
+          * **DISABLE_COLLECTSTATIC** : **1**
+      7. Also, in **SETTINGS.py**, add ```'your-project-name-on-heroku.herokuapp.com'``` to **ALLOWED_HOSTS** list, where ```localhost``` have been already added previously
+
+<br>
+
+ 9. Our Django database is only accessible within gitpod and is not suitable for production enviroment. The deployed project on a hosting service will not be able to access it, so we need to use [ElephantSQL](https://www.elephantsql.com/) To use this service:
+      1. Create an ElephantSQL account
+      2. Click on **'+Create New Instance'**
+      3. Set up plan
+          * Name: **'YOUR_PROJECT_NAME'**
+          * Plan: **'Tiny Turtle (free)'**
+      4. Select region
+          * Data center: **'EU West-1 (Ireland)'** 
+      5. Click on **Review**
+      6. Click on **Create Instance** 
+      7. In the ElephantSQL dashnoard, click on the newly added database
+      8. Copy the URL with the button provided
+      9. Add URL to the Heroku Config Vars
+          * **DATABASE_URL** : **YOUR_DATABASE_URL_FROM_ELEPHANT_SQL** 
+
+<br>
+
+ 10. To store our static files, we need to use [Cloudinary](https://cloudinary.com/) cloud based service. To use this service:
+      1. Create a Cloudinary account
+      2. Navigate to the dashboard
+      3. Copy The API Environment variable with the button provided
+      4. Add the following **Config Var** to  our project on**Heroku**
+          * **CLOUDINARY_URL** : **YOUR_CLOUDINARY_URL**
+      5. Add the following in the **SETTINGS.py** to **INSTALLED_APPS** list
+          * ```'cloudinary_storage',```
+          * ```'cloudinary'```
+      6. Navigate to the bottom of **SETTINGS.py**
+      7. Below the **STATIC_URL** variable, add:
+          * ```STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'```
+          * ```STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]```
+          * ```STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')```
+          * ```<empty_line>```
+          * ```MEDIA_URL = '/media/'```
+          * ```DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'```
+      8. Navigate to the top of **SETTINGS.py** 
+      9. Add the following line under the **BASE_DIR** variable
+          * ```TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')```
+      10. Navigate to the **TEMPLATES** variable in **SETTINGS.py** and add this to **DIRS**
+          * ```[TEMPLATES_DIR]```
+
+<br>
+
+ 11. Create a new file in our local directory and name it **env.py**
+      1. Add **env.py** to the **.gitignore** file, to make sure it is not pushed to github as this file holds sensitive data
+      2. at the top: 
+          * ```import os```
+          * ```<empty_line>```
+          * ```os.environ["CLOUDINARY_URL"] = "YOUR_COPIED_CLOUDINARY_URL"```
+          * ```os.environ["DATABASE_URL"] = "YOUR_DATABASE_URL_FROM_ELEPHANT_SQL"```
+      3. We need to make our Django project aware of our **env.py**, in order to do this, we need to add the following at the top of **SETTINGS.py**:
+          * ```import os```
+          * ```import dj_database_url```
+          * ```if os.path.isfile('env.py'):```
+          * ```import env```
+      4. Now that this is done we can add our secret key to **env.py**
+          * ```os.environ["SECRET_KEY"] = "YOUR_SECRET_KEY"```
+      5. Then in **SETTINGS.py** ,add:
+          * ```SECRET_KEY = os.environ.get('SECRET_KEY')```
+      6. Find the **DATABASES** variable in **SETTINGS.py** and comment out the url above it and the **DATABASES'**  dictionary entirely
+          * The reason for doing this is because the commented out code connects our Django application to the created db.sqlite3 database within our repository. However, as we know, that database is not suitable for production.
+      7. and add the following:
+          * ```DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}```
+      8. Finally, it's now safe to save our changes, and push it to our repository in GitHub, to do this enter the following in the terminal:
+          * ```git add .```
+          * ```git commit -m "Add your commit message here"```
+          * ```git push```
+  12. In order to push the changes to Heroku and make our initial deployment we need to create a file, called **Procfile** in our local directory, and add the following to it:
+        * ```web: gunicorn steezyspatula.wsgi```
+  13. On Heroku, select our project and Navigate to the Deploy tab and select GitHub as the Deployment method
+  14. Click Connect to GitHub
+  15. With our GitHub profile selected, search for the correct GitHub repository and click "Connect"
+  16. Once the connection is done, select Enable Automatic Deploys (to make sure Heroku rebuilds the latest version after the final changes have been pushed to GitHub)
+  17. Finally select Deploy Branch in Manual deploy to make the initial deployment. (Automatic deploys work only after this step.)
+
+  18. Now that our Django environment is up and running, we can start working on our project by following Django's [MVT(Model View Template)](https://www.geeksforgeeks.org/django-project-mvt-structure/) structure
+       * each time we want to create a view we need to do 3 things:
+          1. Create the **view** in the **APP_NAME** directory's **views.py** file
+             * here we can create functions and classes
+          2. Create the **url path** for the **view** in the **APP_NAME** directory's **urls.py** file
+          3. Create the **template** for the **view** to render in the specified **url path**, these are our custom html files added to our project's template folder in the root directory
+  19. We can now add models to our project within our **APP_NAME** folder's **models.py** file
+       * every time we create, update or alter a model, or any field within our model we need to **save**, and type the following to the terminal:
+          1. ```python3 manage.py makemigrations```, this will create a migration file with the applied changes to the database model
+          2. ```python3 manage.py migrate```, this will apply the changes to our database model
+
+<hr>
+
+## Important Notes
+ * in our **PROJECT_NAME** folder's **SETTINGS.py** file, we mustn't leave **DEBUG = True** for production, before final deployment we **HAVE TO** set this variable to **False**, we can do so by:
+   * Either setting ```DEBUG = False``` manually in **SETTINGS.py**
+   * Or by adding the following lines in **env.py**, and in **SETTINGS.py**
+      * in **env.py**: ```os.environ['DEVELOPMENT'] = "1"```
+      * in **SETTINGS.py**: ```DEBUG = 'DEVELOPMENT' in os.environ```
+      * this way Debug mode will only be active during development
+
+ * If we want to see what changes will be applied to our model before migrating we can type the following in the termina:
+    * ```python3 manage.py makemigrations --dry-run```
+       * This will perform a 'dry run' of the migrations that would be generated by ```python3 manage.py makemigrations``` command without actually modifying the database schema
+       * This allows us to preview the migrations before actually applying them and we can make sure not to cause any unintended changes
+
+ * After we have installed any packages to our project in the terminal with the command: ```pip3 install <name_of_the_package>```
+   * we must add them to our requirements.txt with the following line entered after the installation in the terminal: ```pip3 freeze --local>requirements.txt```
+     * This command will create a requirements.txt in our working directory when first entered
+     * the '--local' flag means that only our locally installed packages need to be added to the requirements.txt, rather than all packages installed on the system
+     * the '>' symbol redirects the output of the command to the file, in this case ```requirements.txt```
+
+ * If we are getting an error when trying to use the command: ```python3 manage.py migrate```,
+   * enter the following in the terminal: ```unset PGHOSTADDR```
+      * this command removes the environment variable **'PGHOSTADDR'** which is an environment variable used by PostgreSQL database to define the address of the host where the database is running.
+  
+ * During production we can add the **DISABLE_COLLECTSTATIC** environment variable to our project's **Config Var** on Heroku to **1**
+     * The value **1** means **True** in this context
+     * By setting this **key** to **True**, we are telling Django not to collect static files into the **'STATIC_ROOT'** directory
+     * The reason for doing this, is to reduce the size of the deployed application and improve the performance of the deployment process
+     * When we are finished developing our project we need to remove it from the **Config Vars**
+
+ * We should store every image on Cloudinary, except the ones that go into the **README.md** documentation
 ### Forking
 
 <hr>
 
-1. Open Gitpod and log in to your account.
-2. Open the GitHub repository that you want to clone.
-3. Navigate to the top right corner of the sceen, and click on 'Fork'
-4. Select create new fork
+Use forking, when you want to contribute to an existing project, by creating a copy of the original repository
+
+1. Login to GitHub profile
+2. Navigate to [this repository](https://github.com/GaborFicsor/steezy-spatula)
+3. Navigate to the top right corner of the sceen, and click on the **'Fork'** button
+4. Select **Create new fork**
 5. Once the process is complete, you will be redirected to the newly forked repository
 
 ### Cloning
 
 <hr>
 
-1. Go to the repository you want to clone on GitHub.
-2. Click on the green "Code".
-3. Click on the clipboard icon to copy to clipboard.
-4. In gitpod, open a new workspace.
-5. Navigate to the directory where you want to clone the repository.
-6. Type the command "git clone" followed by the copy on your clipboard.
+Use cloning, when you want to work on a project locally and make changes without affecting the remote repository
+
+1. Login to GitHub profile
+2. Navigate to [this repository](https://github.com/GaborFicsor/steezy-spatula)
+3. Click on the green **'Code'** button
+4. Click on the clipboard icon to copy
+5. In [Gitpod](https://gitpod.io/workspaces/), click on the green button **'New Workspace'**
+6. Enter the following in the terminal:
+   * ```git clone <repository_copied_to_clipboard>```
 7. Press Enter to generate local clone.
 
 
