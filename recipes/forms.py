@@ -53,8 +53,8 @@ class RecipeForm(forms.ModelForm):
             'recipe_name': 'Recipe Name',
             'type': 'Recipe Type',
             'vegan': 'Is this recipe vegan?',
-            'ingredients': 'Ingredients(max 300 characters)',
-            'method': 'Method(max 700 characters)',
+            'ingredients': 'Ingredients(max 1500 characters)',
+            'method': 'Method(max 4000 characters)',
             'prep_time': 'Preparation Time',
             'cooking_time': 'Cooking Time',
             'serving_size': 'Serving Size',
@@ -83,14 +83,14 @@ class RecipeForm(forms.ModelForm):
 
     def clean_ingredients(self):
         ingredients = self.cleaned_data.get('ingredients')
-        if len(ingredients) >= 300:
+        if len(ingredients) >= 1500:
             raise forms.ValidationError(
                 'Please try adding a shorter description for the ingredients')
         return ingredients
 
     def clean_method(self):
         method = self.cleaned_data.get('method')
-        if len(method) >= 700:
+        if len(method) >= 4000:
             raise forms.ValidationError(
                 'Please try adding a shorter description for the method')
         return method
