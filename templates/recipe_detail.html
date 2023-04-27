@@ -68,11 +68,11 @@
                 <!-- recipe image -->
                 {% if "placeholder" in recipe.featured_image.url %}
                 <div class="col-12 col-md-5 col-lg-4 p-2 image-container">
-                    <img class="" src="{% static 'images/placeholder.jpg' %}" alt="image of a cutting board">
+                    <img src="{% static 'images/placeholder.jpg' %}" alt="image of a cutting board">
                 </div>
                 {% else %}
                 <div class="col-12 col-md-5 col-lg-4 p-2 image-container">
-                    <img class="" src="{{ recipe.featured_image.url }}" alt="image of {{ recipe.recipe_name }}">
+                    <img src="{{ recipe.featured_image.url }}" alt="image of {{ recipe.recipe_name }}">
                 </div>
                 {% endif %}
 
