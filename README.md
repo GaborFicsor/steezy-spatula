@@ -97,7 +97,7 @@ To implement agile development into my Django project, I made use of several key
 
 I created user stories with acceptance criteria and added the tasks that need to be completed to fulfil each user story. During development, I made use of the kanban board for my project, where I moved issues from to do column to in progress and finally done. The issues that have not been closed were moved to a column called future implementations. These issues have not been closed.
 
-As someone with ADHD, I found it extremely challenging to manage and maintain an agile process during development, especially because I was doing it for the first time. I know I did not make a perfect approach but, I have tried my best in doing so. I can also see myself progressing with the use of agile methodologies in my further projects, and I know there is no right way in doing it, as it is rather a mindset, than a definitive method.
+As someone with ADHD, I found it extremely challenging to manage and maintain an agile process during development, especially because I was doing it for the first time. I know I did not make a perfect approach, but I have tried my best in doing so. I can also see myself progressing with the use of agile methodologies in my further projects, and I know there is no right way of doing it, as this is more of a mindset, rather than a definitive method.
 
 <br>
 
@@ -761,7 +761,7 @@ Accessibility testing, responsiveness testing validating and manual testing can 
 * [RecipeFilterForm widgets](https://www.youtube.com/watch?v=6-XXvUENY_8)
 * [Understanding how to use 'icontains' properly](https://stackoverflow.com/questions/65158059/django-filters-icontains-type-of-lookup-expression-doesnt-work-properly)
 * [Adding custom form validators](https://www.youtube.com/watch?v=yFGj4ZDbiiE)
-* [Creating a django creat view](https://www.pythontutorial.net/django-tutorial/django-createview/)
+* [Creating a django create view](https://www.pythontutorial.net/django-tutorial/django-createview/)
 * [How to use django alert messages](https://stackoverflow.com/questions/47636968/django-messages-for-a-successfully-delete-add-or-edit-item)
 * [Django Class Based views filtering](https://gist.github.com/MikaelSantilio/3e761b325c7fd7588207cec06fdcbefb)
 * [Special Hack To Style Pagination With Bootstrap](https://www.youtube.com/watch?v=wY_BNsxCEi4)
