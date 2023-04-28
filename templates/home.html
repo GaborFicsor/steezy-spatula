@@ -46,12 +46,12 @@
                     <!-- call to action button dependig on the user is logged in  -->
                     {% if user.is_authenticated %}
                     <a class="d-none btn bg-success mt-3 btn-lg" href="{% url 'account_signup' %}"
-                        aria-label="link to register form">
+                        aria-label="link to register">
                         Register
                     </a>
                     {% else %}
                     <a class="btn bg-success mt-3 btn-lg" href="{% url 'account_signup' %}"
-                        aria-label="link to register form">
+                        aria-label="link to register">
                         Register
                     </a>
 
@@ -77,7 +77,7 @@
             </div>
             <div class="col-12 col-lg-6 col-xl-8 order-sm-2">
                 <div class="p-sm-5">
-                    <p class="display-3">A word on this website...</p>
+                    <h1>A word on this website...</h1>
                     <p>
                         My name is Gabor, and I have ADHD.
                         I created this website as a project to help people

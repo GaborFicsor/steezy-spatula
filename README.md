@@ -413,6 +413,8 @@ As mentioned earlier, there are four custom error pages provided to the website.
 
 ## Defensive design
 
+<hr>
+
 ### Recipe form
 
 Default form validations of the recipe form provided by django
@@ -442,9 +444,9 @@ Custom validation for the comment form
 
 ## Future Implementations
 
-### Ideas for later
-
 <hr>
+
+### Ideas for later
 
  * A complete profile page with a profile picture that shows up on the user's profile, by their added recipes, and by their comments
  * The ability to like a recipe
@@ -455,24 +457,10 @@ Custom validation for the comment form
 
 ### Things did not get implemented at this stage
 
-<hr>
+ * Design a visually more pleasing recipe detail page
+ * Make the Django Summernote text field strip the styling of the text if a user is trying to paste it from an external source
+ * Prevent the page from reloading when the save/unsave button is pressed
 
- * Design a visually more pleasing recipe detail page.
- * Make the Django Summernote text field strip the styling of the text if a user is trying to paste it from an external source.
- * Prevent the page from reloading when the save/unsave button is pressed.
-
-### Accessibility
-
-<hr>
-
-* With keeping accessibility in mind, I provided aria-label texts to hyperlinks as well as to buttons. Also, descriptions of the images can be found throughout the website.
-
-* I tried using colours that are visually appealing while also maintaining a good contrast so that every text is easily readable.
-
-* The current page the user is viewing is reflected in the navigation bar by highligting
-
-
-![image of the lighthouse extension's report](static/images/ligthhouse_report.png)
 
 ### Validation with external tools
 
@@ -498,16 +486,12 @@ Custom validation for the comment form
 
 ### Languages Used
 
-<hr>
-
 * HTML
 * CSS
 * JavaScript
 * Python
 
 ### Frameworks, libraries and other external tools
-
-<hr>
 
 * [Cloudinary](https://cloudinary.com) - storing images
 * [Django Framework](https://www.djangoproject.com/) - rapid development and maintaining the database of the website
@@ -544,7 +528,7 @@ Custom validation for the comment form
 * [JSHint](https://jshint.com/)
 * [CI Python Linter](https://pep8ci.herokuapp.com/)
 
-### Deployment
+## Deployment
 
 <hr>
 
@@ -708,7 +692,7 @@ Custom validation for the comment form
      * The reason for doing this, is to reduce the size of the deployed application and improve the performance of the deployment process
      * When we are finished developing our project we need to remove it from the **Config Vars**
 
-### Forking
+## Forking
 
 <hr>
 
@@ -720,7 +704,7 @@ Use forking, when you want to contribute to an existing project, by creating a c
 4. Select **Create new fork**
 5. Once the process is complete, you will be redirected to the newly forked repository
 
-### Cloning
+## Cloning
 
 <hr>
 
@@ -739,22 +723,6 @@ Use cloning, when you want to work on a project locally and make changes without
 ## Testing
 
 <hr>
-
-## Bugs
-
-<hr>
-
-### Solved
-
-<hr>
-
-* Model relation During early development, I had issues with my models, when I was trying to connect my Recipe model with a many-to-many relationship to a model called Allergens. My lack of understanding of how a many-to-many relationship should work ended me up breaking my models beyond repair. Not even deleting the model from the models.py helped. I had to contact Code Institute Tutor Support where Jason helped me out a lot by giving instructions on how to reset my database.
-
-* Rendering form field in template:
-At a later stage in development, I was trying to render the filter form in my recipe template. At this stage, it had 3 fields to filter by, of which one was a TextInput field to look up recipes. I wanted to render every field individually to be able to style them easier, rather than using crispy forms, but my text field would not want to render. When I tried to render {{ form.recipe_name|as_crispy_field }} I got an error stating that the field that I am trying to pass is either non-existent or invalid. I had to contact Code Institute Tutor Support where Joshua pointed out that I am using the icontains lookup type the wrong way. Adding lookup_expr='icontains' to the variable inside the RecipeFilter Class solved this problem and the field was rendering as expected. 
-
-* Pagination bug, during manual testing I found that after filtering the recipe list I was able to look through the paginated views in my recipes template, by viewing the next pages, however, when I tried to click on the previous page the filtered list was not working properly and every recipe got listed again without filtering. Replacing the correct url inside the first and previous page-links solved this problem
-
 
 ## Credits
 
