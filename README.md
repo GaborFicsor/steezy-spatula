@@ -4,6 +4,8 @@ Steezy Spatula is a responsive web application aiming to help people who are str
 
 For the admin panel, the default Django admin dashboard was used, where the admin is able to perform CRUD functionalities related to every model and object.
 
+ * STEEZY is a combination of "Style" and "Ease" - a term mainly used to describe something executed effortlessly in stylish way. I chose this word as my project's name to give people an idea of how the recipe's on this website could be described.
+
 ![image of the amiresponsive testing](static/images/amiresponsive.png)
 
 The live website can be viewed here: [Steezy Spatula - cooking made less overwhelming](https://steezy-spatula.herokuapp.com/)
@@ -770,6 +772,7 @@ Accessibility testing, responsiveness testing validating and manual testing can 
 * Comment model - Code Institute's I think therefore I blog walkthrough project
 * Alert timeout - Code Institute's I think therefore I blog walkthrough project
 * Admin panel setup - Code Institute's I think therefore I blog walkthrough project
+* README.md and TESTS.md structure - [readme-examples](https://github.com/kera-cudmore/readme-examples)
 
 ### Media
 
