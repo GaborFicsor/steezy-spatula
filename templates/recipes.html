@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<body class="with-background ">
+<div class="with-background ">
 
     <!-- main section white container -->
     <div class="container white shadow-lg p-5">
@@ -130,7 +130,7 @@
 
                                 <!-- if current page has a previous page -->
                                 {% if page_obj.has_previous %}
-                                <li class="page-item">
+                                <li class="page-item d-none d-md-block">
                                     <a class="page-link" href="?{{ request.GET.urlencode }}&page=1"
                                         aria-label="first page">&laquo;
                                         first</a>
@@ -158,7 +158,7 @@
                                         href="?{{ request.GET.urlencode }}&page={{ page_obj.next_page_number }}"
                                         aria-label="next page">next</a>
                                 </li>
-                                <li class="page-item">
+                                <li class="page-item d-none d-md-block">
                                     <a class="page-link"
                                         href="?{{ request.GET.urlencode }}&page={{ page_obj.paginator.num_pages }}"
                                         aria-label="last page">last
@@ -172,5 +172,5 @@
             </div>
         </div>
     </div>
-</body>
+</div>
 {%endblock%}

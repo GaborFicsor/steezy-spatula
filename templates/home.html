@@ -45,12 +45,12 @@
 
                     <!-- call to action button dependig on the user is logged in  -->
                     {% if user.is_authenticated %}
-                    <a class="d-none btn bg-success mt-3 btn-lg" href="{% url 'account_signup' %}"
+                    <a class="d-none btn bg-success btn-lg" href="{% url 'account_signup' %}"
                         aria-label="link to register">
                         Register
                     </a>
                     {% else %}
-                    <a class="btn bg-success mt-3 btn-lg" href="{% url 'account_signup' %}"
+                    <a class="btn bg-success btn-lg" href="{% url 'account_signup' %}"
                         aria-label="link to register">
                         Register
                     </a>
