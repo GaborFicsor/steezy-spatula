@@ -13,6 +13,7 @@ The live website can be viewed here: [Steezy Spatula - cooking made less overwhe
 * [User Experience](#user-experience)
   * [Client Goals](#client-goals)
   * [User Stories](#user-stories)
+  * [Agile Development](#agile-development)
 
 * [Design](#design)
   * [Design Thinking](#design-thinking)
@@ -22,28 +23,39 @@ The live website can be viewed here: [Steezy Spatula - cooking made less overwhe
   * [Wireframes](#wireframes)
 
 * [Features](#features)
-  * [General Features on Each Page](#general-features-on-each-page)
-  * [Future Implementations](#future-implementations)
-  * [Accessibility](#accessibility)
+  * [Landing Page](#landing-page)
+  * [Recipes Page](#recipes-page)
+  * [My Stuff](#my-stuff)
+  * [Recipe Detail Page](#recipe-detail-page)
+  * [Forms](#forms)
+
+* [Defensive Design](#defensive-design)
+  * [Recipe form](#recipe-form)
+  * [Comment form](#comment-form)
+
+* [Future Implementations](#future-implementations)
+  * [Ideas for later](#ideas-for-later)
+  * [Not implemented](#things-did-not-get-implemented-at-this-stage)
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
   * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+  * [Validators](#validators)
 
 * [Deployment & Local Development](#deployment--local-development)
-  * [Deployment](#deployment)
-  * [Local Development](#local-development)
-    * [How to Fork](#how-to-fork)
-    * [How to Clone](#how-to-clone)
+
+* [Important Notes](#important-notes)
+
+* [Forking](#forking)
+* [Cloning](#cloning)
 
 * [Testing](#testing)
 
 * [Credits](#credits)
-  * [Code Used](#code-used)
-  * [Content](#content)
   * [Media](#media)
   * [Acknowledgments](#acknowledgments)
 
+<br>
 
 ## User Experience
 
@@ -51,6 +63,7 @@ The main goal of this website is to give its users the ability to gain more conf
 
 People can register on the website which gives them access to features like adding the recipes that they feel are worth sharing in the sense that it would be beneficial to their peers. Registered users can edit or delte their own uploaded recipes to the site. If people don't have any idea to share yet, they are welcome to browse the existing list of recipes that can be found in the recipes section from which they can save recipes to their list that can be viewed anytime under the "My Stuff" tab. Furthermore, users of the site can comment under any recipe and share their thoughts and be a part of a conversation. Comments can also be deleted or updated by the users.
 
+<br>
 
 ### Client Goals
 
@@ -60,6 +73,8 @@ People can register on the website which gives them access to features like addi
 * To be able to view the site on a range of device sizes, without any distortions that would lower the quality or usability of the website.
 * To be able to navigate through the website effortlessly and gain feedback on the actions undertaken to avoid confusion.
 * To give users the ability to create, read, edit and delete their recipes and comments.
+
+<br>
 
 ### User Stories
 
@@ -78,7 +93,19 @@ As a site User
 * I want to be reinforced by the actions I undertake during my time on the website.
 * I want to search and filter recipes to cater for my own needs.
 
+<br>
+
+### Agile Development
+
+In order to implement agile development into my Django project, I made use of several key agile concepts. I started by breaking down my project into smaller, more manageable milestones, which helped me to stay focused and organized throughout the development process.
+
+I created user stories with acceptance criteria and added the tasks that need to be complete in order to fulfill each user story. During development I made us of the kanban board for my project, where I have moved issues from to do column to in progress and finally done. The issues that have not been closed were moved to a column called future implementations. These issues have not been closed.
+
+As someone with ADHD, I found it extremeley challenging to manage and maintain an agile process during development, especially because I was doing it for the first time. I know I did not make a perfect approach but, I have tried my best in doing so. I can also see myself progressing with the use of agile methodologies in my further projects, and I know there is no right way in doing it, as it is rather a mindset, than a definitive method.
+
 ## Design
+
+<br>
 
 ### Design thinking
 
@@ -89,6 +116,8 @@ I was excited to come up with this idea for my project because it is definitely 
 Whenever I look for recipes online there are several websites out there on the web, but I have not found any that is truly focusing on people with depression and anxiety, at least not in regard to cooking. Even if I find an easy recipe on one of these websites I have to scroll down a lot to get to the actual details and information which just further discourages me to look for recipes like this. It is tedious and for people who really need guidance -like me-, it is not a solution. My website however cuts straight to the point with recipes. No description, and no scrolling down, only the relevant and most important information is presented.
 
 One of my proudest accomplishments in designing this website was the idea I had to make the progress bars differently coloured based on a recipe's difficulty, so people can easily judge if they have the mental capacity to follow through, or give it a try another day. There are 4 levels of difficulties, which are easy, moderate, intermediate, and challenging. I had further ideas to make this even better. One of them was to not use discouraging colours like red on the challenging difficulty for example because it might give people the impression that the recipe can be a bit too difficult to handle. The other one was, to not fill the bar all the way up even for the hardest difficulty because that can also be discouraging to people, which I don't want. I would like to further improve this website, maybe research what features the potential users would truly find useful. I think this is a good project idea and I did spend my time polishing the design.
+
+<br>
 
 ### Colour Scheme 
 
@@ -103,6 +132,8 @@ For the main colour of the design I picked tomato red which goes well with black
 
 </details>
 
+<br>
+
 ### Typography
 
 <hr>
@@ -115,6 +146,8 @@ For the font styles I used the default Arial font provided and for the header el
 ![image of the Paytone One font style](static/images/paytone_one.png)
 
 </details>
+
+<br>
 
 ### Imagery 
 
@@ -135,6 +168,7 @@ For the images on the website I used stock images from [pexels](https://www.pexe
 
 </details>
 
+<br>
 
 ### Wireframes
 
@@ -149,6 +183,8 @@ During the early stages of development, I tried using [figma](https://www.figma.
 
 </details>
 
+<br>
+
 ### Database
 
 <hr>
@@ -162,11 +198,16 @@ For creating a relational database diagram, I used [figma](https://www.figma.com
 
 </details>
 
+<br>
+
 ## Features
 
 The main pages of the website are a landing page, a recipes page and a profile page. Further pages for features include: creating and editing forms, authorization pages provided by django-allauth, custom error pages for 400, 403, 404 and 500 errors, and a confirmation page with the purpose of defensive design.
 
 All pages on the website are responsive, have a favicon and a unique title displaying in the browser tab. Every page shares a common navbar and a footer section.
+
+<br>
+
 ### Landing Page
 
 <hr>
@@ -197,6 +238,8 @@ If the current user of the website is logged in as the admin(superuser), then th
 ![image of the landing page if the admin is logged in](static/images/landing_page_admin.png)
 
 </details>
+
+<br>
 
 ### Recipes Page
 
@@ -256,6 +299,8 @@ If the user tried looking up or filtering down to a recipe that does not exist i
 
 </details>
 
+<br>
+
 ### My Stuff
 
 <hr>
@@ -281,6 +326,8 @@ The second table holds entries that have been saved by the user. Three table col
 ![image of the my stuff page filled with data](static/images/my_stuff_added.png)
 
 </details>
+
+<br>
 
 ### Recipe detail page
 
@@ -460,25 +507,6 @@ Custom validation for the comment form
  * Design a visually more pleasing recipe detail page
  * Make the Django Summernote text field strip the styling of the text if a user is trying to paste it from an external source
  * Prevent the page from reloading when the save/unsave button is pressed
-
-
-### Validation with external tools
-
-#### W3C HTML validator
-
-![image of the w3c html validator's result](static/images/)
-
-### W3c CSS validator
-
-![image of the w3c css validator's result](static/images/)
-
-### JSHint JavaScript validator
-
-![image of the JSHint JavaScript validator's result](static/images/)
-
-### Code Institute's Python Linter
-
-![image of Code Institute's Python Linter's result](static/images/)
 
 ## Technologies Used
 
@@ -724,17 +752,25 @@ Use cloning, when you want to work on a project locally and make changes without
 
 <hr>
 
+Accessibility testing, responsiveness testing validating and manual testing can be found in [TESTS.md](https://github.com/GaborFicsor/steezy-spatula/blob/main/TESTS.md)
+
 ## Credits
 
 <hr>
 
+* [Creating the Recipe Filter and adding it to the context of a ListView](https://www.youtube.com/watch?v=FTUxl5ZCMb8)
+* [RecipeFilterForm widgets](https://www.youtube.com/watch?v=6-XXvUENY_8)
+* [Understanding how to use 'icontains' properly](https://stackoverflow.com/questions/65158059/django-filters-icontains-type-of-lookup-expression-doesnt-work-properly)
+* [Adding custom form validators](https://www.youtube.com/watch?v=yFGj4ZDbiiE)
+* [Creating a django creat view](https://www.pythontutorial.net/django-tutorial/django-createview/)
+* [How to use django alert messages](https://stackoverflow.com/questions/47636968/django-messages-for-a-successfully-delete-add-or-edit-item)
 * [Django Class Based views filtering](https://gist.github.com/MikaelSantilio/3e761b325c7fd7588207cec06fdcbefb)
 * [Special Hack To Style Pagination With Bootstrap](https://www.youtube.com/watch?v=wY_BNsxCEi4)
 * [Display Multiple Queryset in List View](https://stackoverflow.com/questions/48872380/display-multiple-queryset-in-list-view)
 * [Pagination using ListView and dynamic/filtered queryset](https://stackoverflow.com/questions/52007038/pagination-using-listview-and-a-dynamic-filtered-queryset)
 * Comment model - Code Institute's I think therefore I blog walkthrough project
 * Alert timeout - Code Institute's I think therefore I blog walkthrough project
-
+* Admin panel setup - Code Institute's I think therefore I blog walkthrough project
 
 ### Media
 
@@ -742,7 +778,7 @@ Use cloning, when you want to work on a project locally and make changes without
 
 * [Background image - from pexels](https://www.pexels.com/hu-hu/foto/kenyer-elelmiszer-szendvics-egeszseges-1565982/)
 * [Placeholder recipe image - from pexels](https://www.pexels.com/hu-hu/foto/egeszseges-fa-textura-asztal-349609/)
-* A picture of me - represented by my favourite Teddy Bear
+* [A picture of me - represented by my favourite Teddy Bear](https://res.cloudinary.com/dtkzblbmn/image/upload/v1681752081/static/images/me.cb9dd8d0d679.jpg)
 * [Favicon](https://favicon.io/)
 
   
@@ -753,4 +789,4 @@ Use cloning, when you want to work on a project locally and make changes without
 I would like to thank
  * my girlfriend, for testing the usability and user experience of the website, as well as creating a profile and uploading recipes.
  * my Mentor [Jubril Akolade](https://github.com/Jubrillionaire) for taking the time to review my project and answering my questions.
- * Code Institute Tutor staff: Joshua, Ed, and Jason for helping me out with problems I would have not be able to solve on my own.
+ * Code Institute Tutor staff: Joshua, Ed, Jason and Rebecca for helping me out with problems I would have not been able to solve on my own.
