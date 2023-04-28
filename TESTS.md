@@ -11,9 +11,11 @@
 ## CONTENTS
 
 * [AUTOMATED TESTING](#automated-testing)
-  * [W3C Validator](#w3c-validator)
-  * [Lighthouse](#lighthouse)
-  * [WAVE](#wave)
+  * [W3C Markup Validator](#w3c-markup-validator)
+  * [W3C CSS Validator](#w3c-css-validator)
+  * [JSHint JavaScript Validator](#jshint-validator)
+  * [CI Python Linter](#code-institutes-python-linter)
+  * [Lighthouse Extension](#accessibility)
 
 * [MANUAL TESTING](#manual-testing)
   * [Testing User Stories](#testing-user-stories)
@@ -35,11 +37,15 @@ For automated testing the following external validators were used:
 
 ###  W3C Markup Validator
 
-The deployed project's address was passed for checking and the result returned with no errors or warnings
+<hr>
+
+The deployed project's address was passed for checking, and the result returned with no errors or warnings
 
 ![image of the w3c markup validator's result](static/images/html_validator_result.png)
 
 ### W3C CSS Validator
+
+<hr>
 
 CSS validation was done by direct input and the result returned with no errors or warnings
 
@@ -47,13 +53,19 @@ CSS validation was done by direct input and the result returned with no errors o
 
 ### JSHint Validator
 
+<hr>
+
 JSHint Validator was used to validate JavaScript code written in jQuery framework
+
+ * Bootstrap variable is defined within the project and the function is working as expected
 
 ![image of jshint javascript validator's result](static/images/jshint_result.png)
 
 ### Code Institute's Python Linter
 
-* Validating python code was carried out by manually pasting the code from each python files manually written for this project
+<hr>
+
+* Validating Python code was carried out by manually pasting the code from each Python file manually written for this project
 * No errors were returned 
 
 <details>
@@ -116,40 +128,42 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 
 <hr>
 
-* With keeping accessibility in mind, I provided aria-label texts to hyperlinks as well as to buttons. Also, descriptions of the images can be found throughout the website.
+* With keeping accessibility in mind, I provided aria-label texts to hyperlinks and buttons. Also, an alt-description for each image is present throughout the website.
 
 * I tried using colours that are visually appealing while also maintaining a good contrast so that every text is easily readable
 
-* The current page the user is viewing is reflected in the navigation bar by highligting
+* The current page the user is viewing is reflected in the navigation bar by highlighting
 
-![image of the lighthouse extension's report](static/images/ligthhouse_report.ng)
+![image of the lighthouse extension's report](static/images/ligthhouse_report.png)
 
 ## MANUAL TESTING
 
 ### Testing User Stories
 
+<hr>
+
 `First Time Visitors`
 
 | Goals | How are they achieved? |
 | :--- | :--- |
-| I want to have and immediate understanding of the website's purpose | Steezy Spatula is recipe sharing website. Upon arriving to the landing page the first thing the user sees is the logo with a slogan that says 'cooking made less overwhelming'. There is also a short description to how someone can make sure if this website is the right place for them. Further down the bottom of the page there is also a short description about who this project is dedicated to, so I think the website has a clear message.
-| I want the site to be responsive on the device I am using | The overall design and the logo was developed with responsiveness in mind. |
-| I want the site to be easy to navigate. | Buttons are presented throughout the website with simple and clear labels that tell the user what they can expect after clicking them. The current page viewed is also reflected in the navigation bar with highligting  |
+| I want to have an immediate understanding of the website's purpose | Steezy Spatula is a recipe sharing website. Upon arriving at the landing page the first thing the user sees is the logo with a slogan that says 'Cooking made less overwhelming'. There is also a short description of how someone can make sure this website is the right place for them. Further down the bottom of the page, there is also a short description about who this project is dedicated to, so I think the website has a clear message.
+| I want the site to be responsive on the device I am using | The overall design and the logo were developed with responsiveness in mind. |
+| I want the site to be easy to navigate. | Buttons are presented throughout the website with simple and clear labels that tell the user what they can expect after clicking them. The current page viewed is also reflected in the navigation bar with highlighting  |
 
 `Registered Users`
 
 |  Goals | How are they achieved? |
 | :--- | :--- |
-| I want to be able to register on the website to gain access to the full experience provided by the application. | Users can navigate to the page where they can register easily from the home page in 2 ways. There is a green call to action button in the header section of the landing page, and there is also a Register tab on the navigation tab which is present throughout every other page on the website if the user is not logged in. If a user wants to register to the website they need to fill out the register form, they have to choose a name and a password. The password have to be entered twice in 2 different fields for security reasons. Users can register with their email, however at this stage it is optional and not required to gain access to the website's full features.  |
-| I want to be able to create and share my recipe | Registered users can share their recipes and uploade it to the database after filling out the recipe form. This form can be found in multiple places throughout the website's pages. The easiest way to do this is to navigate to the 'Recipes' tab in the navigation bar, where they are directed to the recipes page where all recipes are listed. Here they can find a hyperlink to the form that says '+add your own'. Users can also find this form after navigatin to the 'My Stuff' tab where they are presented with 2 empty sections. On the left hand side the first section that reads 'my recipes+' will hold all the recipes the current user has submitted. the '+' sign is a hyperlink to the recipe form. Furthermore, if the section is empty, meaning there are no entries made by the user yet, a sentence will tell the user that it 'Looks like you haven't added anything just yet! Share your recipes with us here'. The word 'here' is also a hyperlink to the recipe form. |
-| I want to have the ability to edit the recipes I have created if needed. | Registered users can edit their own recipes at any time, with the use of an editing form, which is a prepopulated form with the recipe's information. Users can edit any field of their recipe and submit their changes. The editing form can be reached from the 'My Stuff' tab's 'my recipes+' section after a recipe has been created. The editing form can also be reached after navigating to the recipe's detailed page. In both places a clickable pencil icon tells the users that editing is possible. |
-| I want to have the ability to delete the recipes I have created if needed. | Registered users can delete their own recipes. To achieve this, a trash-can icon is placed next to the pencil-icon for every recipe the user has created. Clicking the trash-can icon will take the user to a page where they need to confirm their intentions to delete the recipe. |
+| I want to be able to register on the website to gain access to the full experience provided by the application. | Users can navigate to the page where they can register easily from the home page in 2 ways. There is a green call to action button in the header section of the landing page, and there is also a Register tab on the navigation tab which is present throughout every other page on the website if the user is not logged in. If a user wants to register to the website they need to fill out the register form, they have to choose a name and a password. The password has to be entered twice in 2 different fields for security reasons. Users can register with their email however, at this stage, it is optional and not required to gain access to the website's full features.  |
+| I want to be able to create and share my recipe | Registered users can share their recipes and upload them to the database after filling out the recipe form. This form can be found in multiple places throughout the website's pages. The easiest way to do this is to navigate to the 'Recipes' tab in the navigation bar, where they are directed to the recipes page where all recipes are listed. Here they can find a hyperlink to the form that says '+add your own'. Users can also find this form after navigating to the 'My Stuff' tab where they are presented with 2 empty sections. On the left-hand side the first section that reads 'my recipes+' will hold all the recipes the current user has submitted. the '+' sign is a hyperlink to the recipe form. Furthermore, if the section is empty, meaning there are no entries made by the user yet, a sentence will tell the user that it "Looks like you haven't added anything just yet! Share your recipes with us here". The word 'here' is also a hyperlink to the recipe form. |
+| I want to have the ability to edit the recipes I have created if needed. | Registered users can edit their own recipes at any time, with the use of an editing form, which is a prepopulated form with the recipe's information. Users can edit any field of their recipe and submit their changes. The editing form can be reached from the 'My Stuff' tab's 'my recipes+' section after a recipe has been created. The editing form can also be reached after navigating to the recipe's detailed page. In both places, a clickable pencil icon tells the users that editing is possible. |
+| I want to have the ability to delete the recipes I have created if needed. | Registered users can delete their own recipes. To achieve this, a trash-can icon is placed next to the pencil icon for every recipe the user has created. Clicking the trash-can icon will take the user to a page where they need to confirm their intentions to delete the recipe. |
 | I want to have the ability to view other users' shared recipes. | Visitors and also registered users can view any recipe's detailed page under the 'Recipes' tab, where each recipe is presented with a clickable card that takes the user to the recipe's detailed page. |
-| I want to have the ability to save and 'unsave' the recipes I like, to access them faster and easier anytime. | Registered users can save a recipe to populate a list under the 'My Stuff' tab's 'my saved recipes'. This list is easily accessible and will hold every recipe that the user decides to save. Saving and 'unsaving' a recipe can be done by clicking a flag icon on a recipe's detailed page. Unsaving can also be done in the 'my saved recipes' table, after any recipe has been saved and displayed there. |
+| I want to have the ability to save and 'unsave' the recipes I like, to access them faster and easier anytime. | Registered users can save a recipe to populate a list under the 'My Stuff' tab's 'my saved recipes'. This list is easily accessible and will hold every recipe that the user decides to save. Saving and 'unsaving' a recipe can be done by clicking a flag icon on a recipe's detailed page. 'Unsaving' can also be done in the 'my saved recipes' table after any recipe has been saved and displayed there. |
 | I want to have the ability to engage in conversations regarding a recipe. | Registered users can comment under any recipe's comment section with the use of a comment form. Users can also edit and delete their comments with the pencil icon and trash-can icon respectively |
-| I want to be able to view my recipes in one place to manage them faster and easier. | As mentioned above, registered users are provided with the 'My Stuff' page that gives them an easy and convenient access to a list of their own and saved recipes. |
-| I want to be reinforced by the actions I undertake during my time on the website. | Registered users are alerted after every action performed on the webiste, including authorization. |
-| I want to search and filter recipes to cater for my own needs. | Visitors and also registered users can search recipes with keywords, or filter by difficulty, type and vegan recipes. These filters can also be combined to achive the best result possible. |
+| I want to be able to view my recipes in one place to manage them faster and easier. | As mentioned above, registered users are provided with the 'My Stuff' page that gives them easy and convenient access to a list of their own and saved recipes. |
+| I want to be reinforced by the actions I undertake during my time on the website. | Registered users are alerted after every action performed on the website, including authorization. |
+| I want to search and filter recipes to cater for my own needs. | Visitors and also registered users can search recipes with keywords, or filter by difficulty, type and vegan recipes. These filters can also be combined to achieve the best result possible. |
 
 ### Testing responsiveness
 
@@ -165,10 +179,15 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 
 <hr>
 
+<br>
+
 #### Navbar responsiveness
+
  * consistent throughout every page
  * smaller screen sizes will result in a hamburger dropdown menu of navbar tabs
  * currently viewed page is reflected by highlighting 
+
+<br>
 
 #### Navbar as Visitor
 
@@ -185,6 +204,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Login tab | indicate link | hover | Pass |
 | Login tab | take the visitor to the Register form | click | Pass |
 
+<br>
+
 #### Navbar as Logged-in User
 
 |  Element | Expected outcome | Testing performed | Pass |
@@ -199,6 +220,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | My Stuff tab | take the visitor to the My Stuff form | click | Pass |
 | Logout tab | indicate link | hover | Pass |
 | Logout tab | take the visitor to the Logout page | click | Pass |
+
+<br>
 
 #### Navbar as Admin
 
@@ -217,6 +240,7 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Admin tab | indicate link | hover | Pass |
 | Admin tab | take the Admin to the django admin panel  | click | Pass |
 
+<br>
 
 #### Home page responsiveness
  * is responsive on every screen sizes
@@ -225,6 +249,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
  * description disappears on smaller screen sizes
  * call-to action disappears on smaller screen sizes
 
+<br>
+
 #### Home page as Visitor
 
 |  Element | Expected outcome | Testing performed | Pass |
@@ -232,12 +258,15 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Register button | indicate link | hover | Pass |
 | Register button | take the Visitor to the Register form | click | Pass |
 
+<br>
+
 #### Home page as Logged in User and Superuser
 
 |  Element | Expected outcome | Testing performed | Pass |
 | :--- | :--- | :--- | :--- |
 | Register button | not visible after login | login | Pass |
 
+<br>
 
 #### Footer 
 
@@ -250,12 +279,15 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | GitHub icon | indicate link | hover | Pass |
 | GitHub icon | open my GitHub page in a new tab | click | Pass |
 
-<hr>
+<br>
 
 #### Recipe Filter responsiveness
+
  * is responsive on every screen sizes
  * each field displays on every screen sizes
  * the form is available for both Visitors and Users
+
+<br>
 
 #### Recipe Filter elements
 
@@ -271,6 +303,7 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
  * applying the filter will display only the relevant recipes
  * if there are no results, the user is informed
 
+<br>
 
 #### '+add your own' hyperlink
 
@@ -280,6 +313,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | :--- | :--- | :--- | :--- |
 | +add your own link | indicate link | hover | Pass |
 | +add your own link | take the user to the recipe creation form | click | Pass |
+
+<br>
 
 #### Recipe cards' responsiveness
 
@@ -296,6 +331,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
  * A dynamic progress bar is displayed with changing color and label based on the recipe's difficulty
  * If a recipe is vegan, a green leaf is displayed at the top left corner of the card
 
+<br>
+
 #### Recipe cards' elements
 
 | Element | Expected outcome | Testing performed | Pass |
@@ -303,7 +340,10 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Recipe Card | indicate link | hover | Pass |
 | Recipe Card | take the user to the recipe's detailed page | click | Pass |
 
+<br>
+
 #### Pagination's responsiveness
+
  * Displays when there are more than 9 recipes
  * Responsive on every screen sizes
  * 'first' button not visible on smallest screen sizes
@@ -313,7 +353,10 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
  * 'next' button only visible if there are remaining pages
  * 'last' button only visible if the user is not on the last page
 
+<br>
+
 #### Pagination elements
+
  * if the User has filtered the recipe list, the pagination will work accordingly
 
 <hr>
@@ -333,7 +376,10 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | last | take user to the last page of the results | click | Pass |
 | last | keep results when filtered | click | Pass |
 
+<br>
+
 #### Recipe Detail Page's responsiveness
+
  * Is responsive on every screen sizes
  * No element is hidden on smaller screen sizes
  * Pencil icon only visible for recipe author
@@ -342,7 +388,10 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
  * Save icon changes upon click
  * Green leaf next to the recipe's name indicates if a recipe is vegan
 
+<br>
+
 #### Recipe Detail Page elements
+
 | Element | Expected outcome | Testing performed | Pass |
 | :--- | :--- | :--- | :--- |
 | Save icon - regular | adds recipe to the saved recipes list | click | Pass |
@@ -350,11 +399,16 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Pencil icon | take user to recipe editing form | click | Pass |
 | Trash-can icon | take user to recipe deletion page | click | Pass |
 
+<br>
+
 #### Comments section responsiveness
+
  * Comments section only visible for logged in Users
  * Comment form only visible for logged in Users
  * Pencil icon for editing visible if a comment belongs to the current User
  * Trash-can icon for deletion visible if a comment belongs to the current User
+
+<br>
 
 #### Comment section elements
 
@@ -364,11 +418,16 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Pencil icon | take user to comment editing form | click | Pass |
 | Trash-can icon | take user to comment deletion page | click | Pass |
 
+<br>
+
 #### My Stuff Page's responsiveness
+
  * Is responsive on every screen size
  * No element is hidden on smaller screen sizes
  * Display current user's name on top
  * Display current user's date joined
+
+<br>
 
 #### My Stuff Page elements
 
@@ -381,6 +440,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | 'recipe' | indicate link | hover | Pass |
 | 'recipe' | take user to the recipes paeg | click | Pass |
 
+<br>
+
 #### If there are entries in the my stuff my recipes and my saved recipes tables
 
 | Element | Expected outcome | Testing performed | Pass |
@@ -391,6 +452,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Trash-can icon | take user to recipe deletion page | click | Pass |
 | Unsave icon | take the user to the corresponding recipe's detailed page | click | Pass |
 | Unsave icon | remove corresponding recipe from the my saved recipes table | click | Pass |
+
+<br>
 
 ### Authorization Pages testing
 
@@ -414,6 +477,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | 'here' | indicate link | hover | Pass |
 | 'here' | take user to login page | click | Pass |
 
+<br>
+
 #### Login Page
 
 | Element | Expected outcome | Testing performed | Pass |
@@ -431,6 +496,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Remember me | indicate checkbox | hover | Pass |
 | Remember me | auto login returning user | reload page | Pass |
 
+<br>
+
 #### Logout Page
 
 | Element | Expected outcome | Testing performed | Pass |
@@ -442,7 +509,10 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Back to recipes button | take user back to recipes page | click | Pass |
 | Back to recipes button | user stays logged in | click | Pass |
 
+<br>
+
 #### Error 404 Page
+
  * Is responsive on every screen size
  * Inform the user about the error
 
@@ -451,6 +521,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Error404 page | load if entered url does not exist | input wrong url | Pass |
 | Back to recipes button | indicate function | hover | Pass |
 | Back to recipes button | take user back to recipes page | click | Pass |
+
+<br>
 
 
 ### Forms 
@@ -501,6 +573,7 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Cancel button | take user back to recipes page  | click | Pass |
 | Cancel button | does not submit form | click | Pass |
 
+<br>
 
 #### Deletion Page
 
@@ -512,6 +585,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Cancel button | indicate function | click | Pass |
 | Cancel button | take user back to recipes page | click | Pass |
 | Cancel button | does not confirm deletion | click | Pass |
+
+<br>
 
 #### Alert messages
 
@@ -528,6 +603,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Successful Comment deletion | delete comment | 'Your comment has been deleted succefully' | Pass |
 | Successful Save | save recipe | `recipe_name` has been added to your saved recipes! | Pass |
 | Successful Unsave | unsave recipe | `recipe_name` has been removed from your saved recipes! | Pass |
+
+<br>
 
 #### Admin Panel
 
@@ -547,18 +624,22 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Select more comments at once | Yes |
 | Delete more comments at once | Yes |
 
+<br>
+
 ## Bugs
 
 ### Solved
 
 <hr>
 
-* Model relation During early development, I had issues with my models, when I was trying to connect my Recipe model with a many-to-many relationship to a model called Allergens. My lack of understanding of how a many-to-many relationship should work ended me up breaking my models beyond repair. Not even deleting the model from the models.py helped. I had to contact Code Institute Tutor Support where Jason helped me out a lot by giving instructions on how to reset my database.
+* Model relation During early development 
+   * I had issues with my models, when I was trying to connect my Recipe model with a many-to-many relationship to a model called Allergens. My lack of understanding of how a many-to-many relationship should work ended me up breaking my models beyond repair. Not even deleting the model from the models.py helped. I had to contact Code Institute Tutor Support where Jason helped me out a lot by giving instructions on how to reset my database.
 
-* Rendering form field in template:
-At a later stage in development, I was trying to render the filter form in my recipe template. At this stage, it had 3 fields to filter by, of which one was a TextInput field to look up recipes. I wanted to render every field individually to be able to style them easier, rather than using crispy forms, but my text field would not want to render. When I tried to render {{ form.recipe_name|as_crispy_field }} I got an error stating that the field that I am trying to pass is either non-existent or invalid. I had to contact Code Institute Tutor Support where Joshua pointed out that I am using the icontains lookup type the wrong way. Adding lookup_expr='icontains' to the variable inside the RecipeFilter Class solved this problem and the field was rendering as expected. 
+* Rendering form field in template
+   * At a later stage in development, I was trying to render the filter form in my recipe template. At this stage, it had 3 fields to filter by, of which one was a TextInput field to look up recipes. I wanted to render every field individually to be able to style them easier, rather than using crispy forms, but my text field would not want to render. When I tried to render {{ form.recipe_name|as_crispy_field }} I got an error stating that the field that I am trying to pass is either non-existent or invalid. I had to contact Code Institute Tutor Support where Joshua pointed out that I am using the icontains lookup type the wrong way. Adding lookup_expr='icontains' to the variable inside the RecipeFilter Class solved this problem and the field was rendering as expected. 
 
-* Pagination bug, during manual testing I found that after filtering the recipe list I was able to look through the paginated views in my recipes template, by viewing the next pages, however, when I tried to click on the previous page the filtered list was not working properly and every recipe got listed again without filtering. Replacing the correct url inside the first and previous page-links solved this problem
+* Pagination bug
+   * during manual testing I found that after filtering the recipe list I was able to look through the paginated views in my recipes template, by viewing the next pages, however, when I tried to click on the previous page the filtered list was not working properly and every recipe got listed again without filtering. Replacing the correct url inside the first and previous page-links solved this problem
 
 <hr>
 
