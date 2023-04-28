@@ -7,7 +7,6 @@
 
 <body class="with-background">
 
-
     <!-- header start -->
     <header class="text-white">
         <div class="container">
@@ -56,7 +55,6 @@
         {% endif %}
 
     </div>
-
 
     <!-- main section start -->
     <div>
@@ -120,7 +118,6 @@
             </div>
             <!-- first row end -->
 
-
             <!-- second row start / recipe ingredients -->
             <div class="row white shadow mb-4 ">
                 <div class="col-12 p-4">
@@ -134,7 +131,6 @@
             </div>
             <!-- second row end  -->
 
-
             <!-- third row start / recipe method -->
             <div class="row white shadow mb-4">
                 <div class="col-12 p-4">
@@ -147,7 +143,6 @@
                 </div>
             </div>
             <!-- third row end -->
-
 
             <!-- comment section start / credit: Code Institute's "I think therefore I blog walkthrough project" -->
             {% if user.is_authenticated %}
@@ -177,13 +172,11 @@
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
 
-
                                     <!-- delete comment -->
                                     <a class="a-reverse" href="{% url 'delete_comment' comment.id %}"
                                         aria-label="delete comment">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </a>
-
 
                                     {% endif %}
                                 </span>
@@ -202,7 +195,6 @@
                         {% endfor %}
                     </div>
                 </div>
-
 
                 <!-- comment form -->
                 <div class="col-md-4 p-4">

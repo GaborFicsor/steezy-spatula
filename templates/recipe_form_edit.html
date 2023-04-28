@@ -11,11 +11,6 @@
         <div class="row">
             <div class="col-12">
                 <div>
-                    {% if posted %}
-                    <div class="alert alert-success" role="alert">
-                        Your recipe is awaiting approval
-                    </div>
-                    {% else %}
                     {% if user.is_authenticated %}
 
                     <!-- current recipe's details: author, created on and updated on -->
@@ -58,7 +53,6 @@
                             Cancel
                         </a>
                     </form>
-                    {% endif %}
                     {% endif %}
                 </div>
             </div>
