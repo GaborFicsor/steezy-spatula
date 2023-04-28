@@ -509,30 +509,30 @@ Custom validation for the comment form
 
 <hr>
 
-* [Cloudinary](https://cloudinary.com) - for storing images
-* [Django Framework](https://www.djangoproject.com/) - for rapid development and maintaining the database of the website
-* [Django-Crispy-Forms](https://django-crispy-forms.readthedocs.io/) - for rendering forms
-* [Django-Allauth](https://django-allauth.readthedocs.io) - for authorization
-* [Django-Filter](https://django-filter.readthedocs.io/) - for creating a filter for my Recipe model
-* [Django-Summernote](https://summernote.org/) - for rendering textfields in the forms
-* [Gunicorn](https://gunicorn.org/) - for HTTP requests and to run a Python web application.
-* [Psycopg2](https://pypi.org/project/psycopg2/) - for PostgreSQL engine
-* [ElephantSQL](https://www.elephantsql.com/) - for storing database 
-* [Bootstrap 5.3.0](https://getbootstrap.com/) - for accelerated styling and responsiveness of the website
-* [One Page Wonder](https://startbootstrap.com/theme/one-page-wonder) - for navbar, header footer and a circle image styling
-* [jQuery](https://jquery.com/) - for hiding alert messages automatically and set the progress bar's colors based on the difficulty
-* [Git](https://git-scm.com/) - for version control
-* [GitHub](https://github.com/) - for storing the project repository
-* [Gitpod](https://gitpod.io/) - as an IDE for creating the code
+* [Cloudinary](https://cloudinary.com) - storing images
+* [Django Framework](https://www.djangoproject.com/) - rapid development and maintaining the database of the website
+* [Django-Crispy-Forms](https://django-crispy-forms.readthedocs.io/) - rendering forms
+* [Django-Allauth](https://django-allauth.readthedocs.io) - authorization
+* [Django-Filter](https://django-filter.readthedocs.io/) - creating a filter for my Recipe model
+* [Django-Summernote](https://summernote.org/) - rendering textfields in the forms
+* [Gunicorn](https://gunicorn.org/) - HTTP requests and to run a Python web application.
+* [Psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL engine
+* [ElephantSQL](https://www.elephantsql.com/) - storing database 
+* [Bootstrap 5.3.0](https://getbootstrap.com/) - accelerated styling and responsiveness of the website
+* [One Page Wonder](https://startbootstrap.com/theme/one-page-wonder) - navbar, header footer and a circle image styling
+* [jQuery](https://jquery.com/) - hiding alert messages automatically and set the progress bar's colors based on the difficulty
+* [Git](https://git-scm.com/) - version control
+* [GitHub](https://github.com/) - storing the project repository
+* [Gitpod](https://gitpod.io/) - as an IDE for creating the project
 * [Heroku](https://dashboard.heroku.com/) - for deploying the application
-* [Figma](https://www.figma.com/) - for creating a mock-up landing page
-* [Coolors](https://coolors.co/) - for visual representation of the colours used on the page
-* [Favicon](https://favicon.io/) - for creating the favicon
-* [Cssgradient](https://cssgradient.io/) - for adding an overlay to the background image
-* [Picresize](https://picresize.com/) - for resizing images
+* [Figma](https://www.figma.com/) - creating a mock-up landing page
+* [Coolors](https://coolors.co/) - visual representation of the colours used on the page
+* [Favicon](https://favicon.io/) - creating the favicon
+* [Cssgradient](https://cssgradient.io/) - adding an overlay to the background image
+* [Picresize](https://picresize.com/) - resizing images
 * [Google Fonts](https://fonts.google.com/) - Paytone One font
-* [Font Awesome](https://fontawesome.com/) - for using icons
-* [Pexels](https://pexels.com/) - for the background image
+* [Font Awesome](https://fontawesome.com/) - using icons
+* [Pexels](https://pexels.com/) - the background image
 
 
 ### Validators
