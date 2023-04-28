@@ -1,8 +1,8 @@
 # Steezy Spatula - cooking made less overwhelming
 
-Steezy Spatula is a responsive web application aiming to help people who are struggling with the idea of cooking in general, by providing recipes that are easy to follow and without any unnecessary or additional information. Agile methodology was used to pland and design throughout development. A data model was implemented to make features like managing, querying and manipulating data possible for the users of this website who are able to access these features through authorisation. Registering to the website will give people permission to handle CRUD functionalities such as, create, read, update and delete. For version control GitHub was used. The repository can be found here: [GitHub repository](https://github.com/GaborFicsor/steezy-spatula)
+Steezy Spatula is a responsive web application aiming to help people who are struggling with the idea of cooking in general, by providing recipes that are easy to follow and without any unnecessary or additional information. Agile methodology was used to plan and design throughout development. A data model was implemented to make features like managing, querying and manipulating data possible for the users of this website who are able to access these features through authorisation. Registering to the website will give people permission to handle CRUD functionalities such as, create, read, update and delete. For version control, GitHub was used. The repository can be found here: [GitHub repository](https://github.com/GaborFicsor/steezy-spatula)
 
-For the admin panel the default django admin dashboard was used, where the admin is able to perform CRUD functionalities related to every model and object.
+For the admin panel, the default Django admin dashboard was used, where the admin is able to perform CRUD functionalities related to every model and object.
 
 ![image of the amiresponsive testing](static/images/amiresponsive.png)
 
@@ -55,15 +55,12 @@ The live website can be viewed here: [Steezy Spatula - cooking made less overwhe
   * [Media](#media)
   * [Acknowledgments](#acknowledgments)
 
-<br>
-
 ## User Experience
 
 The main goal of this website is to give its users the ability to gain more confidence in the kitchen by providing simple recipes. The whole project aims to make the experience the least overwhelming possible. People should not be discouraged by excess information and should only be told the most important things to get started.
 
-People can register on the website which gives them access to features like adding the recipes that they feel are worth sharing in the sense that it would be beneficial to their peers. Registered users can edit or delte their own uploaded recipes to the site. If people don't have any idea to share yet, they are welcome to browse the existing list of recipes that can be found in the recipes section from which they can save recipes to their list that can be viewed anytime under the "My Stuff" tab. Furthermore, users of the site can comment under any recipe and share their thoughts and be a part of a conversation. Comments can also be deleted or updated by the users.
+People can register on the website which gives them access to features like adding the recipes that they feel are worth sharing in the sense that it would be beneficial to their peers. Registered users can edit or delete their own uploaded recipes to the site. If people don't have any idea to share yet, they are welcome to browse the existing list of recipes that can be found in the recipes section from which they can save recipes to their list that can be viewed anytime under the "My Stuff" tab. Furthermore, users of the site can comment on any recipe and share their thoughts and be a part of a conversation. Comments can also be deleted or updated by the users.
 
-<br>
 
 ### Client Goals
 
@@ -74,7 +71,6 @@ People can register on the website which gives them access to features like addi
 * To be able to navigate through the website effortlessly and gain feedback on the actions undertaken to avoid confusion.
 * To give users the ability to create, read, edit and delete their recipes and comments.
 
-<br>
 
 ### User Stories
 
@@ -93,37 +89,35 @@ As a site User
 * I want to be reinforced by the actions I undertake during my time on the website.
 * I want to search and filter recipes to cater for my own needs.
 
-<br>
-
 ### Agile Development
 
-In order to implement agile development into my Django project, I made use of several key agile concepts. I started by breaking down my project into smaller, more manageable milestones, which helped me to stay focused and organized throughout the development process.
+<hr>
 
-I created user stories with acceptance criteria and added the tasks that need to be complete in order to fulfill each user story. During development I made us of the kanban board for my project, where I have moved issues from to do column to in progress and finally done. The issues that have not been closed were moved to a column called future implementations. These issues have not been closed.
+To implement agile development into my Django project, I made use of several key agile concepts. I started by breaking down my project into smaller, more manageable milestones, which helped me to stay focused and organized throughout the development process.
 
-As someone with ADHD, I found it extremeley challenging to manage and maintain an agile process during development, especially because I was doing it for the first time. I know I did not make a perfect approach but, I have tried my best in doing so. I can also see myself progressing with the use of agile methodologies in my further projects, and I know there is no right way in doing it, as it is rather a mindset, than a definitive method.
+I created user stories with acceptance criteria and added the tasks that need to be completed to fulfil each user story. During development, I made use of the kanban board for my project, where I moved issues from to do column to in progress and finally done. The issues that have not been closed were moved to a column called future implementations. These issues have not been closed.
 
-## Design
+As someone with ADHD, I found it extremely challenging to manage and maintain an agile process during development, especially because I was doing it for the first time. I know I did not make a perfect approach but, I have tried my best in doing so. I can also see myself progressing with the use of agile methodologies in my further projects, and I know there is no right way in doing it, as it is rather a mindset, than a definitive method.
 
 <br>
+
+## Design
 
 ### Design thinking
 
 <hr>
 
-I was excited to come up with this idea for my project because it is definitely something I could see myself using. I have a bad relationship with cooking so it was easy to have a viewpoint of an end-user of the website. I think the most important thing about the design was to make the whole webpage have the least clutter possible. 
+I was excited to come up with this idea for my project because it is something I could see myself using. I have a bad relationship with cooking so it was easy to have a viewpoint of an end-user of the website. I think the most important thing about the design was to make the whole webpage have the least clutter possible. 
 
-Whenever I look for recipes online there are several websites out there on the web, but I have not found any that is truly focusing on people with depression and anxiety, at least not in regard to cooking. Even if I find an easy recipe on one of these websites I have to scroll down a lot to get to the actual details and information which just further discourages me to look for recipes like this. It is tedious and for people who really need guidance -like me-, it is not a solution. My website however cuts straight to the point with recipes. No description, and no scrolling down, only the relevant and most important information is presented.
+Whenever I look for recipes online there are several websites out there on the web, but I have not found any that is truly focusing on people with depression and anxiety, at least not in regard to cooking. Even if I find an easy recipe on one of these websites I have to scroll down a lot to get to the actual details and information which just further discourages me to look for recipes like this. It is tedious and for people who need guidance -like me-, it is not a solution. My website however cuts straight to the point with recipes. No description, and no scrolling down, only the relevant and most important information is presented.
 
-One of my proudest accomplishments in designing this website was the idea I had to make the progress bars differently coloured based on a recipe's difficulty, so people can easily judge if they have the mental capacity to follow through, or give it a try another day. There are 4 levels of difficulties, which are easy, moderate, intermediate, and challenging. I had further ideas to make this even better. One of them was to not use discouraging colours like red on the challenging difficulty for example because it might give people the impression that the recipe can be a bit too difficult to handle. The other one was, to not fill the bar all the way up even for the hardest difficulty because that can also be discouraging to people, which I don't want. I would like to further improve this website, maybe research what features the potential users would truly find useful. I think this is a good project idea and I did spend my time polishing the design.
-
-<br>
+One of my proudest accomplishments in designing this website was the idea I had to make the progress bars differently coloured based on a recipe's difficulty, so people can easily judge if they have the mental capacity to follow through or give it a try another day. There are 4 levels of difficulties, which are easy, moderate, intermediate, and challenging. I had further ideas to make this even better. One of them was to not use discouraging colours like red on the challenging difficulty for example because it might give people the impression that the recipe can be a bit too difficult to handle. The other one was, to not fill the bar all the way up even for the hardest difficulty because that can also be discouraging to people, which I don't want. I would like to further improve this website, maybe research what features the potential users would truly find useful. I think this is a good project idea and I did spend my time polishing the design.
 
 ### Colour Scheme 
 
 <hr>
 
-For the main colour of the design I picked tomato red which goes well with black and white colours, while also making the overall look of the website engaging and visually pleasing. I aimed to make the visitors have a good experience, so they would consider coming back more often.
+For the main colour of the design, I picked tomato red which goes well with black and white colours, while also making the overall look of the website engaging and visually pleasing. I aimed to make the visitors have a good experience, so they would consider coming back more often.
 
 <details>
   <summary>Colour Palette</summary>
@@ -131,8 +125,6 @@ For the main colour of the design I picked tomato red which goes well with black
 ![images of the website's color palette using coolors.co](static/images/colour_palette.png)
 
 </details>
-
-<br>
 
 ### Typography
 
@@ -147,13 +139,12 @@ For the font styles I used the default Arial font provided and for the header el
 
 </details>
 
-<br>
-
 ### Imagery 
 
 <hr>
 
 For the images on the website I used stock images from [pexels](https://www.pexels.com/)
+
 <details>
   <summary>background image</summary>
 
@@ -168,13 +159,11 @@ For the images on the website I used stock images from [pexels](https://www.pexe
 
 </details>
 
-<br>
-
 ### Wireframes
 
 <hr>
 
-During the early stages of development, I tried using [figma](https://www.figma.com/), where I came up with the idea for the landing page. However, due to my neurodivergent brain I found it hard and overwhelming to come up with a rough mock-up for a complete design.
+During the early stages of development, I tried using [figma](https://www.figma.com/), where I came up with the idea for the landing page. However, due to my neurodivergent brain, I found it hard and overwhelming to come up with a rough mock-up for a complete design.
 
 <details>
   <summary>image of the landing page</summary>
@@ -182,8 +171,6 @@ During the early stages of development, I tried using [figma](https://www.figma.
 ![images of an early mock-up](static/images/early_mockup.png)
 
 </details>
-
-<br>
 
 ### Database
 
@@ -204,15 +191,14 @@ For creating a relational database diagram, I used [figma](https://www.figma.com
 
 The main pages of the website are a landing page, a recipes page and a profile page. Further pages for features include: creating and editing forms, authorization pages provided by django-allauth, custom error pages for 400, 403, 404 and 500 errors, and a confirmation page with the purpose of defensive design.
 
-All pages on the website are responsive, have a favicon and a unique title displaying in the browser tab. Every page shares a common navbar and a footer section.
+All pages on the website are responsive, and have a favicon and a unique title displaying in the browser tab. Every page shares a common navbar and a footer section.
 
-<br>
 
 ### Landing Page
 
 <hr>
 
-The landing page is what users see the first time they visit my website, so I wanted to make it eye-catching by having a site logo with a slogan on display, and a short explanation as to who this site is dedicated to. The landing page also features a call to action button for registering. This buttin is only present when the user is not logged in. Further down a short description can be found about me, where I explain the purpose and the targeted audience.
+The landing page is what users see the first time they visit my website, so I wanted to make it eye-catching by having a site logo with a slogan on display, and a short explanation as to who this site is dedicated to. The landing page also features a call to action button for registering. This button is only present when the user is not logged in. Further down a short description can be found about me, where I explain the purpose and the targeted audience.
 
 <details>
   <summary>image of the landing page when the user is not logged in</summary>
@@ -230,7 +216,7 @@ After a registered user logs in to the website the call to action button disappe
 
 </details>
 
-If the current user of the website is logged in as the admin(superuser), then the navbar displays a tab called 'Admin' which will take the user to the default django admin panel where they can perform crud functions on every single object within the database.
+If the current user of the website is logged in as the admin(superuser), then the navbar displays a tab called 'Admin' which will take the user to the default Django admin panel where they can perform crud functions on every single object within the database.
 
 <details>
   <summary>image of the landing page when the superuser(admin) is logged in</summary>
@@ -239,12 +225,12 @@ If the current user of the website is logged in as the admin(superuser), then th
 
 </details>
 
-<br>
 
 ### Recipes Page
 
 <hr>
-The recipes page give the users a well structured and designed view of the uploaded recipes. A filter form placed at the top gives people the ability to search and filter for recipes by narrowing down their needs. Users can filter by looking up words, select a  difficulty, type or strictly vegan recipes, It is also possible to combine these filters to get the best result possible.
+
+The recipes page gives the users a well-structured and designed view of the uploaded recipes. A filter form placed at the top gives people the ability to search and filter for recipes by narrowing down their needs. Users can filter by looking up words, selecting a difficulty, type or strictly vegan recipes, It is also possible to combine these filters to get the best result possible.
 
 The recipes page also changes based on user authentication. If the user is not logged in, then they don't have access to all crud functionalities of the website. They can only filter, search and view the existing recipes.
 
@@ -282,7 +268,8 @@ The recipes are presented in a form of a card where -to my judgement- the utmost
 
 </details>
 
-The page can hold 9 entries of recipes at once, any more results will create a pagination, where people can browse by looking at different pages. Recipes shown are ordered by their date of creation, with the most recent showing up first. 
+The page can hold 9 entries of recipes at once, any more results will create a pagination, where people can browse by looking at different pages. Recipes shown are ordered by their date of creation, with the most recent showing up first.
+
 <details>
   <summary>image of pagination</summary>
 
@@ -299,7 +286,6 @@ If the user tried looking up or filtering down to a recipe that does not exist i
 
 </details>
 
-<br>
 
 ### My Stuff
 
@@ -327,17 +313,15 @@ The second table holds entries that have been saved by the user. Three table col
 
 </details>
 
-<br>
-
 ### Recipe detail page
 
 <hr>
 
 At this point, the users have more ways to access a detailed page of a recipe, but the most straightforward way is to access them via the recipes page. Clicking on a recipe card will take the user to the detailed page of the recipe, where they can see the title, the author, and the date of creation of the recipe they clicked on. There is also a button that shows up for registered users which is the 'save' button. Clicking this button will 'save' this recipe to the user's 'my saved recipes' table mentioned earlier. If a recipe is not 'saved' an empty flag icon is present. After clicking this button the icon changes to a solid flag and an alert message pops up saying that the current recipe the user is viewing has been successfully saved to their list. Clicking again this button replaces the icon to its original form and an alert message pops up saying that the current recipe the user is viewing has been removed from their saved recipes list. This process can also be done on the 'My Stuff' page.
 
-If the user is viewing the detailed page of a recipe that they created, there are also two icons present next to the 'save' button. These are the pencil icon for editing and trash can icon for deleting of the current recipe.
+If the user is viewing the detailed page of a recipe that they created, there are also two icons present next to the 'save' button. These are the pencil icon for editing and the trash can icon for deleting the current recipe.
 
-The first row of the detail section shows an image of the recipe, which is either a placeholder image or an image of the actual recipe if it was provided by the author. Next to the image, A short details section gives information about the recipe's type, preparation and cooking time, the calories and serving size and difficulty.
+The first row of the detail section shows an image of the recipe, which is either a placeholder image or an image of the actual recipe if it was provided by the author. Next to the image, A short details section gives information about the recipe's type, preparation and cooking time, calories and serving size and difficulty.
 
 <details>
   <summary>image of page details section</summary>
@@ -373,6 +357,8 @@ At the bottom of the recipe detail page, a comment section can be found which is
 
 ### Authorization pages
 
+<hr>
+
 #### Register
 
 If a user decides to register to the website, they can do so by clicking either on the 'Register' button in the navbar or by clicking the call to action button on the landing page. Both actions will take the user to the sign-up form, where they need to choose a unique username and password. The E-mail address is set to optional. If the user has already registered to the website, there is a link at the top that will take them to the login form if clicked.
@@ -386,7 +372,7 @@ If a user decides to register to the website, they can do so by clicking either 
 
 #### Login
 
-If a user wants to log in after returning to the website they can do so, by clicking on the login button in the navbar. Here they need to type in their username and password and they can make the website remember them, so they don't have to log in every time they visit the website. If the user is not registered yet and therefore can not use the login form to enter the website, a link is present at the top that will take them to the signup form. If the user filled out the login form and pressed the sign in button they are then taken back to the landing page with an alert message saying that they have successfully logged in.
+If a user wants to log in after returning to the website they can do so, by clicking on the login button in the navbar. Here they need to type in their username and password and they can make the website remember them, so they don't have to log in every time they visit the website. If the user is not registered yet and therefore can not use the login form to enter the website, a link is present at the top that will take them to the signup form. If the user filled out the login form and pressed the sign-in button they are then taken back to the landing page with an alert message saying that they have successfully logged in.
 
 <details>
   <summary>image of login page</summary>
@@ -397,7 +383,7 @@ If a user wants to log in after returning to the website they can do so, by clic
 
 #### Logout
 
-If a user wants to sign out, they can do so by clicking on the Logout link on the navigation bar. This action will take the user to the Sign Out page where they can choose to click on 'Sign Out' or 'Back to recipes' buttons. Clicking on 'Sign Out' will take the user back to the landing page with a message saying they have successfully signed out.
+If a user wants to sign out, they can do so by clicking on the Logout link on the navigation bar. This action will take the user to the Sign Out page where they can choose to click on the 'Sign Out' or 'Back to recipes' buttons. Clicking on 'Sign Out' will take the user back to the landing page with a message saying they have successfully signed out.
 
 <details>
   <summary>image of logout page</summary>
@@ -408,9 +394,11 @@ If a user wants to sign out, they can do so by clicking on the Logout link on th
 
 ### Forms
 
+<hr>
+
 #### Creating a recipe
 
-Navigating to the creating form of a recipe can be done more than one way at this point. The form has a Recipe name field, a type field, a checkbox for marking the vecipe as vegan, an ingredients and method field, preparation time and cooking time, serving size, calories and difficulty. Lastly, the user can provide an image for the recipe but it's not mandatory. If the user doesn't provide an image, a placeholder image will be shown instead on the recipe card and the recipe's detailed page as well. Submitting the form will take the user back to the recipes page and an alert message pops up saying the recipe has been added successfully. 
+Navigating to the creating form of a recipe can be done more than one way at this point. The form has a Recipe name field, a type field, a checkbox for marking the recipe as vegan, an ingredients and method field, preparation time and cooking time, serving size, calories and difficulty. Lastly, the user can provide an image for the recipe but it's not mandatory. If the user doesn't provide an image, a placeholder image will be shown instead on the recipe card and the recipe's detailed page as well. Submitting the form will take the user back to the recipes page and an alert message pops up saying the recipe has been added successfully. 
 
 <details>
   <summary>Adding a recipe</summary>
@@ -440,7 +428,7 @@ The comment editing form can only be accessed through the recipe detail page whe
 
 Deleting either a recipe or a comment can be done by finding a trash-can icon of the recipe or the comment the user wants to delete. Clicking the trash-can icon will take them to a page where they need to confirm their action. Deleting an item will take them back to the recipes page with an alert saying the request for deletion was successful, and the item no longer exists.
 
-Before a delete request can be processed, the user needs to confirm this with a form. Confirming the deletion will take the user back to the recipes page and an alert will pop up saying that the deleting was successful.
+Before a delete request can be processed, the user needs to confirm this with a form. Confirming the deletion will take the user back to the recipes page and an alert will pop up saying that the deletion was successful.
 
 <details>
   <summary>image of delete form</summary>
@@ -449,7 +437,7 @@ Before a delete request can be processed, the user needs to confirm this with a 
 
 </details>
 
-As mentioned earlier, there are four custom error pages provided to the website. The most common is the 404 which is shown to the user if they navigate to a page that does not exist, for example if they are trying to reach a recipe that has been deleted.
+As mentioned earlier, there are four custom error pages provided to the website. The most common is the 404 which is shown to the user if they navigate to a page that does not exist, for example, if they are trying to reach a recipe that has been deleted.
 
 <details>
   <summary>image of error 404 page</summary>
@@ -458,11 +446,12 @@ As mentioned earlier, there are four custom error pages provided to the website.
 
 </details>
 
+<br>
+
 ## Defensive design
 
-<hr>
-
 ### Recipe form
+<hr>
 
 Default form validations of the recipe form provided by django
 * The recipe has to be unique, so if the user tries to add a recipe with the same name more than one time they will be informed that a recipe with the same name already exists.
@@ -483,17 +472,21 @@ The following custom validations have been added to the recipe form
 
 ### Comment form
 
+<hr>
+
 Default form validations of the comment form provided by django
 * The comment form can not be empty
 
 Custom validation for the comment form
 * The length of the comment text can not be more than 300 characters
 
+<br>
+
 ## Future Implementations
 
-<hr>
-
 ### Ideas for later
+
+<hr>
 
  * A complete profile page with a profile picture that shows up on the user's profile, by their added recipes, and by their comments
  * The ability to like a recipe
@@ -504,15 +497,19 @@ Custom validation for the comment form
 
 ### Things did not get implemented at this stage
 
+<hr>
+
  * Design a visually more pleasing recipe detail page
  * Make the Django Summernote text field strip the styling of the text if a user is trying to paste it from an external source
  * Prevent the page from reloading when the save/unsave button is pressed
 
+<br>
+
 ## Technologies Used
 
-<hr>
-
 ### Languages Used
+
+<hr>
 
 * HTML
 * CSS
@@ -520,6 +517,8 @@ Custom validation for the comment form
 * Python
 
 ### Frameworks, libraries and other external tools
+
+<hr>
 
 * [Cloudinary](https://cloudinary.com) - storing images
 * [Django Framework](https://www.djangoproject.com/) - rapid development and maintaining the database of the website
@@ -556,16 +555,17 @@ Custom validation for the comment form
 * [JSHint](https://jshint.com/)
 * [CI Python Linter](https://pep8ci.herokuapp.com/)
 
+<br>
+
 ## Deployment
 
-<hr>
 
  1. Navigate to [GitHub](https://github.com/) in the browser
  2. Open the [Code Institute Full Template](https://github.com/Code-Institute-Org/ci-full-template) provided by [Code Institute](https://codeinstitute.net/ie/)
  3. Click **'Use this Template'** button and select **'Create a new repository'**
  4. Enter a name for the project and an optional description
  5. Click the **'Create Repository from Template'** button
- 6. Once the repository is created we can open a new workspace with [Gitpod](https://gitpod.io/workspaces/) 2 ways:
+ 6. Once the repository is created we can open a new workspace with [Gitpod](https://gitpod.io/workspaces/) in 2 ways:
     * We can either install a Google [chrome extension](https://www.gitpod.io/docs/configure/user-settings/browser-extension) provided by gitpod
       1. If we added this extension to our Google Chrome browser, a green 'Gitpod' button will show up in our newly created repository
       2. Clicking this button will generate a new workspace with Gitpod's [integrated development environment](https://en.wikipedia.org/wiki/Integrated_development_environment) where we can start working on our project
@@ -578,12 +578,12 @@ Custom validation for the comment form
  7. When the workspace is up and running we need to set up our Django environment first, to do that:
       1. Install Django by entering the following in the terminal: ```pip3 install 'django<4'```
       2. Install [psycopg2](https://pypi.org/project/psycopg2/) PostgreSQL database adapter, by entering the following in the terminal: ```pip3 install dj3-cloudinary-storage```
-      3. We need to add every supporting dependencies and libraries to a **'requirements.txt'** file by entering the following in the terminal after a dependency like **psycopg2** has been installed: ```pip3 freeze --local>requirements.txt``` (this will create a **requirements.txt file in our local repository which is important for deploying the project later)
-      4. Create our project by entering the following in the terminal: ```django-admin startproject 'PROJECT_NAME' .``` (replace **'PROJECT_NAME'** with out desired name for the project, also don't forget to add the '.' at the end of the command.)
+      3. We need to add every supporting dependency to a **'requirements.txt'** file by entering the following in the terminal after a dependency like **psycopg2** has been installed: ```pip3 freeze --local>requirements.txt``` (this will create a **requirements.txt file in our local repository which is important for deploying the project later)
+      4. Create our project by entering the following in the terminal: ```django-admin startproject 'PROJECT_NAME' .``` (replace **'PROJECT_NAME'** with our desired name for the project, also don't forget to add the '.' at the end of the command.)
       5. Create a new App by entering the following in the terminal: ```python3 manage.py startapp APP_NAME``` (replace the **'APP_NAME'** with the desired name for the app)
-      6. After the app has been created and showed up in our local directory, we need to add the app to the **INSTALLED_APPS** list in our **PROJECT_NAME** folder's **SETTINGS.py** file
+      6. After the app has been created and shown up in our local directory, we need to add the app to the **INSTALLED_APPS** list in our **PROJECT_NAME** folder's **SETTINGS.py** file
       7. After our **APP_NAME** has been added to the **INSTALLED_APPS** enter the following in the terminal: ```python3 manage.py makemigrations```, followed by ```python3 manage.py migrate``` (this will create our skeleton django project)
-      8. In order to see how our django skeleton project looks rendered in the browser, we need to add **'localhost'** to the **ALLOWED_HOSTS** in our **PROJECT_NAME** folder's **SETTINGS.py** file
+      8. To see how our django skeleton project looks rendered in the browser, we need to add **'localhost'** to the **ALLOWED_HOSTS** in our **PROJECT_NAME** folder's **SETTINGS.py** file
       9. Now we can run a local server with the following entered in the terminal: ```python3 manage.py runserver```
       10. Click **Open Browser** to see the rendered application in the browser
  
@@ -614,7 +614,7 @@ Custom validation for the comment form
           * Data center: **'EU West-1 (Ireland)'** 
       5. Click on **Review**
       6. Click on **Create Instance** 
-      7. In the ElephantSQL dashnoard, click on the newly added database
+      7. In the ElephantSQL dashboard, click on the newly added database
       8. Copy the URL with the button provided
       9. Add URL to the Heroku Config Vars
           * **DATABASE_URL** : **YOUR_DATABASE_URL_FROM_ELEPHANT_SQL** 
@@ -653,7 +653,7 @@ Custom validation for the comment form
           * ```<empty_line>```
           * ```os.environ["CLOUDINARY_URL"] = "YOUR_COPIED_CLOUDINARY_URL"```
           * ```os.environ["DATABASE_URL"] = "YOUR_DATABASE_URL_FROM_ELEPHANT_SQL"```
-      3. We need to make our Django project aware of our **env.py**, in order to do this, we need to add the following at the top of **SETTINGS.py**:
+      3. We need to make our Django project aware of our **env.py**, to do this, we need to add the following at the top of **SETTINGS.py**:
           * ```import os```
           * ```import dj_database_url```
           * ```if os.path.isfile('env.py'):```
@@ -670,7 +670,7 @@ Custom validation for the comment form
           * ```git add .```
           * ```git commit -m "Add your commit message here"```
           * ```git push```
-  12. In order to push the changes to Heroku and make our initial deployment we need to create a file, called **Procfile** in our local directory, and add the following to it:
+  12. To push the changes to Heroku and make our initial deployment we need to create a file, called **Procfile** in our local directory, and add the following to it:
         * ```web: gunicorn steezyspatula.wsgi```
   13. On Heroku, select our project and Navigate to the Deploy tab and select GitHub as the Deployment method
   14. Click Connect to GitHub
@@ -689,7 +689,7 @@ Custom validation for the comment form
           1. ```python3 manage.py makemigrations```, this will create a migration file with the applied changes to the database model
           2. ```python3 manage.py migrate```, this will apply the changes to our database model
 
-<hr>
+<br>
 
 ## Important Notes
  * in our **PROJECT_NAME** folder's **SETTINGS.py** file, we mustn't leave **DEBUG = True** for production, before final deployment we **HAVE TO** set this variable to **False**, we can do so by:
@@ -699,7 +699,7 @@ Custom validation for the comment form
       * in **SETTINGS.py**: ```DEBUG = 'DEVELOPMENT' in os.environ```
       * this way Debug mode will only be active during development
 
- * If we want to see what changes will be applied to our model before migrating we can type the following in the termina:
+ * If we want to see what changes will be applied to our model before migrating we can type the following in the terminal:
     * ```python3 manage.py makemigrations --dry-run```
        * This will perform a 'dry run' of the migrations that would be generated by ```python3 manage.py makemigrations``` command without actually modifying the database schema
        * This allows us to preview the migrations before actually applying them and we can make sure not to cause any unintended changes
@@ -720,9 +720,9 @@ Custom validation for the comment form
      * The reason for doing this, is to reduce the size of the deployed application and improve the performance of the deployment process
      * When we are finished developing our project we need to remove it from the **Config Vars**
 
-## Forking
+<br>
 
-<hr>
+## Forking
 
 Use forking, when you want to contribute to an existing project, by creating a copy of the original repository
 
@@ -732,9 +732,9 @@ Use forking, when you want to contribute to an existing project, by creating a c
 4. Select **Create new fork**
 5. Once the process is complete, you will be redirected to the newly forked repository
 
-## Cloning
+<br>
 
-<hr>
+## Cloning
 
 Use cloning, when you want to work on a project locally and make changes without affecting the remote repository
 
@@ -747,16 +747,15 @@ Use cloning, when you want to work on a project locally and make changes without
    * ```git clone <repository_copied_to_clipboard>```
 7. Press Enter to generate local clone.
 
+<br>
 
 ## Testing
 
-<hr>
-
 Accessibility testing, responsiveness testing validating and manual testing can be found in [TESTS.md](https://github.com/GaborFicsor/steezy-spatula/blob/main/TESTS.md)
 
-## Credits
+<br>
 
-<hr>
+## Credits
 
 * [Creating the Recipe Filter and adding it to the context of a ListView](https://www.youtube.com/watch?v=FTUxl5ZCMb8)
 * [RecipeFilterForm widgets](https://www.youtube.com/watch?v=6-XXvUENY_8)
