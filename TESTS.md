@@ -20,9 +20,43 @@
 * [MANUAL TESTING](#manual-testing)
   * [Testing User Stories](#testing-user-stories)
   * [Full Testing](#full-testing)
+  * [Testing Responsiveness](#testing-responsiveness)
+  * [Manual Testing of the features](#manual-testing-of-the-features)
+  * [Navbar Responsiveness](#navbar-responsiveness)
+  * [Navbar as Visitor](#navbar-as-visitor)
+  * [Navbar as User](#navbar-as-logged-in-user)
+  * [Navbar as Admin](#navbar-as-admin)
+  * [Home page responsiveness](#home-page-responsiveness)
+  * [Home page as Visitor](#home-page-as-visitor)
+  * [Home page as User](#home-page-as-logged-in-user-and-superuser)
+  * [Footer](#footer)
+  * [Recipe Filter responsiveness](#recipe-filter-responsiveness)
+  * [Recipe Filter elements](#recipe-filter-elements)
+  * [+add your own hyperlink](#add-your-own-hyperlink)
+  * [Recipe cards' responsiveness](#recipe-cards-responsiveness)
+  * [Recipe cards elements](#recipe-cards-elements)
+  * [Pagination's responsiveness](#paginations-responsiveness)
+  * [Pagination elements](#pagination-elements)
+  * [Recipe Detail Page's responsiveness](#recipe-detail-pages-responsiveness)
+  * [Recipe Detail Page elements](#recipe-detail-page-elements)
+  * [Comment section responsiveness](#comments-section-responsiveness)
+  * [Comment section elements](#comment-section-elements)
+  * [My Stuff Page's responsiveness](#my-stuff-pages-responsiveness)
+  * [My Stuff Page's elements](#my-stuff-page-elements)
+     * [My Stuff Page with entries](#if-there-are-entries-in-the-my-stuff-my-recipes-and-my-saved-recipes-tables)
+  * [Authorization Pages testing](#authorization-pages-testing)
+     * [Register page](#register-page)
+     * [Login page](#login-page)
+     * [Logout page](#logout-page)
+  * [Error 404 Page](#error-404-page)
+  * [Forms](#forms)
+     * [Recipe Form and Recipe editing form](#recipe-form-and-recipe-editing-form)
+     * [Comment Form](#comment-form)
+     * [Deletion page](#deletion-page)
+  * [Alert Messages](#alert-messages)
+  * [Admin Panel](#admin-panel)
 
 * [BUGS](#bugs)
-  * [Known Bugs](#known-bugs)
   * [Solved Bugs](#solved-bugs)
 
 ---
@@ -170,9 +204,9 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 <hr>
 
  * Responsiveness of the page was tested manually using Google Chrome developer tools
-   * The website is confirmed to be responsive on every screen sizes without any distortion
+   * The website is confirmed to be responsive on every screen size without any distortion
    * Images do not stretch or distort in smaller screen sizes
-   * Texts remain readable on every screen sizes
+   * Texts remain readable on every screen size
 
 
 ### Manual Testing of the features  
@@ -182,6 +216,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 <br>
 
 #### Navbar responsiveness
+
+<hr>
 
  * consistent throughout every page
  * smaller screen sizes will result in a hamburger dropdown menu of navbar tabs
@@ -243,7 +279,10 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 <br>
 
 #### Home page responsiveness
- * is responsive on every screen sizes
+
+<hr>
+
+ * is responsive on every screen size
  * logo changes to accomodate available space
  * slogan disappears on smaller screen sizes
  * description disappears on smaller screen sizes
@@ -283,8 +322,10 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 
 #### Recipe Filter responsiveness
 
- * is responsive on every screen sizes
- * each field displays on every screen sizes
+<hr>
+
+ * is responsive on every screen size
+ * each field displays on every screen size
  * the form is available for both Visitors and Users
 
 <br>
@@ -305,7 +346,7 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 
 <br>
 
-#### '+add your own' hyperlink
+#### add your own hyperlink
 
  * only visible to Logged in Users
 
@@ -320,7 +361,7 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 
 <hr>
 
- * Cards stay responsive on every screen sizes
+ * Cards stay responsive on every screen size
  * Images do not stretch or distort
  * Maximum 9 cards are displayed per page
  * Paginate if there are more than 9 cards
@@ -344,8 +385,10 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 
 #### Pagination's responsiveness
 
+<hr>
+
  * Displays when there are more than 9 recipes
- * Responsive on every screen sizes
+ * Responsive on every screen size
  * 'first' button not visible on smallest screen sizes
  * 'last' button not visible on smallest screen sizes
  * 'first' button only visible after the user moved to the next page
@@ -380,7 +423,9 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 
 #### Recipe Detail Page's responsiveness
 
- * Is responsive on every screen sizes
+<hr>
+
+ * Is responsive on every screen size
  * No element is hidden on smaller screen sizes
  * Pencil icon only visible for recipe author
  * Trash-can icon only visible for recipe author
@@ -403,6 +448,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 
 #### Comments section responsiveness
 
+<hr>
+
  * Comments section only visible for logged in Users
  * Comment form only visible for logged in Users
  * Pencil icon for editing visible if a comment belongs to the current User
@@ -421,6 +468,8 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 <br>
 
 #### My Stuff Page's responsiveness
+
+<hr>
 
  * Is responsive on every screen size
  * No element is hidden on smaller screen sizes
@@ -574,6 +623,18 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Cancel button | does not submit form | click | Pass |
 
 <br>
+
+#### Comment form
+
+| Element | Expected outcome | Testing performed | Pass |
+| :--- | :--- | :--- | :--- |
+| Comment textarea | validate input | input | Pass |
+| Comment textarea | raise alert if not given | no input | Pass |
+| Comment textarea | raise alert if too long | input over 300 characters | Pass |
+| Submit button | indicate function | click | Pass |
+| Submit button | validate form | click | Pass |
+| Submit button | submit comment | click | Pass |
+| Submit button | take user back to the same page with comment submitted | click | Pass |
 
 #### Deletion Page
 
