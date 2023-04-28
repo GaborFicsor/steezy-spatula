@@ -4,7 +4,7 @@ Steezy Spatula is a responsive web application aiming to help people who are str
 
 For the admin panel, the default Django admin dashboard was used, where the admin is able to perform CRUD functionalities related to every model and object.
 
- * STEEZY is a combination of "Style" and "Ease" - a term mainly used to describe something executed effortlessly in stylish way. I chose this word as my project's name to give people an idea of how the recipe's on this website could be described.
+ * STEEZY is a combination of "Style" and "Ease" - a term mainly used to describe something executed effortlessly in stylish way. I chose this word as my project's name to give people an idea of how the recipes on this website could be described.
 
 ![image of the amiresponsive testing](static/images/amiresponsive.png)
 
@@ -326,7 +326,7 @@ If the user is viewing the detailed page of a recipe that they created, there ar
 The first row of the detail section shows an image of the recipe, which is either a placeholder image or an image of the actual recipe if it was provided by the author. Next to the image, A short details section gives information about the recipe's type, preparation and cooking time, calories and serving size and difficulty.
 
 <details>
-  <summary>image of page details section</summary>
+  <summary>image of a recipe's detail section</summary>
 
 ![image of recipe detail page's details section](static/images/recipe_details.png)
 
@@ -433,9 +433,9 @@ Deleting either a recipe or a comment can be done by finding a trash-can icon of
 Before a delete request can be processed, the user needs to confirm this with a form. Confirming the deletion will take the user back to the recipes page and an alert will pop up saying that the deletion was successful.
 
 <details>
-  <summary>image of delete form</summary>
+  <summary>image of deletion page</summary>
 
-![image of the delete form](static/images/confirm_delete.png)
+![image of the deletion page](static/images/confirm_delete.png)
 
 </details>
 

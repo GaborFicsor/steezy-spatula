@@ -66,14 +66,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SUMMERNOTE_CONFIG = {
     'toolbar': [
         ['style', ['bold', 'italic', 'underiline', 'clear']],
+        ['fontsize', ['fontsize']],
         ['para', ['ul', 'ol']],
     ],
     'width': '100%',
     'height': '400px',
     'disable_resize_editor': True,
-    'fontnames': ['Lato', 'Catamaran'],
-    'fontSizes': ['14'],
-    'fontSizeUnits': ['px']
+    'fontnames': ['Arial'],
+    'fontSizes': ['10', '12', '14', '16'],
+    'fontSizeUnits': ['px'],
+    'fontNamesIgnoreCheck': ['Arial']
 }
 
 MIDDLEWARE = [

@@ -636,6 +636,21 @@ JSHint Validator was used to validate JavaScript code written in jQuery framewor
 | Submit button | submit comment | click | Pass |
 | Submit button | take user back to the same page with comment submitted | click | Pass |
 
+#### Comment editing form
+
+| Element | Expected outcome | Testing performed | Pass |
+| :--- | :--- | :--- | :--- |
+| Comment textarea | validate input | input | Pass |
+| Comment textarea | raise alert if not given | no input | Pass |
+| Comment textarea | raise alert if too long | input over 300 characters | Pass |
+| Submit button | indicate function | click | Pass |
+| Submit button | validate form | click | Pass |
+| Submit button | submit comment | click | Pass |
+| Submit button | take user back to the same page with comment submitted | click | Pass |
+| Cancel button | indicate function | click | Pass |
+| Cancel button | take user back to recipes page  | click | Pass |
+| Cancel button | does not submit form | click | Pass |
+
 #### Deletion Page
 
 | Element | Expected outcome | Testing performed | Pass |
