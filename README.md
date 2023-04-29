@@ -8,7 +8,7 @@ For the admin panel, the default Django admin dashboard was used, where the admi
 
 ![image of the amiresponsive testing](static/images/amiresponsive.png)
 
-The live website can be viewed here: [Steezy Spatula - cooking made less overwhelming](https://steezy-spatula.herokuapp.com/)
+The live website can be found here: [Steezy Spatula - cooking made less overwhelming](https://steezy-spatula.herokuapp.com/)
 
 ## CONTENTS
 
@@ -792,3 +792,4 @@ I would like to thank
  * my girlfriend, for testing the usability and user experience of the website, as well as creating a profile and uploading recipes.
  * my Mentor [Jubril Akolade](https://github.com/Jubrillionaire) for taking the time to review my project and answering my questions.
  * Code Institute Tutor staff: Joshua, Ed, Jason and Rebecca for helping me out with problems I would have not been able to solve on my own.
+
